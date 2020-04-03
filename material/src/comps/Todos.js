@@ -22,8 +22,6 @@ const Todos = () => {
       {dummyData.map((i) => {
         return <h2>{i.title}</h2>;
       })}
-
-      <h1>I am the todos</h1>
     </div>
   );
 };
