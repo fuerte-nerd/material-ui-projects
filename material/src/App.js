@@ -5,7 +5,11 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 
 function App() {
-  return <Container maxWidth="sm"></Container>;
+  return (
+    <Box bgcolor="black">
+      <Container maxWidth="sm"></Container>
+    </Box>
+  );
 }
 
 export default App;
