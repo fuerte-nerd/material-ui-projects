@@ -2,6 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+import Todos from "./comps/Todos";
+
 import Helmet from "react-helmet";
 
 import Container from "@material-ui/core/Container";
@@ -31,11 +33,14 @@ function App() {
         <AddIcon />
       </Fab>
       <Container>
-        <Typography variant="h1" style={{ textAlign: "center" }}>
-          <Box>A simple todo app</Typography>
+        <Box style={{ textAlign: "center" }}>
+          <Typography variant="h1">A simple todo app</Typography>
           <Typography variant="subtitle2">by David Andrews</Typography>
-        </Container>
-      </Box>
+        </Box>
+        <Box>
+          <Todos />
+        </Box>
+      </Container>
     </>
   );
 }
