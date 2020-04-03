@@ -24,16 +24,16 @@ function App() {
         aria-label="add"
         style={{
           position: "fixed",
-          top: "2rem",
-          right: "50%",
-          transform: "translateX(-50%)",
+          bottom: "3rem",
+          right: "3rem",
         }}
       >
         <AddIcon />
       </Fab>
-      <Box>
-        <Container>
-          <Typography variant="h1">A simple todo app</Typography>
+      <Container>
+        <Typography variant="h1" style={{ textAlign: "center" }}>
+          <Box>A simple todo app</Typography>
+          <Typography variant="subtitle2">by David Andrews</Typography>
         </Container>
       </Box>
     </>
