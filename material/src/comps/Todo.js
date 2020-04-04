@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { deleteTodo } from "../redux/actions";
+import { toggleDone, deleteTodo } from "../redux/actions";
 
 import moment from "moment";
 
@@ -19,12 +19,16 @@ import { Delete } from "@material-ui/icons";
 const Todo = (props) => {
   const { id, title, create_date, done } = props.data;
 
+  const handleDoneClick = () => {
+    props.dispatch(toggleDone(id));
+  };
+
   const handleDeleteClick = () => {
     props.dispatch(deleteTodo(id));
   };
 
   return (
-    <ListItem divider onClick={() => console.log("clicked")}>
+    <ListItem divider button onClick={handleDoneClick}>
       <ListItemIcon>
         <Checkbox edge="start" />
       </ListItemIcon>
