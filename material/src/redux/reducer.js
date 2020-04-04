@@ -10,6 +10,7 @@ const getTodos = () => {
 
 const initialState = {
   todos: getTodos(),
+  isAddToDoOpen: false,
 };
 
 export default (state = initialState, action) => {
@@ -25,6 +26,11 @@ export default (state = initialState, action) => {
     case TOGGLE_DONE:
       return {
         ...state,
+      };
+    case TOGGLE_ADD_TODO_MODAL:
+      return {
+        ...state,
+        isAddToDoOpen: !state.isAddToDoOpen,
       };
     default:
       return state;
