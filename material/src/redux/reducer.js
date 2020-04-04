@@ -6,8 +6,8 @@ import {
 } from "./types";
 
 const getTodos = () => {
-  if (localStorage.getItem("dave_todos_app")) {
-    return JSON.parse(localStorage.getItem("dave_todos_app"));
+  if (localStorage.getItem("daves_todo_app")) {
+    return JSON.parse(localStorage.getItem("daves_todo_app"));
   } else {
     return [];
   }

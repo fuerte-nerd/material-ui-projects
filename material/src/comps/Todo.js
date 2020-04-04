@@ -24,7 +24,7 @@ const Todo = (props) => {
       </ListItemIcon>
       <ListItemText
         primary={title}
-        secondary={moment(create_date).format("D MMMM YYYY")}
+        secondary={moment(create_date).format("D MMMM YYYY HH:MM")}
       />
       <ListItemSecondaryAction>
         <IconButton edge="end" aria-label="delete">
