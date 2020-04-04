@@ -17,15 +17,15 @@ import AddIcon from "@material-ui/icons/Add";
 import Box from "@material-ui/core/Box";
 
 function App(props) {
-  const [todos, setTodos] = useState([]);
+  // const [todos, setTodos] = useState([]);
 
   const toggle = () => {
     props.dispatch(toggleAddTodoDialog());
   };
 
-  useEffect(() => {
-    const lsTodos = JSON.parse(localStorage.getItem("daves_todo_app"));
-  }, [props.todos]);
+  // useEffect(() => {
+  //   setTodos(JSON.parse(localStorage.getItem("daves_todo_app")));
+  // }, [props.todos]);
 
   return (
     <>
@@ -49,7 +49,7 @@ function App(props) {
           <Typography variant="subtitle2">by David Andrews</Typography>
         </Box>
         <Box>
-          <Todos todos={props.todos} />
+          <Todos />
         </Box>
       </Container>
     </>
