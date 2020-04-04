@@ -1,7 +1,15 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_DONE } from "./types";
 
+const getTodos = () => {
+  if (localStorage.getItem("dave_todos_app")) {
+    return localStorage.getItem("dave_todos_app");
+  } else {
+    return [];
+  }
+};
+
 const initialState = {
-  todos: [],
+  todos: getTodos(),
 };
 
 export default (state = initialState, action) => {
