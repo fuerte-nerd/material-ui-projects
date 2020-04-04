@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { toggleAddTodoDialog } from "../redux/actions";
+import { toggleAddTodoDialog, addTodo } from "../redux/actions";
 import {
   Dialog,
   DialogTitle,
@@ -12,8 +12,14 @@ import {
 } from "@material-ui/core";
 
 const AddTodo = (props) => {
+  const [todoValue, updateTodoValue] = useState("");
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    props.dispatch(updateTodoValue(e.target.value));
+  };
   const handleClick = () => {
-    console.log("clicked");
+    console.log("");
   };
 
   const handleClose = () => {
@@ -32,6 +38,7 @@ const AddTodo = (props) => {
           label="Description"
           type="text"
           fullWidth
+          onChange={handleChange}
         />
       </DialogContent>
       <DialogActions>
