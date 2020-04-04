@@ -1,4 +1,9 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_DONE } from "./types";
+import {
+  TOGGLE_ADD_TODO_MODAL,
+  ADD_TODO,
+  DELETE_TODO,
+  TOGGLE_DONE,
+} from "./types";
 
 const getTodos = () => {
   if (localStorage.getItem("dave_todos_app")) {

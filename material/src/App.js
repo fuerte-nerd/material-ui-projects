@@ -1,4 +1,8 @@
 import React from "react";
+
+import { connect } from "react-redux";
+import { toggleAddTodoModal } from "./redux/actions";
+
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -12,7 +16,11 @@ import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import Box from "@material-ui/core/Box";
 
-function App() {
+function App(props) {
+  const toggle = () => {
+    props.dispatch(toggleAddTodoModal());
+  };
+
   return (
     <>
       <Helmet>
@@ -29,6 +37,7 @@ function App() {
           bottom: "3rem",
           right: "3rem",
         }}
+        onClick={toggle}
       >
         <AddIcon />
       </Fab>
@@ -44,5 +53,7 @@ function App() {
     </>
   );
 }
-
-export default App;
+const mapStateToProps = (state) => ({
+  isAddToDoOpen: state.isAddToDoOpen,
+});
+export default connect(mapStateToProps)(App);

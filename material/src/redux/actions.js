@@ -1,4 +1,15 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_DONE } from "./types";
+import {
+  TOGGLE_ADD_TODO_MODAL,
+  ADD_TODO,
+  DELETE_TODO,
+  TOGGLE_DONE,
+} from "./types";
+
+export const toggleAddTodoModal = () => {
+  return {
+    type: TOGGLE_ADD_TODO_MODAL,
+  };
+};
 
 export const addTodo = (todo) => {
   return {
