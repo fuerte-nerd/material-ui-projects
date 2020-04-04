@@ -7,10 +7,15 @@ import {
   DialogContent,
   DialogContentText,
   TextField,
+  Button,
   DialogActions,
 } from "@material-ui/core";
 
 const AddTodo = (props) => {
+  const handleClick = () => {
+    console.log("clicked");
+  };
+
   const handleClose = () => {
     props.dispatch(toggleAddTodoDialog());
   };
@@ -24,11 +29,16 @@ const AddTodo = (props) => {
         <TextField
           autoFocus
           id="title"
-          label="Describe your todo task"
+          label="Description"
           type="text"
           fullWidth
         />
       </DialogContent>
+      <DialogActions>
+        <Button color="primary" onClick={handleClick}>
+          Add
+        </Button>
+      </DialogActions>
     </Dialog>
   );
 };
