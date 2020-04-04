@@ -32,6 +32,7 @@ export default (state = initialState, action) => {
           if (i.id !== action.payload) {
             return i;
           }
+          return null;
         }),
       };
     case TOGGLE_DONE:

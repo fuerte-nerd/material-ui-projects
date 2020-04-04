@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { toggleDone, deleteTodo } from "../redux/actions";
 
@@ -7,7 +7,6 @@ import moment from "moment";
 import {
   ListItem,
   ListItemIcon,
-  Avatar,
   ListItemText,
   IconButton,
   ListItemSecondaryAction,
@@ -21,6 +20,7 @@ const Todo = (props) => {
     if (i.id === props.data.id) {
       return i;
     }
+    return null;
   })[0];
 
   const { id, title, create_date, done } = thisTodo;
