@@ -29,7 +29,7 @@ function App(props) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
-        <Title>A simple todo app</Title>
+        <title>A simple todo app</title>
       </Helmet>
       <Fab
         color="primary"
