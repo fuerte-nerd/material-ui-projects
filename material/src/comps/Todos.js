@@ -6,12 +6,6 @@ import Todo from "./Todo";
 import List from "@material-ui/core/List";
 
 const Todos = (props) => {
-  useEffect(() => {
-    console.log(props.todos);
-    const lsTodos = JSON.stringify(props.todos);
-
-    localStorage.setItem("daves_todo_app", lsTodos);
-  }, [props.todos]);
   return (
     <List>
       {props.todos.map((i) => {

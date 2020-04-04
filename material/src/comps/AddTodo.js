@@ -30,6 +30,7 @@ const AddTodo = (props) => {
       })
     );
     updateTodoValue("");
+    localStorage.setItem("daves_todo_app", JSON.stringify(props.todos));
     props.dispatch(toggleAddTodoDialog());
   };
 

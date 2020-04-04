@@ -7,7 +7,7 @@ import {
 
 const getTodos = () => {
   if (localStorage.getItem("dave_todos_app")) {
-    return localStorage.getItem("dave_todos_app");
+    return JSON.parse(localStorage.getItem("dave_todos_app"));
   } else {
     return [];
   }
