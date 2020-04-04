@@ -6,11 +6,16 @@ import Todo from "./Todo";
 import List from "@material-ui/core/List";
 
 const Todos = (props) => {
+  useEffect(() => {
+    console.log(typeof props.todos);
+  }, [props.todos]);
   return (
     <List>
-      {props.todos.map((i) => {
-        return <Todo data={i} />;
-      })}
+      {props.todos
+        ? props.todos.map((i) => {
+            return <Todo data={i} />;
+          })
+        : null}
     </List>
   );
 };
