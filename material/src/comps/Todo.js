@@ -1,5 +1,7 @@
 import React from "react";
 
+import moment from "moment";
+
 import {
   ListItem,
   ListItemAvatar,
@@ -18,7 +20,10 @@ const Todo = (props) => {
       <ListItemAvatar>
         <Avatar>{done ? <CheckBox /> : <CheckBoxOutlineBlank />}</Avatar>
       </ListItemAvatar>
-      <ListItemText primary={title} secondary={create_date} />
+      <ListItemText
+        primary={title}
+        secondary={moment(create_date).format("D MMMM YYYY")}
+      />
     </ListItem>
   );
 };
