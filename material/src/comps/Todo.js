@@ -24,7 +24,7 @@ const Todo = (props) => {
   };
 
   return (
-    <ListItem>
+    <ListItem divider onClick={() => console.log("clicked")}>
       <ListItemIcon>
         <Checkbox edge="start" />
       </ListItemIcon>
