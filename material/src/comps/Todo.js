@@ -11,13 +11,14 @@ import {
 import { CheckBoxOutlineBlank, CheckBox } from "@material-ui/icons";
 
 const Todo = (props) => {
-  console.log(props);
+  const { title, create_date, done } = props.data;
+
   return (
     <ListItem>
       <ListItemAvatar>
-        <Avatar>{props.done ? <CheckBox /> : <CheckBoxOutlineBlank />}</Avatar>
+        <Avatar>{done ? <CheckBox /> : <CheckBoxOutlineBlank />}</Avatar>
       </ListItemAvatar>
-      <ListItemText primary={props.title} />
+      <ListItemText primary={title} secondary={create_date} />
     </ListItem>
   );
 };
