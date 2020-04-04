@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { deleteTodo } from "../redux/actions";
+
 import moment from "moment";
 
 import {
@@ -15,7 +17,11 @@ import {
 import { Delete } from "@material-ui/icons";
 
 const Todo = (props) => {
-  const { title, create_date, done } = props.data;
+  const { id, title, create_date, done } = props.data;
+
+  const handleDeleteClick = () => {
+    props.dispatch(id);
+  };
 
   return (
     <ListItem>
@@ -27,7 +33,7 @@ const Todo = (props) => {
         secondary={moment(create_date).format("D MMMM YYYY HH:mm")}
       />
       <ListItemSecondaryAction>
-        <IconButton edge="end" aria-label="delete">
+        <IconButton edge="end" aria-label="delete" onClick={handleDeleteClick}>
           <Delete />
         </IconButton>
       </ListItemSecondaryAction>

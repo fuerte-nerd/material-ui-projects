@@ -28,6 +28,11 @@ export default (state = initialState, action) => {
     case DELETE_TODO:
       return {
         ...state,
+        todos: state.todos.filter((i) => {
+          if (i.id !== action.payload) {
+            return i;
+          }
+        }),
       };
     case TOGGLE_DONE:
       return {
