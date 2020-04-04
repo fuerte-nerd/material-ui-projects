@@ -19,7 +19,7 @@ const Todo = (props) => {
   return (
     <ListItem>
       <ListItemIcon>
-        <CheckBox edge="start" />
+        <Checkbox edge="start" />
       </ListItemIcon>
       <ListItemText
         primary={title}
