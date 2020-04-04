@@ -6,6 +6,7 @@ import {
   DialogTitle,
   DialogContent,
   DialogContentText,
+  TextField,
   DialogActions,
 } from "@material-ui/core";
 
@@ -20,6 +21,13 @@ const AddTodo = (props) => {
         <DialogContentText>
           To add a new 'Todo', enter a title in the field below and click 'ADD'.
         </DialogContentText>
+        <TextField
+          autoFocus
+          id="title"
+          label="Describe your todo task"
+          type="text"
+          fullWidth
+        />
       </DialogContent>
     </Dialog>
   );
