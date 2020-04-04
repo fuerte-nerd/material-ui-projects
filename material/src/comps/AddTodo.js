@@ -15,8 +15,7 @@ const AddTodo = (props) => {
   const [todoValue, updateTodoValue] = useState("");
 
   const handleChange = (e) => {
-    console.log(e.target.value);
-    props.dispatch(updateTodoValue(e.target.value));
+    updateTodoValue(e.target.value);
   };
   const handleClick = () => {
     console.log("");
@@ -37,6 +36,7 @@ const AddTodo = (props) => {
           id="title"
           label="Description"
           type="text"
+          value={todoValue}
           fullWidth
           onChange={handleChange}
         />
@@ -52,5 +52,6 @@ const AddTodo = (props) => {
 
 const mapStateToProps = (state) => ({
   isOpen: state.isAddToDoOpen,
+  todos: state.todos,
 });
 export default connect(mapStateToProps)(AddTodo);
