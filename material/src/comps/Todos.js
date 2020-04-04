@@ -1,9 +1,11 @@
 import React from "react";
+
+import { connect } from "react-redux";
 import Todo from "./Todo";
 
 import List from "@material-ui/core/List";
 
-const Todos = () => {
+const Todos = (props) => {
   const dummyData = [
     {
       id: 1,
@@ -29,4 +31,8 @@ const Todos = () => {
   );
 };
 
-export default Todos;
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+});
+
+export default connect(mapStateToProps)(Todos);
