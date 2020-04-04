@@ -17,7 +17,13 @@ import {
 import { Delete } from "@material-ui/icons";
 
 const Todo = (props) => {
-  const { id, title, create_date, done } = props.data;
+  const thisTodo = props.todos.filter((i) => {
+    if (i.id === props.data.id) {
+      return i;
+    }
+  })[0];
+
+  const { id, title, create_date, done } = thisTodo;
 
   const handleDoneClick = () => {
     props.dispatch(toggleDone(id));
@@ -44,7 +50,9 @@ const Todo = (props) => {
     </ListItem>
   );
 };
+
 const mapStateToProps = (state) => ({
   todos: state.todos,
 });
+
 export default connect(mapStateToProps)(Todo);

@@ -10,7 +10,7 @@ const Todos = (props) => {
     <List>
       {props.todos
         ? props.todos.map((i) => {
-            return <Todo data={i} />;
+            return <Todo key={i.id} data={i} />;
           })
         : null}
     </List>

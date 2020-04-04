@@ -41,7 +41,6 @@ export default (state = initialState, action) => {
           if (i.id === action.payload) {
             i.done = !i.done;
           }
-          console.log(i);
           return i;
         }),
       };
