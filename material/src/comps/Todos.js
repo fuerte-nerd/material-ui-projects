@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { connect } from "react-redux";
 import Todo from "./Todo";
@@ -6,6 +6,9 @@ import Todo from "./Todo";
 import List from "@material-ui/core/List";
 
 const Todos = (props) => {
+  useEffect(() => {
+    localStorage.setItem("daves_todo_app", props.todos);
+  }, [props.todos]);
   const dummyData = [
     {
       id: 1,
