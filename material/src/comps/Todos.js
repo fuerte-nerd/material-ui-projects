@@ -1,4 +1,5 @@
 import React from "react";
+import Todo from "./Todo";
 
 const Todos = () => {
   const dummyData = [
@@ -20,7 +21,7 @@ const Todos = () => {
   return (
     <div>
       {dummyData.map((i) => {
-        return <h2>{i.title}</h2>;
+        return <Todo data={i} />;
       })}
     </div>
   );
