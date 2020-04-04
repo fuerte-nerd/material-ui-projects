@@ -1,6 +1,8 @@
 import React from "react";
 import Todo from "./Todo";
 
+import List from "@material-ui/core/List";
+
 const Todos = () => {
   const dummyData = [
     {
@@ -19,11 +21,11 @@ const Todos = () => {
     },
   ];
   return (
-    <div>
+    <List>
       {dummyData.map((i) => {
         return <Todo data={i} />;
       })}
-    </div>
+    </List>
   );
 };
 
