@@ -11,9 +11,9 @@ import {
 const Todo = (props) => {
   console.log(props);
   return (
-    <div>
+    <ListItem>
       <h1>I am a todo</h1>
-    </div>
+    </ListItem>
   );
 };
 
