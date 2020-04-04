@@ -37,6 +37,13 @@ export default (state = initialState, action) => {
     case TOGGLE_DONE:
       return {
         ...state,
+        todos: state.todos.map((i) => {
+          if (i.id === action.payload) {
+            i.done = !i.done;
+          }
+          console.log(i);
+          return i;
+        }),
       };
     case TOGGLE_ADD_TODO_DIALOG:
       return {

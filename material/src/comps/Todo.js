@@ -30,7 +30,7 @@ const Todo = (props) => {
   return (
     <ListItem divider button onClick={handleDoneClick}>
       <ListItemIcon>
-        <Checkbox edge="start" />
+        <Checkbox edge="start" checked={done} />
       </ListItemIcon>
       <ListItemText
         primary={title}
