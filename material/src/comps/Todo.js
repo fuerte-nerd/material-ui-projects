@@ -7,6 +7,7 @@ import {
   ListItemIcon,
   Avatar,
   ListItemText,
+  IconButton,
   ListItemSecondaryAction,
   Checkbox,
 } from "@material-ui/core";
@@ -25,6 +26,11 @@ const Todo = (props) => {
         primary={title}
         secondary={moment(create_date).format("D MMMM YYYY")}
       />
+      <ListItemSecondaryAction>
+        <IconButton edge="end" aria-label="delete">
+          <Delete />
+        </IconButton>
+      </ListItemSecondaryAction>
     </ListItem>
   );
 };
