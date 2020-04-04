@@ -8,11 +8,16 @@ import {
   ListItemSecondaryAction,
 } from "@material-ui/core";
 
+import { CheckBoxOutlineBlank, CheckBox } from "@material-ui/icons";
+
 const Todo = (props) => {
   console.log(props);
   return (
     <ListItem>
-      <h1>I am a todo</h1>
+      <ListItemAvatar>
+        <Avatar>{props.done ? <CheckBox /> : <CheckBoxOutlineBlank />}</Avatar>
+      </ListItemAvatar>
+      <ListItemText primary={props.title} />
     </ListItem>
   );
 };
