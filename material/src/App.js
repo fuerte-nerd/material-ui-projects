@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { connect } from "react-redux";
 import { toggleAddTodoDialog } from "./redux/actions";
@@ -19,6 +19,10 @@ function App(props) {
   const toggle = () => {
     props.dispatch(toggleAddTodoDialog());
   };
+
+  useEffect(() => {
+    localStorage.setItem("daves_todo_app", JSON.stringify(props.todos));
+  }, [props.todos]);
 
   return (
     <>
@@ -50,5 +54,6 @@ function App(props) {
 }
 const mapStateToProps = (state) => ({
   isAddToDoOpen: state.isAddToDoOpen,
+  todos: state.todos,
 });
 export default connect(mapStateToProps)(App);
