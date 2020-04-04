@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { connect } from "react-redux";
 import { deleteTodo } from "../redux/actions";
 
 import moment from "moment";
@@ -20,7 +20,7 @@ const Todo = (props) => {
   const { id, title, create_date, done } = props.data;
 
   const handleDeleteClick = () => {
-    props.dispatch(id);
+    props.dispatch(deleteTodo(id));
   };
 
   return (
@@ -41,4 +41,4 @@ const Todo = (props) => {
   );
 };
 
-export default Todo;
+export default connect()(Todo);
