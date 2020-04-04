@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { connect } from "react-redux";
 import { toggleAddTodoDialog } from "./redux/actions";
@@ -17,9 +17,15 @@ import AddIcon from "@material-ui/icons/Add";
 import Box from "@material-ui/core/Box";
 
 function App(props) {
+  const [todos, setTodos] = useState([]);
+
   const toggle = () => {
     props.dispatch(toggleAddTodoDialog());
   };
+
+  useEffect(() => {
+    const lsTodos = JSON.parse(localStorage.getItem("daves_todo_app"));
+  }, [props.todos]);
 
   return (
     <>
@@ -43,7 +49,7 @@ function App(props) {
           <Typography variant="subtitle2">by David Andrews</Typography>
         </Box>
         <Box>
-          <Todos />
+          <Todos todos={props.todos} />
         </Box>
       </Container>
     </>
@@ -51,5 +57,6 @@ function App(props) {
 }
 const mapStateToProps = (state) => ({
   isAddToDoOpen: state.isAddToDoOpen,
+  todos: state.todos,
 });
 export default connect(mapStateToProps)(App);

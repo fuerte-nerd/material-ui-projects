@@ -11,25 +11,9 @@ const Todos = (props) => {
 
     localStorage.setItem("daves_todo_app", lsTodos);
   }, [props.todos]);
-  const dummyData = [
-    {
-      id: 1,
-      title: "First Todo",
-      done: false,
-      create_date: new Date(2020, 3, 2),
-      complete_date: null,
-    },
-    {
-      id: 2,
-      title: "Second Todo",
-      done: false,
-      create_date: new Date(2020, 3, 2),
-      complete_date: null,
-    },
-  ];
   return (
     <List>
-      {dummyData.map((i) => {
+      {props.todos.map((i) => {
         return <Todo data={i} />;
       })}
     </List>
