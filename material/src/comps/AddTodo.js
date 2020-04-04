@@ -15,7 +15,12 @@ const AddTodo = (props) => {
   };
   return (
     <Dialog open={props.isOpen} onClose={handleClose}>
-      <DialogTitle>Hello</DialogTitle>
+      <DialogTitle>Add Todo</DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          To add a new 'Todo', enter a title in the field below and click 'ADD'.
+        </DialogContentText>
+      </DialogContent>
     </Dialog>
   );
 };
