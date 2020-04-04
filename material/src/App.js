@@ -53,7 +53,6 @@ function App(props) {
   );
 }
 const mapStateToProps = (state) => ({
-  isAddToDoOpen: state.isAddToDoOpen,
   todos: state.todos,
 });
 export default connect(mapStateToProps)(App);
