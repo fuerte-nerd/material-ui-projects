@@ -23,6 +23,7 @@ export default (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
+        todos: state.todos.push(action.payload),
       };
     case DELETE_TODO:
       return {

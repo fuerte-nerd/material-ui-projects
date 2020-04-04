@@ -11,6 +11,8 @@ import {
   DialogActions,
 } from "@material-ui/core";
 
+import uniqId from "uniqid";
+
 const AddTodo = (props) => {
   const [todoValue, updateTodoValue] = useState("");
 
@@ -18,7 +20,17 @@ const AddTodo = (props) => {
     updateTodoValue(e.target.value);
   };
   const handleClick = () => {
-    console.log("");
+    props.dispatch(
+      addTodo({
+        id: uniqId(),
+        title: todoValue,
+        create_date: new Date(),
+        done: false,
+        complete_date: null,
+      })
+    );
+    updateTodoValue("");
+    props.dispatch(toggleAddTodoDialog());
   };
 
   const handleClose = () => {
