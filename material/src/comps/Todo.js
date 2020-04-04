@@ -44,5 +44,7 @@ const Todo = (props) => {
     </ListItem>
   );
 };
-
-export default connect()(Todo);
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+});
+export default connect(mapStateToProps)(Todo);
