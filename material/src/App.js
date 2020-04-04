@@ -6,10 +6,9 @@ import { toggleAddTodoDialog } from "./redux/actions";
 import logo from "./logo.svg";
 import "./App.css";
 
+import Head from "./comps/Head";
 import Todos from "./comps/Todos";
 import AddTodo from "./comps/AddTodo";
-
-import Helmet from "react-helmet";
 
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
@@ -24,13 +23,7 @@ function App(props) {
 
   return (
     <>
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        <title>A simple todo app</title>
-      </Helmet>
+      <Head />
       <Fab
         color="primary"
         aria-label="add"
