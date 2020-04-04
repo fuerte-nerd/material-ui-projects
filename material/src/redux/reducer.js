@@ -21,6 +21,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO:
+      console.log(action.payload);
       return {
         ...state,
         todos: state.todos.push(action.payload),
