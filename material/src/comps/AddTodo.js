@@ -1,9 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { toggleAddTodoModal } from "../redux/actions";
 import { Modal } from "@material-ui/core";
 
 const AddTodo = (props) => {
-  return <Modal open={props.isOpen}>Hello</Modal>;
+  return (
+    <Modal open={props.isOpen} onClose=toggleAddTodoModal}>
+      <h1>Hello</h1>
+    </Modal>
+  );
 };
 
 const mapStateToProps = (state) => ({
