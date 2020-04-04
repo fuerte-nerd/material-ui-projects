@@ -7,6 +7,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import Todos from "./comps/Todos";
+import AddTodo from "./comps/AddTodo";
 
 import Helmet from "react-helmet";
 
@@ -41,6 +42,7 @@ function App(props) {
       >
         <AddIcon />
       </Fab>
+      <AddTodo />
       <Container>
         <Box style={{ textAlign: "center" }}>
           <Typography variant="h1">A simple todo app</Typography>
