@@ -1,7 +1,7 @@
 import React from "react";
 
 import { connect } from "react-redux";
-import { toggleAddTodoModal } from "./redux/actions";
+import { toggleAddTodoDialog } from "./redux/actions";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -19,7 +19,7 @@ import Box from "@material-ui/core/Box";
 
 function App(props) {
   const toggle = () => {
-    props.dispatch(toggleAddTodoModal());
+    props.dispatch(toggleAddTodoDialog());
   };
 
   return (

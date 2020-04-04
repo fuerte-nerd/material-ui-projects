@@ -1,5 +1,5 @@
 import {
-  TOGGLE_ADD_TODO_MODAL,
+  TOGGLE_ADD_TODO_DIALOG,
   ADD_TODO,
   DELETE_TODO,
   TOGGLE_DONE,
@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
       };
-    case TOGGLE_ADD_TODO_MODAL:
+    case TOGGLE_ADD_TODO_DIALOG:
       return {
         ...state,
         isAddToDoOpen: !state.isAddToDoOpen,

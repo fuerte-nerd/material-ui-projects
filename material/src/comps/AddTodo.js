@@ -1,16 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleAddTodoModal } from "../redux/actions";
-import { Modal } from "@material-ui/core";
+import { toggleAddTodoDialog } from "../redux/actions";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+} from "@material-ui/core";
 
 const AddTodo = (props) => {
   const handleClose = () => {
-    props.dispatch(toggleAddTodoModal());
+    props.dispatch(toggleAddTodoDialog());
   };
   return (
-    <Modal open={props.isOpen} onClose={handleClose}>
-      <h1>Hello</h1>
-    </Modal>
+    <Dialog open={props.isOpen} onClose={handleClose}>
+      <DialogTitle>Hello</DialogTitle>
+    </Dialog>
   );
 };
 

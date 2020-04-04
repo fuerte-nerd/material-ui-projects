@@ -1,13 +1,13 @@
 import {
-  TOGGLE_ADD_TODO_MODAL,
+  TOGGLE_ADD_TODO_DIALOG,
   ADD_TODO,
   DELETE_TODO,
   TOGGLE_DONE,
 } from "./types";
 
-export const toggleAddTodoModal = () => {
+export const toggleAddTodoDialog = () => {
   return {
-    type: TOGGLE_ADD_TODO_MODAL,
+    type: TOGGLE_ADD_TODO_DIALOG,
   };
 };
 
