@@ -7,7 +7,9 @@ import List from "@material-ui/core/List";
 
 const Todos = (props) => {
   useEffect(() => {
-    localStorage.setItem("daves_todo_app", props.todos);
+    const lsTodos = JSON.stringify(props.todos);
+
+    localStorage.setItem("daves_todo_app", lsTodos);
   }, [props.todos]);
   const dummyData = [
     {
