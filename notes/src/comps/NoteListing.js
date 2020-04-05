@@ -9,6 +9,8 @@ import {
   Grid,
 } from "@material-ui/core";
 
+import moment from "moment";
+
 const NoteListing = (props) => {
   const { id, title, locked, create_date, modified_date, body } = props.data;
 
@@ -27,6 +29,9 @@ const NoteListing = (props) => {
           <CardContent>
             <Typography variant="h4" variantMapping={{ h4: "h2" }} gutterBottom>
               {title}
+            </Typography>
+            <Typography variant="subtitle1">
+              {`CREATED: ${moment(create_date).format("DD MMM 'YY")}`}
             </Typography>
             <Typography variant="body1">{excerpt()}</Typography>
           </CardContent>
