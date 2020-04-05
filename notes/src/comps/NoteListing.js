@@ -15,7 +15,7 @@ const NoteListing = (props) => {
         <Typography variant="h2">{title}</Typography>
       </CardContent>
       <CardActions>
-        <Button></Button>
+        <Button>Open</Button>
       </CardActions>
     </Card>
   );
