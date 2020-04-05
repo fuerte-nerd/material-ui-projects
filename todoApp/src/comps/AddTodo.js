@@ -21,7 +21,7 @@ const AddTodo = (props) => {
   };
 
   const listenForEnter = (e) => {
-    console.log(e.key);
+    return e.key === "Enter" && props.isOpen ? handleClick() : null;
   };
 
   const handleClick = () => {
