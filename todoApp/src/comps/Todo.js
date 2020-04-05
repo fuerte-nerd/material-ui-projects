@@ -47,12 +47,14 @@ const Todo = (props) => {
       <ListItemText
         disableTypography
         primary=<Typography
-          variant="body2"
+          variant="body1"
           style={done ? { textDecoration: "underline" } : null}
         >
           {title}
         </Typography>
-        secondary={moment(create_date).format("D MMMM YYYY HH:mm")}
+        secondary=<Typography variant="body2" color="secondary">
+          {moment(create_date).format("D MMMM YYYY HH:mm")}
+        </Typography>
       />
       <ListItemSecondaryAction>
         <IconButton edge="end" aria-label="delete" onClick={handleDeleteClick}>
