@@ -34,12 +34,18 @@ const Todo = (props) => {
   };
 
   return (
-    <ListItem divider button onClick={handleDoneClick}>
+    <ListItem
+      divider
+      button
+      onClick={handleDoneClick}
+      style={done ? doneStyle : null}
+    >
       <ListItemIcon>
         <Checkbox edge="start" checked={done} />
       </ListItemIcon>
       <ListItemText
         primary={title}
+        primaryTypographyProps={done ? { textDecoration: "underline" } : null}
         secondary={moment(create_date).format("D MMMM YYYY HH:mm")}
       />
       <ListItemSecondaryAction>
@@ -49,6 +55,11 @@ const Todo = (props) => {
       </ListItemSecondaryAction>
     </ListItem>
   );
+};
+
+const doneStyle = {
+  backgroundColor: "silver",
+  color: "dark-gray",
 };
 
 const mapStateToProps = (state) => ({
