@@ -1,10 +1,19 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 
 const Footer = () => {
   return (
     <footer>
-      <Typography variant="subtitle2">&copy; 2020 David Andrews</Typography>
+      <Container>
+        <Typography
+          align="center"
+          color="textSecondary"
+          display="block"
+          variant="overline"
+        >
+          &copy; 2020 David Andrews
+        </Typography>
+      </Container>{" "}
     </footer>
   );
 };
