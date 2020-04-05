@@ -41,6 +41,7 @@ export default (state = initialState, action) => {
         todos: state.todos.map((i) => {
           if (i.id === action.payload) {
             i.done = !i.done;
+            i.complete_date = i.done ? new Date() : null;
           }
           return i;
         }),
