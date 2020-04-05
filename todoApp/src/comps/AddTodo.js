@@ -17,7 +17,7 @@ const AddTodo = (props) => {
   const [todoValue, updateTodoValue] = useState("");
 
   const handleChange = (e) => {
-    return todoValue.length < 20 ? updateTodoValue(e.target.value) : null;
+    updateTodoValue(e.target.value);
   };
 
   const listenForEnter = (e) => {
@@ -57,6 +57,9 @@ const AddTodo = (props) => {
           type="text"
           value={todoValue}
           fullWidth
+          inputProps={{
+            maxlength: 25,
+          }}
           onKeyUp={listenForEnter}
           onChange={handleChange}
         />

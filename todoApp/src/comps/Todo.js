@@ -53,10 +53,10 @@ const Todo = (props) => {
           style={{ fontStyle: "italic" }}
         >
           <span style={{ display: "block" }}>
-            CREATED:
+            CREATED:{` `}
             {moment(create_date).format("D MMMM YYYY HH:mm")}
           </span>
-          COMPLETED:
+          COMPLETED:{` `}
           {done ? moment(complete_date).format("D MMMM YYYY HH:mm") : "?"}
         </Typography>
       />
