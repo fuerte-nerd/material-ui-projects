@@ -53,8 +53,10 @@ const Todo = (props) => {
           {title}
         </Typography>
         secondary=<Typography variant="body2" color="textSecondary">
-          <strong>CREATED: </strong>
-          {moment(create_date).format("D MMMM YYYY HH:mm")} |{" "}
+          <span style={{ display: "block" }}>
+            <strong>CREATED: </strong>
+            {moment(create_date).format("D MMMM YYYY HH:mm")}
+          </span>
           <strong>COMPLETED: </strong>
           {done ? "paste" : "TBC"}
         </Typography>
