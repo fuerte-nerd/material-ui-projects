@@ -9,9 +9,7 @@ import Head from "./comps/Head";
 import Todos from "./comps/Todos";
 import AddTodo from "./comps/AddTodo";
 
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import Fab from "@material-ui/core/Fab";
+import { Container, Typography, Fab, Box } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import Box from "@material-ui/core/Box";
 
