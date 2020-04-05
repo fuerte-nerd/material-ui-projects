@@ -11,7 +11,6 @@ import AddTodo from "./comps/AddTodo";
 
 import { Container, Typography, Fab, Box } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
-import Box from "@material-ui/core/Box";
 
 function App(props) {
   const toggle = () => {
