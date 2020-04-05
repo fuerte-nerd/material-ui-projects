@@ -14,7 +14,7 @@ const Header = () => {
           style={{ fontStyle: "italic" }}
         >
           "Either write something worth reading or do something worth writing."
-          Benjamin Franklin
+          <span style={{ display: "block" }}>Benjamin Franklin</span>
         </Typography>
       </Container>
     </header>
