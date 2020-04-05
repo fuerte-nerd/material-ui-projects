@@ -8,12 +8,12 @@ import { List, ListItem, ListItemText } from "@material-ui/core";
 const Todos = (props) => {
   return (
     <List>
-      {props.todos ? (
+      {props.todos.length > 0 ? (
         props.todos.map((i) => {
           return <Todo key={i.id} data={i} />;
         })
       ) : (
-        <ListItem>
+        <ListItem center>
           <ListItemText primary="You currently have nothing to do!  SURELY NOT? ;)" />
         </ListItem>
       )}
