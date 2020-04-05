@@ -3,7 +3,14 @@ import React from "react";
 import { connect } from "react-redux";
 import Todo from "./Todo";
 
-import { Grid, Box, List, ListItem, ListItemText } from "@material-ui/core";
+import {
+  Fade,
+  Grid,
+  Box,
+  List,
+  ListItem,
+  ListItemText,
+} from "@material-ui/core";
 
 const Todos = (props) => {
   return (
@@ -13,9 +20,11 @@ const Todos = (props) => {
           props.todos.map((i) => {
             return (
               <Grid item xs={12} md={6}>
-                <Box border={1} borderColor="grey.500">
-                  <Todo key={i.id} data={i} />
-                </Box>
+                <Fade in>
+                  <Box border={1} borderColor="grey.500">
+                    <Todo key={i.id} data={i} />
+                  </Box>
+                </Fade>
               </Grid>
             );
           })
