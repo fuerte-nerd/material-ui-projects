@@ -21,7 +21,7 @@ const Todos = (props) => {
             return (
               <Grid item xs={12} md={6}>
                 <Fade in timeout={{ enter: 1000 }}>
-                  <Box border={1} borderColor="grey.500">
+                  <Box boxShadow={3}>
                     <Todo key={i.id} data={i} />
                   </Box>
                 </Fade>
