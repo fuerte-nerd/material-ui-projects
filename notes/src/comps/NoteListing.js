@@ -30,8 +30,16 @@ const NoteListing = (props) => {
             <Typography variant="h4" variantMapping={{ h4: "h2" }} gutterBottom>
               {title}
             </Typography>
-            <Typography variant="subtitle1">
-              {`CREATED: ${moment(create_date).format("DD MMM 'YY")}`}
+            <Typography
+              variant="subtitle1"
+              color="textSecondary"
+              style={{ fontStyle: "italic" }}
+            >
+              {`${moment(create_date).format("D MMMM")} ${
+                create_date.getFullYear() === new Date().getFullYear()
+                  ? ""
+                  : create_date.getFullYear()
+              }`}
             </Typography>
             <Typography variant="body1">{excerpt()}</Typography>
           </CardContent>
