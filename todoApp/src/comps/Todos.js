@@ -13,8 +13,8 @@ const Todos = (props) => {
           return <Todo key={i.id} data={i} />;
         })
       ) : (
-        <ListItem center>
-          <ListItemText primary="You currently have nothing to do!  SURELY NOT? ;)" />
+        <ListItem divider style={{ textAlign: "center" }}>
+          <ListItemText primary="You currently have nothing to do!  SURELY NOT? ;o)" />
         </ListItem>
       )}
     </List>
