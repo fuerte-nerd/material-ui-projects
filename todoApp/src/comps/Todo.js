@@ -73,7 +73,6 @@ const Todo = (props) => {
 
 const doneStyle = {
   backgroundColor: "silver",
-  color: "dark-gray",
 };
 
 const mapStateToProps = (state) => ({
