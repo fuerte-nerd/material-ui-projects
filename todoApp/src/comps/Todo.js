@@ -35,12 +35,7 @@ const Todo = (props) => {
   };
 
   return (
-    <ListItem
-      border={1}
-      button
-      onClick={handleDoneClick}
-      style={done ? doneStyle : null}
-    >
+    <ListItem button onClick={handleDoneClick} style={done ? doneStyle : null}>
       <ListItemIcon>
         <Checkbox edge="start" checked={done} />
       </ListItemIcon>
