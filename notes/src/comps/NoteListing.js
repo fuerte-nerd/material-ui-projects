@@ -12,7 +12,7 @@ const NoteListing = (props) => {
   const { id, title, locked, create_date, modified_date, body } = props.data;
 
   const excerpt = () => {
-    return body.length > 150 ? body.substr(0, 150) + "..." : body;
+    return body.length > 50 ? body.substr(0, 50) + "..." : body;
   };
 
   return (
@@ -25,8 +25,8 @@ const NoteListing = (props) => {
           <Typography variant="body1">{excerpt()}</Typography>
         </CardContent>
         <CardActions>
-          <Button>Edit</Button>
-          <Button>Delete</Button>
+          <Button color="primary">Edit</Button>
+          <Button color="secondary">Delete</Button>
         </CardActions>
       </Card>
     </Grid>
