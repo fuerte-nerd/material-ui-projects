@@ -56,8 +56,10 @@ const Todo = (props) => {
             CREATED:{` `}
             {moment(create_date).format("D MMMM YYYY HH:mm")}
           </span>
-          COMPLETED:{` `}
-          {done ? moment(complete_date).format("D MMMM YYYY HH:mm") : "?"}
+          <span style={{ display: "block" }}>
+            COMPLETED:{` `}
+            {done ? moment(complete_date).format("D MMMM YYYY HH:mm") : "?"}
+          </span>
         </Typography>
       />
       <ListItemSecondaryAction>
