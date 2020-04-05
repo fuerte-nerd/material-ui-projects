@@ -27,14 +27,10 @@ const NoteListing = (props) => {
       <Card>
         <CardActionArea onClick={handlePrimaryClick}>
           <CardContent>
-            <Typography variant="h4" variantMapping={{ h4: "h2" }} gutterBottom>
+            <Typography variant="h4" variantMapping={{ h4: "h2" }}>
               {title}
             </Typography>
-            <Typography
-              variant="subtitle1"
-              color="textSecondary"
-              style={{ fontStyle: "italic" }}
-            >
+            <Typography variant="subtitle1" color="textSecondary" gutterBottom>
               {`${moment(create_date).format("D MMMM")} ${
                 create_date.getFullYear() === new Date().getFullYear()
                   ? ""
