@@ -23,7 +23,7 @@ const NoteListing = (props) => {
   return (
     <Grid item xs={12} md={6}>
       <Card>
-        <CardActionArea>
+        <CardActionArea onClick={handlePrimaryClick}>
           <CardContent>
             <Typography variant="h4" variantMapping={{ h4: "h2" }} gutterBottom>
               {title}
