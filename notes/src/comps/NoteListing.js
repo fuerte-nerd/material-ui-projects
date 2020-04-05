@@ -2,6 +2,7 @@ import React from "react";
 import {
   Card,
   CardActions,
+  CardActionArea,
   CardContent,
   Button,
   Typography,
@@ -15,17 +16,25 @@ const NoteListing = (props) => {
     return body.length > 50 ? body.substr(0, 50) + "..." : body;
   };
 
+  const handlePrimaryClick = () => {
+    console.log("clicked");
+  };
+
   return (
     <Grid item xs={12} md={6}>
       <Card>
-        <CardContent>
-          <Typography variant="h4" variantMapping={{ h4: "h2" }} gutterBottom>
-            {title}
-          </Typography>
-          <Typography variant="body1">{excerpt()}</Typography>
-        </CardContent>
+        <CardActionArea>
+          <CardContent>
+            <Typography variant="h4" variantMapping={{ h4: "h2" }} gutterBottom>
+              {title}
+            </Typography>
+            <Typography variant="body1">{excerpt()}</Typography>
+          </CardContent>
+        </CardActionArea>
         <CardActions>
-          <Button color="primary">View / Edit</Button>
+          <Button color="primary" onClick={handlePrimaryClick}>
+            View / Edit
+          </Button>
           <Button color="secondary">Delete</Button>
         </CardActions>
       </Card>
