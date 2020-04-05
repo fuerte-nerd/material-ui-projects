@@ -25,7 +25,7 @@ const NoteListing = (props) => {
           <Typography variant="body1">{excerpt()}</Typography>
         </CardContent>
         <CardActions>
-          <Button color="primary">Edit</Button>
+          <Button color="primary">View / Edit</Button>
           <Button color="secondary">Delete</Button>
         </CardActions>
       </Card>
