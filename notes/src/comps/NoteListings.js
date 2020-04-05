@@ -8,12 +8,10 @@ const NoteListings = () => {
   return (
     <Container>
       <Grid container>
-        <Box>
-          {dummyData.map((i) => {
-            return <NoteListing data={i} />;
-          })}
-        </Box>
-      </Grid container>
+        {dummyData.map((i) => {
+          return <NoteListing data={i} />;
+        })}
+      </Grid>
     </Container>
   );
 };
