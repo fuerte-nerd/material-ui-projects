@@ -17,7 +17,7 @@ const NoteListing = (props) => {
 
   return (
     <Grid item xs={12} md={6}>
-      <Card style={{ marginBottom: "1rem" }}>
+      <Card>
         <CardContent>
           <Typography variant="h4" variantMapping={{ h4: "h2" }} gutterBottom>
             {title}
@@ -25,7 +25,8 @@ const NoteListing = (props) => {
           <Typography variant="body1">{excerpt()}</Typography>
         </CardContent>
         <CardActions>
-          <Button>Open</Button>
+          <Button>Edit</Button>
+          <Button>Delete</Button>
         </CardActions>
       </Card>
     </Grid>

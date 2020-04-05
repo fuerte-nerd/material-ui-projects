@@ -7,7 +7,7 @@ import dummyData from "../dummyData";
 const NoteListings = () => {
   return (
     <Container>
-      <Grid container>
+      <Grid container spacing={4}>
         {dummyData.map((i) => {
           return <NoteListing data={i} />;
         })}
