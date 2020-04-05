@@ -25,17 +25,20 @@ const AddTodo = (props) => {
   };
 
   const handleClick = () => {
-    props.dispatch(
-      addTodo({
-        id: uniqId(),
-        title: todoValue,
-        create_date: new Date(),
-        done: false,
-        complete_date: null,
-      })
-    );
-    updateTodoValue("");
-    props.dispatch(toggleAddTodoDialog());
+    if (todoValue) {
+      props.dispatch(
+        addTodo({
+          id: uniqId(),
+          title: todoValue,
+          create_date: new Date(),
+          done: false,
+          complete_date: null,
+        })
+      );
+
+      updateTodoValue("");
+      props.dispatch(toggleAddTodoDialog());
+    }
   };
 
   const handleClose = () => {
