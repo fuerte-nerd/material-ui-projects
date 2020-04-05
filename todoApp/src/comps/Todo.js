@@ -11,6 +11,7 @@ import {
   IconButton,
   ListItemSecondaryAction,
   Checkbox,
+  Typography,
 } from "@material-ui/core";
 
 import { Delete } from "@material-ui/icons";
@@ -44,8 +45,13 @@ const Todo = (props) => {
         <Checkbox edge="start" checked={done} />
       </ListItemIcon>
       <ListItemText
-        primary={title}
-        primaryTypographyProps={done ? { textDecoration: "underline" } : null}
+        disableTypography
+        primary=<Typography
+          variant="body2"
+          style={done ? { textDecoration: "underline" } : null}
+        >
+          {title}
+        </Typography>
         secondary={moment(create_date).format("D MMMM YYYY HH:mm")}
       />
       <ListItemSecondaryAction>
