@@ -24,7 +24,7 @@ const Todo = (props) => {
     return null;
   })[0];
 
-  const { id, title, create_date, done } = thisTodo;
+  const { id, title, create_date, complete_date, done } = thisTodo;
 
   const handleDoneClick = () => {
     props.dispatch(toggleDone(id));
