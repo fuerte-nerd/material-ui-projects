@@ -19,6 +19,11 @@ const AddTodo = (props) => {
   const handleChange = (e) => {
     updateTodoValue(e.target.value);
   };
+
+  const listenForEnter = (e) => {
+    console.log(e.key);
+  };
+
   const handleClick = () => {
     props.dispatch(
       addTodo({
@@ -50,6 +55,7 @@ const AddTodo = (props) => {
           type="text"
           value={todoValue}
           fullWidth
+          onKeyUp={listenForEnter}
           onChange={handleChange}
         />
       </DialogContent>
