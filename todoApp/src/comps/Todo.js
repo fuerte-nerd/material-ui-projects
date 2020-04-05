@@ -36,7 +36,7 @@ const Todo = (props) => {
 
   return (
     <ListItem
-      divider
+      border={1}
       button
       onClick={handleDoneClick}
       style={done ? doneStyle : null}
