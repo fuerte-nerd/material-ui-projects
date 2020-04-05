@@ -20,7 +20,7 @@ const Todos = (props) => {
           props.todos.map((i) => {
             return (
               <Grid item xs={12} md={6}>
-                <Fade in>
+                <Fade in timeout={{ enter: 1000 }}>
                   <Box border={1} borderColor="grey.500">
                     <Todo key={i.id} data={i} />
                   </Box>
