@@ -17,7 +17,7 @@ const AddTodo = (props) => {
   const [todoValue, updateTodoValue] = useState("");
 
   const handleChange = (e) => {
-    updateTodoValue(e.target.value);
+    return todoValue.length < 20 ? updateTodoValue(e.target.value) : null;
   };
 
   const listenForEnter = (e) => {
