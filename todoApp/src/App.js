@@ -40,7 +40,9 @@ function App(props) {
       <Container>
         <Box style={{ textAlign: "center" }}>
           <Typography variant="h1">Todos</Typography>
-          <Typography variant="subtitle2">by David Andrews</Typography>
+          <Typography variant="subtitle2">
+            What have you got to do today?
+          </Typography>
         </Box>
         <Box>
           <Todos />

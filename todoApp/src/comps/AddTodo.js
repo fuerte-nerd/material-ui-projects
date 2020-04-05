@@ -35,7 +35,6 @@ const AddTodo = (props) => {
           complete_date: null,
         })
       );
-
       updateTodoValue("");
       props.dispatch(toggleAddTodoDialog());
     }
