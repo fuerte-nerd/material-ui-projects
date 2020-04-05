@@ -4,7 +4,7 @@ import NoteListings from "./NoteListings";
 
 const Main = () => {
   return (
-    <main>
+    <main style={{ margin: "2rem 0" }}>
       <NoteListings />
     </main>
   );
