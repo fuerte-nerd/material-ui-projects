@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 
 const NoteListing = (props) => {
+  const { id, title, locked, create_date, modified_date, body } = props.data;
   return (
     <Card>
       <CardContent>
