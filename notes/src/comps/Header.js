@@ -7,8 +7,14 @@ const Header = () => {
         <Typography align="center" variant="h1">
           Notes
         </Typography>
-        <Typography align="center" variant="subtitle1">
-          Your online notebook!
+        <Typography
+          align="center"
+          variant="subtitle1"
+          color="textSecondary"
+          style={{ fontStyle: "italic" }}
+        >
+          "Either write something worth reading or do something worth writing."
+          Benjamin Franklin
         </Typography>
       </Container>
     </header>
