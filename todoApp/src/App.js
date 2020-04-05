@@ -42,7 +42,7 @@ function App(props) {
       <AddTodo />
       <Container>
         <Box style={{ textAlign: "center" }}>
-          <Typography variant="h1">A simple todo app</Typography>
+          <Typography variant="h1">Todos</Typography>
           <Typography variant="subtitle2">by David Andrews</Typography>
         </Box>
         <Box>
