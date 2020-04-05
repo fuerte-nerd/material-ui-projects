@@ -48,11 +48,12 @@ const Todo = (props) => {
         disableTypography
         primary=<Typography
           variant="body1"
-          style={done ? { textDecoration: "underline" } : null}
+          style={done ? { textDecoration: "line-through" } : null}
         >
           {title}
         </Typography>
-        secondary=<Typography variant="body2" color="secondary">
+        secondary=<Typography variant="body2" color="textSecondary">
+          <strong>CREATED: </strong>
           {moment(create_date).format("D MMMM YYYY HH:mm")}
         </Typography>
       />
