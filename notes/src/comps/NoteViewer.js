@@ -32,7 +32,13 @@ const NoteViewer = (props) => {
         </Toolbar>
       </AppBar>
       <Container style={{ marginTop: "6rem" }}>
-        <TextField fullWidth id="title" inputProps={style: {fontSize: "4rem" }} />
+        <TextField
+          fullWidth
+          id="title"
+          disabled
+          InputProps={{ style: { fontSize: "6rem", fontWeight: 300 } }}
+          value="Title"
+        />
         <Typography variant="h1">Title</Typography>
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
           12 April
