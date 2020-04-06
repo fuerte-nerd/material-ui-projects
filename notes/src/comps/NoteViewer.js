@@ -15,7 +15,7 @@ const NoteViewer = (props) => {
     <Dialog open={true} fullScreen>
       <AppBar>
         <Toolbar>
-          <IconButton variant="contained">
+          <IconButton color="inherit">
             <ArrowLeft />
           </IconButton>
         </Toolbar>
