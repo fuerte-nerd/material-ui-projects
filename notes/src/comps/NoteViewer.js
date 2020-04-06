@@ -17,6 +17,7 @@ const NoteViewer = (props) => {
           <IconButton color="inherit" edge="start">
             <ArrowBack />
           </IconButton>
+          <Typography variant="h3">Note Viewer</Typography>
           <IconButton color="inherit">
             <Delete />
           </IconButton>
