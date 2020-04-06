@@ -7,7 +7,7 @@ import {
   IconButton,
   Typography,
 } from "@material-ui/core";
-import { ArrowBack, Delete } from "@material-ui/icons";
+import { ArrowBack, LockOpen, Lock, Delete } from "@material-ui/icons";
 
 const NoteViewer = (props) => {
   return (
@@ -17,8 +17,11 @@ const NoteViewer = (props) => {
           <IconButton color="inherit" edge="start">
             <ArrowBack />
           </IconButton>
-          <Typography variant="h3">Note Viewer</Typography>
+          <Typography style={{ flex: 1 }}>Note Viewer</Typography>
           <IconButton color="inherit">
+            <LockOpen />
+          </IconButton>
+          <IconButton color="inherit" i edge="end">
             <Delete />
           </IconButton>
         </Toolbar>
