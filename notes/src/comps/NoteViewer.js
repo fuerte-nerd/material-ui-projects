@@ -1,5 +1,4 @@
-import React from "react";
-import ReactMarkdown from "react-markdown";
+import React, { useState } from "react";
 import {
   Dialog,
   Container,
@@ -15,6 +14,13 @@ const dummyBody =
   "Ipsum dolores consequatur hic accusamus possimus? Totam voluptatibus rem excepturi saepe quia, eum iusto? Cupiditate minus repellendus quidem maxime nobis Placeat laborum corrupti dignissimos eum sit! Nisi illo cum omnis nisi repellendus optio? Quia praesentium libero reiciendis non veritatis. Tempora quibusdam eaque enim aut labore? Et dolorum omnis tenetur fugit?\n\nMore text here.";
 
 const NoteViewer = (props) => {
+  const [test, setTest] = useState("");
+
+  const handleBodyChange = (e) => {
+    setTest(e.target.value);
+    console.log(test);
+  };
+
   return (
     <Dialog open={true} fullScreen>
       <AppBar>
@@ -48,14 +54,13 @@ const NoteViewer = (props) => {
           fullWidth
           multiline
           id="body"
+          value={test}
+          onChange={handleBodyChange}
           InputProps={{
             disableUnderline: true,
             style: { fontSize: "1rem", fontWeight: 400, lineHeight: 1.5 },
           }}
         />
-        <Typography>
-          <ReactMarkdown source={dummyBody} />
-        </Typography>
       </Container>
     </Dialog>
   );
