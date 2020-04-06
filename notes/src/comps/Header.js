@@ -1,8 +1,11 @@
 import React from "react";
-import { Container, Typography } from "@material-ui/core";
+import { Container, Typography, AppBar, Toolbar } from "@material-ui/core";
 const Header = () => {
   return (
     <header>
+      <AppBar>
+        <Toolbar> </Toolbar>{" "}
+      </AppBar>
       <Container>
         <Typography align="center" variant="h1">
           Notes
