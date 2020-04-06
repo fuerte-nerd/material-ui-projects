@@ -74,4 +74,4 @@ const NoteViewer = (props) => {
 const mapStateToProps = (state) => ({
   isOpen: state.isViewerOpen,
 });
-export default connect()(NoteViewer);
+export default connect(mapStateToProps)(NoteViewer);

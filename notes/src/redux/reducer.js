@@ -33,6 +33,9 @@ export default (state = initialState, action) => {
     case TOGGLE_VIEWER:
       return {
         ...state,
+        isViewerOpen: !state.isViewerOpen,
       };
+    default:
+      return state;
   }
 };
