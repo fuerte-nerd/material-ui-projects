@@ -7,16 +7,18 @@ import {
   IconButton,
   Typography,
 } from "@material-ui/core";
-import { grey } from "@material-ui/core/colors";
-import { ArrowLeft } from "@material-ui/icons";
+import { ArrowBack, Delete } from "@material-ui/icons";
 
 const NoteViewer = (props) => {
   return (
     <Dialog open={true} fullScreen>
       <AppBar>
         <Toolbar>
+          <IconButton color="inherit" edge="start">
+            <ArrowBack />
+          </IconButton>
           <IconButton color="inherit">
-            <ArrowLeft />
+            <Delete />
           </IconButton>
         </Toolbar>
       </AppBar>
