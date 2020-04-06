@@ -11,10 +11,14 @@ import {
 import { MoreVert } from "@material-ui/icons";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [anchor, setAnchor] = useState(false);
 
-  const handleClick = () => {
-    setIsOpen(!isOpen);
+  const handleClick = (e) => {
+    setAnchor(e.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchor(null);
   };
 
   return (
@@ -31,7 +35,12 @@ const Header = () => {
           >
             <MoreVert />
           </IconButton>
-          <Menu id="mainmenu" open={isOpen} onClose={handleClick}>
+          <Menu
+            id="mainmenu"
+            anchorEl={anchor}
+            open={Boolean(anchor)}
+            onClose={handleClose}
+          >
             <MenuItem>New note</MenuItem>
           </Menu>
         </Toolbar>
