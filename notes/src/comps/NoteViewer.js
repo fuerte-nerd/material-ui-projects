@@ -28,7 +28,7 @@ const NoteViewer = (props) => {
   };
 
   return (
-    <Dialog open={props.isOpen} fullScreen>
+    <Dialog open={props.isOpen} fullScreen transitionDuration={700}>
       <AppBar>
         <Toolbar>
           <IconButton color="inherit" edge="start" onClick={handleBackClick}>
