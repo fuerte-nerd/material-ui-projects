@@ -1,10 +1,12 @@
 import React from "react";
-import { Dialog } from "@material-ui/core";
+import { Dialog, Container, Paper } from "@material-ui/core";
 
-const NoteViewer = () => {
+const NoteViewer = (props) => {
   return (
     <Dialog open={true} fullScreen>
-      hello
+      <Container>
+        <Paper elevation={2}>Hello</Paper>
+      </Container>
     </Dialog>
   );
 };
