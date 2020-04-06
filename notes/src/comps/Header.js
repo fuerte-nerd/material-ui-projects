@@ -13,8 +13,9 @@ const Header = () => {
     <header>
       <AppBar>
         <Toolbar>
-          <Typography>Notes</Typography>
-          <IconButton color="inherit">
+          <Typography>Main Menu</Typography>
+          <span style={{ flex: 1 }} />
+          <IconButton edge="end" color="inherit">
             <MoreVert />
           </IconButton>
         </Toolbar>
