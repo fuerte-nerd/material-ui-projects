@@ -26,7 +26,12 @@ const NoteViewer = (props) => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Container></Container>
+      <Container>
+        <Typography variant="h1">Title</Typography>
+        <Typography variant="subtitle1" color="textSecondary">
+          12 April
+        </Typography>
+      </Container>
     </Dialog>
   );
 };
