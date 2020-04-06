@@ -5,6 +5,8 @@ import {
   Typography,
   AppBar,
   Toolbar,
+  Menu,
+  MenuItem,
 } from "@material-ui/core";
 import { MoreVert } from "@material-ui/icons";
 
@@ -15,9 +17,12 @@ const Header = () => {
         <Toolbar>
           <Typography>Main Menu</Typography>
           <span style={{ flex: 1 }} />
-          <IconButton edge="end" color="inherit">
+          <IconButton aria-controls="mainmenu" edge="end" color="inherit">
             <MoreVert />
           </IconButton>
+          <Menu id="mainmenu" open={true}>
+            <MenuItem>New note</MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
       <Container style={{ marginTop: "6rem" }}>
