@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import {
   Dialog,
   Container,
@@ -66,4 +67,4 @@ const NoteViewer = (props) => {
   );
 };
 
-export default NoteViewer;
+export default connect()(NoteViewer);

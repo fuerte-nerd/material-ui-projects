@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { toggleViewer } from "../redux/actions";
 import {
   Card,
   CardActions,
@@ -19,7 +21,7 @@ const NoteListing = (props) => {
   };
 
   const handlePrimaryClick = () => {
-    console.log("clicked");
+    props.dispatch(toggleViewer());
   };
 
   return (
@@ -51,4 +53,4 @@ const NoteListing = (props) => {
   );
 };
 
-export default NoteListing;
+export default connect()(NoteListing);
