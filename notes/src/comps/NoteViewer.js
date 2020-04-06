@@ -1,12 +1,25 @@
 import React from "react";
-import { Dialog, Container, Paper } from "@material-ui/core";
+import {
+  Dialog,
+  Container,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+} from "@material-ui/core";
+import { ArrowLeft } from "@material-ui/icons";
 
 const NoteViewer = (props) => {
   return (
     <Dialog open={true} fullScreen>
-      <Container>
-        <Paper elevation={2}>Hello</Paper>
-      </Container>
+      <AppBar>
+        <Toolbar>
+          <IconButton>
+            <ArrowLeft />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Container></Container>
     </Dialog>
   );
 };
