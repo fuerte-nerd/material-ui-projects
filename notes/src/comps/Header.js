@@ -20,7 +20,7 @@ const Header = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Container>
+      <Container style={{ marginTop: "6rem" }}>
         <Typography align="center" variant="h1">
           Notes
         </Typography>

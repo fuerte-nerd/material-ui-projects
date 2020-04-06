@@ -34,7 +34,7 @@ const NoteViewer = (props) => {
           <IconButton color="inherit" edge="start" onClick={handleBackClick}>
             <ArrowBack />
           </IconButton>
-          <Typography onClick={handleBackClick}>Back to notes</Typography>
+          <Typography onClick={handleBackClick}>Back to main menu</Typography>
           <span style={{ flex: 1 }} />
           <IconButton color="inherit">
             <LockOpen />
