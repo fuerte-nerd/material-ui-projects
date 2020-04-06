@@ -1,4 +1,5 @@
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import {
   Dialog,
   Container,
@@ -8,6 +9,9 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ArrowBack, LockOpen, Lock, Delete } from "@material-ui/icons";
+
+const dummyBody =
+  "Ipsum dolores consequatur hic accusamus possimus? Totam voluptatibus rem excepturi saepe quia, eum iusto? Cupiditate minus repellendus quidem maxime nobis Placeat laborum corrupti dignissimos eum sit! Nisi illo cum omnis nisi repellendus optio? Quia praesentium libero reiciendis non veritatis. Tempora quibusdam eaque enim aut labore? Et dolorum omnis tenetur fugit?\n\nMore text here.";
 
 const NoteViewer = (props) => {
   return (
@@ -26,10 +30,13 @@ const NoteViewer = (props) => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Container>
+      <Container style={{ marginTop: "4rem" }}>
         <Typography variant="h1">Title</Typography>
-        <Typography variant="subtitle1" color="textSecondary">
+        <Typography variant="subtitle1" color="textSecondary" gutterBottom>
           12 April
+        </Typography>
+        <Typography>
+          <ReactMarkdown source={dummyBody} />
         </Typography>
       </Container>
     </Dialog>
