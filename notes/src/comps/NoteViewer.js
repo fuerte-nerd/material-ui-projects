@@ -35,14 +35,24 @@ const NoteViewer = (props) => {
         <TextField
           fullWidth
           id="title"
-          disabled
-          InputProps={{ style: { fontSize: "6rem", fontWeight: 300 } }}
+          InputProps={{
+            disableUnderline: true,
+            style: { fontSize: "6rem", fontWeight: 300 },
+          }}
           value="Title"
         />
-        <Typography variant="h1">Title</Typography>
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
           12 April
         </Typography>
+        <TextField
+          fullWidth
+          id="title"
+          InputProps={{
+            disableUnderline: true,
+            style: { fontSize: "6rem", fontWeight: 300 },
+          }}
+          value="Title"
+        />
         <Typography>
           <ReactMarkdown source={dummyBody} />
         </Typography>
