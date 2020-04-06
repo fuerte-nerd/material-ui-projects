@@ -1,6 +1,6 @@
 import React from "react";
 import NoteListing from "./NoteListing";
-import { Grid, Container, Box } from "@material-ui/core";
+import { Grid, Container } from "@material-ui/core";
 
 import dummyData from "../dummyData";
 
