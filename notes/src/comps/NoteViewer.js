@@ -6,6 +6,7 @@ import {
   AppBar,
   Toolbar,
   IconButton,
+  TextField,
   Typography,
 } from "@material-ui/core";
 import { ArrowBack, LockOpen, Lock, Delete } from "@material-ui/icons";
@@ -30,7 +31,8 @@ const NoteViewer = (props) => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Container style={{ marginTop: "4rem" }}>
+      <Container style={{ marginTop: "6rem" }}>
+        <TextField id="title" />
         <Typography variant="h1">Title</Typography>
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
           12 April
