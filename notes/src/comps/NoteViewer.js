@@ -14,7 +14,7 @@ const NoteViewer = (props) => {
     <Dialog open={true} fullScreen>
       <AppBar>
         <Toolbar>
-          <IconButton>
+          <IconButton color="primary">
             <ArrowLeft />
           </IconButton>
         </Toolbar>
