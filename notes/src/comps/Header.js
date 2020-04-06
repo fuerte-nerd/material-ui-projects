@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   IconButton,
@@ -11,16 +11,27 @@ import {
 import { MoreVert } from "@material-ui/icons";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <header>
       <AppBar>
         <Toolbar>
           <Typography>Main Menu</Typography>
           <span style={{ flex: 1 }} />
-          <IconButton aria-controls="mainmenu" edge="end" color="inherit">
+          <IconButton
+            onClick={handleClick}
+            aria-controls="mainmenu"
+            edge="end"
+            color="inherit"
+          >
             <MoreVert />
           </IconButton>
-          <Menu id="mainmenu" open={true}>
+          <Menu id="mainmenu" open={isOpen} onClose={handleClick}>
             <MenuItem>New note</MenuItem>
           </Menu>
         </Toolbar>
