@@ -1,32 +1,38 @@
-import { ADD_NOTE, TOGGLE_VIEWER, LOAD_NOTE, UPDATE_NOTE, DELETE_NOTE } from "./types"
+import {
+  ADD_NOTE,
+  TOGGLE_VIEWER,
+  LOAD_NOTE,
+  UPDATE_NOTE,
+  DELETE_NOTE,
+} from "./types";
 
 const initialState = {
   isViewerOpen: false,
   noteLoaded: null,
   notes: [],
-}
+};
 
-export default = (state = initialState, action)=>{
-  switch(action.type){
+export default (state = initialState, action) => {
+  switch (action.type) {
     case ADD_NOTE:
       return {
-        ...state
-      }
+        ...state,
+      };
     case LOAD_NOTE:
       return {
-        ...state
-      }
+        ...state,
+      };
     case DELETE_NOTE:
       return {
-        ...state
-      }
+        ...state,
+      };
     case UPDATE_NOTE:
       return {
-        ...state
-      }
+        ...state,
+      };
     case TOGGLE_VIEWER:
       return {
-        ...state
-      }
+        ...state,
+      };
   }
-}
+};

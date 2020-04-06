@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { toggleViewer } from "../redux/actions";
 import {
   Dialog,
   Container,
@@ -17,16 +18,20 @@ const dummyBody =
 const NoteViewer = (props) => {
   const [test, setTest] = useState("");
 
+  const handleBackClick = () => {
+    props.dispatch(toggleViewer());
+  };
+
   const handleBodyChange = (e) => {
     setTest(e.target.value);
     console.log(test);
   };
 
   return (
-    <Dialog open={true} fullScreen>
+    <Dialog open={props.isOpen} fullScreen>
       <AppBar>
         <Toolbar>
-          <IconButton color="inherit" edge="start">
+          <IconButton color="inherit" edge="start" onClick={handleBackClick}>
             <ArrowBack />
           </IconButton>
           <Typography style={{ flex: 1 }}>Note Viewer</Typography>
@@ -66,5 +71,7 @@ const NoteViewer = (props) => {
     </Dialog>
   );
 };
-
+const mapStateToProps = (state) => ({
+  isOpen: state.isViewerOpen,
+});
 export default connect()(NoteViewer);
