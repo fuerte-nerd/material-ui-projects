@@ -28,13 +28,14 @@ const NoteViewer = (props) => {
   };
 
   return (
-    <Dialog open={props.isOpen} fullScreen transitionDuration={700}>
+    <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
       <AppBar>
         <Toolbar>
           <IconButton color="inherit" edge="start" onClick={handleBackClick}>
             <ArrowBack />
           </IconButton>
-          <Typography style={{ flex: 1 }}>Note Viewer</Typography>
+          <Typography onClick={handleBackClick}>Back to notes</Typography>
+          <span style={{ flex: 1 }} />
           <IconButton color="inherit">
             <LockOpen />
           </IconButton>
