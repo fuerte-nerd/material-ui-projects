@@ -4,7 +4,13 @@ import {
   DELETE_NOTE,
   TOGGLE_VIEWER,
   LOAD_NOTE,
+  LOAD_NOTES,
 } from "./types";
+
+export const loadNotes = (notes) => ({
+  type: LOAD_NOTES,
+  payload: notes,
+});
 
 export const addNote = (noteData) => ({
   type: ADD_NOTE,

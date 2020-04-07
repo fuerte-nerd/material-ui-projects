@@ -2,6 +2,7 @@ import {
   ADD_NOTE,
   TOGGLE_VIEWER,
   LOAD_NOTE,
+  LOAD_NOTE,
   UPDATE_NOTE,
   DELETE_NOTE,
 } from "./types";
