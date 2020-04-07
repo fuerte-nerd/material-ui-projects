@@ -19,7 +19,11 @@ const NoteListings = (props) => {
       ) : (
         <Box align="center" p={3}>
           <Typography>You don't have any notes yet...</Typography>
-          <Button color="secondary">Add Note</Button>
+          <Box m={1}>
+            <Button color="secondary" variant="contained">
+              Add Note
+            </Button>
+          </Box>
         </Box>
       )}
     </Container>
