@@ -14,6 +14,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log(state);
   switch (action.type) {
     case LOAD_NOTES:
       return {
@@ -23,7 +24,7 @@ export default (state = initialState, action) => {
     case ADD_NOTE:
       return {
         ...state,
-        notes: state.notes.concat([action.payload]),
+        notes: state.notes.push(action.payload),
       };
     case LOAD_NOTE:
       return {
