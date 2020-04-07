@@ -23,6 +23,7 @@ export default (state = initialState, action) => {
     case ADD_NOTE:
       return {
         ...state,
+        notes: state.notes.concat([action.payload]),
       };
     case LOAD_NOTE:
       return {

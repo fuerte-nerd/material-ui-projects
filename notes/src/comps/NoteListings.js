@@ -17,7 +17,7 @@ const NoteListings = (props) => {
           );
         })
       ) : (
-        <Box align="center" p={3}>
+        <Box align="center" p={5}>
           <Typography>You don't have any notes yet...</Typography>
           <Box m={1}>
             <Button color="secondary" variant="contained">
