@@ -14,19 +14,12 @@ import { ArrowBack, LockOpen, Lock, Delete } from "@material-ui/icons";
 
 import moment from "moment";
 
-const dummyBody =
-  "Ipsum dolores consequatur hic accusamus possimus? Totam voluptatibus rem excepturi saepe quia, eum iusto? Cupiditate minus repellendus quidem maxime nobis Placeat laborum corrupti dignissimos eum sit! Nisi illo cum omnis nisi repellendus optio? Quia praesentium libero reiciendis non veritatis. Tempora quibusdam eaque enim aut labore? Et dolorum omnis tenetur fugit?\n\nMore text here.";
-
 const NoteViewer = (props) => {
   const handleBackClick = () => {
     props.dispatch(toggleViewer());
   };
 
   const handleChange = (e) => {
-    const test = {
-      [e.target.getAttribute("id")]: e.target.value,
-    };
-    console.log(test);
     props.dispatch(
       updateNote({
         ...props.noteLoaded,
