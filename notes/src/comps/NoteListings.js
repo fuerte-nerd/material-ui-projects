@@ -1,19 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
 import NoteListing from "./NoteListing";
 import { Grid, Container } from "@material-ui/core";
 
 import dummyData from "../dummyData";
 
-const NoteListings = () => {
+const NoteListings = (props) => {
   return (
     <Container>
-      <Grid container spacing={4}>
-        {dummyData.map((i) => {
-          return <NoteListing data={i} />;
-        })}
-      </Grid>
+      {props.notes && props.notes.length > 1
+        ? props.notes.map((i) => {
+            return (
+              <Grid container spacing={4}>
+                <NoteListing id={i.id} />
+              </Grid>
+            );
+          })
+        : null}
     </Container>
   );
 };
 
-export default NoteListings;
+const mapStateToProps = (state) => ({
+  notes: state.notes,
+});
+
+export default connect(mapStateToProps)(NoteListings);
