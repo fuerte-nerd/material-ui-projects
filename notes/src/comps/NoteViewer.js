@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { toggleViewer, updateNote } from "../redux/actions";
 import {
@@ -27,6 +27,21 @@ const NoteViewer = (props) => {
       })
     );
   };
+
+  useEffect(() => {
+    if (props.noteLoaded) {
+      const {
+        title,
+        body,
+        create_date,
+        modified_date,
+        locked,
+        id,
+      } = props.notes.filter((i) => {
+        return props.noteLoaded.id === i.id ? i : null;
+      })[0];
+    }
+  }, [props.notes]);
 
   return props.noteLoaded ? (
     <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
@@ -77,5 +92,6 @@ const NoteViewer = (props) => {
 const mapStateToProps = (state) => ({
   isOpen: state.isViewerOpen,
   noteLoaded: state.noteLoaded,
+  notes: state.notes,
 });
 export default connect(mapStateToProps)(NoteViewer);
