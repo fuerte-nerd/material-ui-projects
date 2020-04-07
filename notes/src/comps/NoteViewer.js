@@ -18,15 +18,6 @@ const dummyBody =
   "Ipsum dolores consequatur hic accusamus possimus? Totam voluptatibus rem excepturi saepe quia, eum iusto? Cupiditate minus repellendus quidem maxime nobis Placeat laborum corrupti dignissimos eum sit! Nisi illo cum omnis nisi repellendus optio? Quia praesentium libero reiciendis non veritatis. Tempora quibusdam eaque enim aut labore? Et dolorum omnis tenetur fugit?\n\nMore text here.";
 
 const NoteViewer = (props) => {
-  const {
-    id,
-    title,
-    body,
-    create_date,
-    modified_date,
-    locked,
-  } = props.noteLoaded;
-
   const handleBackClick = () => {
     props.dispatch(toggleViewer());
   };
@@ -66,16 +57,16 @@ const NoteViewer = (props) => {
             style: { fontSize: "6rem", fontWeight: 300 },
           }}
           onChange={handleChange}
-          value={title}
+          value={props.noteLoaded.title}
         />
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-          {moment(create_date).format("D MMM")}
+          {moment(props.noteLoaded.create_date).format("D MMM")}
         </Typography>
         <TextField
           fullWidth
           multiline
           id="body"
-          value={body}
+          value={props.noteLoaded.body}
           onChange={handleChange}
           InputProps={{
             disableUnderline: true,

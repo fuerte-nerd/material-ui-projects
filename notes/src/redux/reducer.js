@@ -40,6 +40,9 @@ export default (state = initialState, action) => {
     case UPDATE_NOTE:
       return {
         ...state,
+        notes: state.notes.map((i) => {
+          return i.id === action.payload.id ? action.payload : i;
+        }),
       };
     case TOGGLE_VIEWER:
       return {
