@@ -12,6 +12,8 @@ import {
 } from "@material-ui/core";
 import { ArrowBack, LockOpen, Lock, Delete } from "@material-ui/icons";
 
+import moment from "moment";
+
 const dummyBody =
   "Ipsum dolores consequatur hic accusamus possimus? Totam voluptatibus rem excepturi saepe quia, eum iusto? Cupiditate minus repellendus quidem maxime nobis Placeat laborum corrupti dignissimos eum sit! Nisi illo cum omnis nisi repellendus optio? Quia praesentium libero reiciendis non veritatis. Tempora quibusdam eaque enim aut labore? Et dolorum omnis tenetur fugit?\n\nMore text here.";
 
@@ -52,16 +54,16 @@ const NoteViewer = (props) => {
             disableUnderline: true,
             style: { fontSize: "6rem", fontWeight: 300 },
           }}
-          value="Title"
+          value={props.noteLoaded.title}
         />
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-          12 April
+          {moment(props.noteLoaded.create_date).format("D MMM")}
         </Typography>
         <TextField
           fullWidth
           multiline
           id="body"
-          value={test}
+          value={props.noteLoaded.body}
           onChange={handleBodyChange}
           InputProps={{
             disableUnderline: true,
@@ -74,5 +76,6 @@ const NoteViewer = (props) => {
 };
 const mapStateToProps = (state) => ({
   isOpen: state.isViewerOpen,
+  noteLoaded: state.noteLoaded,
 });
 export default connect(mapStateToProps)(NoteViewer);

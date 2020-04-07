@@ -28,6 +28,9 @@ export default (state = initialState, action) => {
     case LOAD_NOTE:
       return {
         ...state,
+        noteLoaded: state.notes.filter((i) => {
+          return i.id === action.payload ? i : null;
+        })[0],
       };
     case DELETE_NOTE:
       return {
