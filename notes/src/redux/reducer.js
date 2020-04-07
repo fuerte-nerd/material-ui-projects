@@ -24,7 +24,14 @@ export default (state = initialState, action) => {
     case ADD_NOTE:
       return {
         ...state,
-        notes: state.notes.concat([action.payload]),
+        notes: {
+        id: newId,
+        title: "",
+        body: "",
+        locked: false,
+        create_date: new Date(),
+        modified_date: new Date(),
+      }tate.notes.concat([action.payload]),
       };
     case LOAD_NOTE:
       return {

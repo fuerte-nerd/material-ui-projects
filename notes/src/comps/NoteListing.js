@@ -34,7 +34,7 @@ const NoteListing = (props) => {
             </Typography>
             <Typography variant="subtitle1" color="textSecondary" gutterBottom>
               {`${moment(create_date).format("D MMMM")} ${
-                create_date.getFullYear() === new Date().getFullYear()
+                new Date(create_date).getFullYear() === new Date().getFullYear()
                   ? ""
                   : create_date.getFullYear()
               }`}
