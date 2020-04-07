@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { toggleViewer } from "../redux/actions";
+import { toggleViewer, updateNote } from "../redux/actions";
 import {
   Dialog,
   Container,
@@ -18,15 +18,26 @@ const dummyBody =
   "Ipsum dolores consequatur hic accusamus possimus? Totam voluptatibus rem excepturi saepe quia, eum iusto? Cupiditate minus repellendus quidem maxime nobis Placeat laborum corrupti dignissimos eum sit! Nisi illo cum omnis nisi repellendus optio? Quia praesentium libero reiciendis non veritatis. Tempora quibusdam eaque enim aut labore? Et dolorum omnis tenetur fugit?\n\nMore text here.";
 
 const NoteViewer = (props) => {
-  const [test, setTest] = useState("");
+  const {
+    id,
+    title,
+    body,
+    create_date,
+    modified_date,
+    locked,
+  } = props.noteLoaded;
 
   const handleBackClick = () => {
     props.dispatch(toggleViewer());
   };
 
-  const handleBodyChange = (e) => {
-    setTest(e.target.value);
-    console.log(test);
+  const handleChange = (e) => {
+    props.dispatch(
+      updateNote({
+        ...props.noteLoaded,
+        [e.target.id]: e.target.value,
+      })
+    );
   };
 
   return props.noteLoaded ? (
@@ -54,17 +65,18 @@ const NoteViewer = (props) => {
             disableUnderline: true,
             style: { fontSize: "6rem", fontWeight: 300 },
           }}
-          value={props.noteLoaded.title}
+          onChange={handleChange}
+          value={title}
         />
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-          {moment(props.noteLoaded.create_date).format("D MMM")}
+          {moment(create_date).format("D MMM")}
         </Typography>
         <TextField
           fullWidth
           multiline
           id="body"
-          value={props.noteLoaded.body}
-          onChange={handleBodyChange}
+          value={body}
+          onChange={handleChange}
           InputProps={{
             disableUnderline: true,
             style: { fontSize: "1rem", fontWeight: 400, lineHeight: 1.5 },
