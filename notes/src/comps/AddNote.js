@@ -1,12 +1,23 @@
 import React from "react";
 import { toggleViewer, addNote } from "../redux/actions";
 import { Fab } from "@material-ui/core";
-
+import uniqId from "uniqid";
 import { Edit } from "@material-ui/icons";
 
 const AddNote = (props) => {
   const handleClick = () => {
-    props.dispatch(addNote());
+    const newId = uniqId();
+    props.dispatch(
+      addNote({
+        id: newId,
+        title: "",
+        body: "",
+        create_date: new Date(),
+        modified_date: new Date(),
+        locked: false,
+      })
+    );
+    props.dispatch(loadNote(newId));
     props.dispatch(toggleViewer());
   };
 
