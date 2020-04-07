@@ -28,21 +28,6 @@ const NoteViewer = (props) => {
     );
   };
 
-  useEffect(() => {
-    if (props.noteLoaded) {
-      const {
-        title,
-        body,
-        create_date,
-        modified_date,
-        locked,
-        id,
-      } = props.notes.filter((i) => {
-        return props.noteLoaded.id === i.id ? i : null;
-      })[0];
-    }
-  }, [props.notes]);
-
   return props.noteLoaded ? (
     <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
       <AppBar>
@@ -69,7 +54,11 @@ const NoteViewer = (props) => {
             style: { fontSize: "6rem", fontWeight: 300 },
           }}
           onChange={handleChange}
-          value={props.noteLoaded.title}
+          value={
+            props.notes.filter((i) => {
+              return i.id === props.noteLoaded ? i.title : null;
+            })[0]
+          }
         />
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
           {moment(props.noteLoaded.create_date).format("D MMM")}
@@ -78,7 +67,11 @@ const NoteViewer = (props) => {
           fullWidth
           multiline
           id="body"
-          value={props.noteLoaded.body}
+          value={
+            props.notes.filter((i) => {
+              return i.id === props.noteLoaded ? i.title : null;
+            })[0]
+          }
           onChange={handleChange}
           InputProps={{
             disableUnderline: true,
