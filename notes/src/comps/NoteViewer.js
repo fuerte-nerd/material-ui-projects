@@ -69,7 +69,7 @@ const NoteViewer = (props) => {
           id="body"
           value={
             props.notes.filter((i) => {
-              return i.id === props.noteLoaded ? i.title : null;
+              return i.id === props.noteLoaded ? i.body : null;
             })[0]
           }
           onChange={handleChange}
