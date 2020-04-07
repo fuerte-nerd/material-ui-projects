@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { loadNotes } from "./redux/actions";
 import "./App.css";
 import Header from "./comps/Header";
 import Main from "./comps/Main";
@@ -12,6 +13,11 @@ function App(props) {
       props.dispatch(loadNotes());
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("daves_notes_app", JSON.stringify(props.notes));
+  }, [props.notes]);
+
   return (
     <>
       <Header />

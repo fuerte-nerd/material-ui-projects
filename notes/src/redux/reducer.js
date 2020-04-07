@@ -2,7 +2,7 @@ import {
   ADD_NOTE,
   TOGGLE_VIEWER,
   LOAD_NOTE,
-  LOAD_NOTE,
+  LOAD_NOTES,
   UPDATE_NOTE,
   DELETE_NOTE,
 } from "./types";
@@ -15,6 +15,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case LOAD_NOTES:
+      return {
+        ...state,
+        notes: action.payload,
+      };
     case ADD_NOTE:
       return {
         ...state,
