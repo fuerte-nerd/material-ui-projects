@@ -1,11 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
+import { addNote, loadNote, toggleViewer } from "../redux/actions";
 import NoteListing from "./NoteListing";
 import { Box, Grid, Container, Typography, Button } from "@material-ui/core";
+
+import uniqId from "uniqid";
 
 import dummyData from "../dummyData";
 
 const NoteListings = (props) => {
+  const handleClick = () => {
+    const newId = uniqId();
+    props.dispatch(
+      addNote({
+        id: newId,
+        title: "",
+        body: "",
+        locked: false,
+        create_date: new Date(),
+        modified_date: new Date(),
+      })
+    );
+    props.dispatch(loadNote(newId));
+    props.dispatch(toggleViewer());
+  };
   return (
     <Container>
       {props.notes && props.notes.length > 1 ? (
@@ -20,7 +38,7 @@ const NoteListings = (props) => {
         <Box align="center" p={5}>
           <Typography>You don't have any notes yet...</Typography>
           <Box m={1}>
-            <Button color="secondary" variant="contained">
+            <Button color="secondary" variant="contained" onClick={handleClick}>
               Add Note
             </Button>
           </Box>
