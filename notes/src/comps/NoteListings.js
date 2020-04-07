@@ -17,7 +17,9 @@ const NoteListings = (props) => {
           );
         })
       ) : (
-        <Typography p={6}>You don't have any notes yet...</Typography>
+        <Typography p={6} align="center" border={1}>
+          You don't have any notes yet...
+        </Typography>
       )}
     </Container>
   );
