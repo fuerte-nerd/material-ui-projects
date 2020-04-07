@@ -22,7 +22,9 @@ const NoteListing = (props) => {
 
   const handlePrimaryClick = () => {
     props.dispatch(loadNote(id));
-    props.dispatch(toggleViewer());
+    setTimeout(() => {
+      props.dispatch(toggleViewer());
+    }, 3000);
   };
 
   return (
