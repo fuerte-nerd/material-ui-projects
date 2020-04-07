@@ -30,7 +30,7 @@ const NoteListings = (props) => {
         props.notes.map((i) => {
           return (
             <Grid container spacing={4}>
-              <NoteListing id={i.id} />
+              <NoteListing data={i} />
             </Grid>
           );
         })
