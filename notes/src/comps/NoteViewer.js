@@ -23,7 +23,10 @@ const NoteViewer = (props) => {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.getAttribute("id"));
+    const test = {
+      [e.target.getAttribute("id")]: e.target.value,
+    };
+    console.log(test);
     props.dispatch(
       updateNote({
         ...props.noteLoaded,
