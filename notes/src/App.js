@@ -10,7 +10,9 @@ import AddNote from "./comps/AddNote";
 function App(props) {
   useEffect(() => {
     if (localStorage.getItem("daves_notes_app")) {
-      props.dispatch(loadNotes());
+      props.dispatch(
+        loadNotes(JSON.parse(localStorage.getItem("daves_notes_app")))
+      );
     }
   }, []);
 
