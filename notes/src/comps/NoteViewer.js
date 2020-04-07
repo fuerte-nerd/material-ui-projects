@@ -29,7 +29,7 @@ const NoteViewer = (props) => {
     console.log(test);
   };
 
-  return (
+  return props.noteLoaded ? (
     <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
       <AppBar>
         <Toolbar>
@@ -72,7 +72,7 @@ const NoteViewer = (props) => {
         />
       </Container>
     </Dialog>
-  );
+  ) : null;
 };
 const mapStateToProps = (state) => ({
   isOpen: state.isViewerOpen,
