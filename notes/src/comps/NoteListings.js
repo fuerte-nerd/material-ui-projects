@@ -26,7 +26,7 @@ const NoteListings = (props) => {
   };
   return (
     <Container>
-      {props.notes && props.notes.length > 1 ? (
+      {props.notes && props.notes.length > 0 ? (
         props.notes.map((i) => {
           return (
             <Grid container spacing={4}>

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleViewer, loadNote } from "../redux/actions";
+import { toggleViewer, loadNote, deleteNote } from "../redux/actions";
 import {
   Card,
   CardActions,
@@ -25,6 +25,10 @@ const NoteListing = (props) => {
     props.dispatch(toggleViewer());
   };
 
+  const handleDeleteClick = () => {
+    props.dispatch(deleteNote(id));
+  };
+
   return (
     <Grid item xs={12} md={6}>
       <Card>
@@ -47,7 +51,9 @@ const NoteListing = (props) => {
           <Button color="primary" onClick={handlePrimaryClick}>
             View / Edit
           </Button>
-          <Button color="secondary">Delete</Button>
+          <Button color="secondary" onClick={handleDeleteClick}>
+            Delete
+          </Button>
         </CardActions>
       </Card>
     </Grid>
