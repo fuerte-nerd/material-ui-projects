@@ -43,6 +43,18 @@ const NoteViewer = (props) => {
     props.dispatch(deleteNote(idToDelete));
   };
 
+  const handleLockClick = () => {
+    const currentNote = props.notes.filter((i) => {
+      return props.noteLoaded.id === i.id ? i : null;
+    })[0];
+    props.dispatch(
+      updateNote({
+        ...currentNote,
+        locked: !currentNote.locked,
+      })
+    );
+  };
+
   useEffect(() => {
     if (!props.isOpen) {
       props.dispatch(loadNote(null));
@@ -59,7 +71,13 @@ const NoteViewer = (props) => {
           <Typography onClick={handleBackClick}>Back to main menu</Typography>
           <span style={{ flex: 1 }} />
           <IconButton color="inherit">
-            <LockOpen />
+            {props.notes.filter((i) => {
+              return i.id === props.noteLoaded.id ? i : null;
+            })[0].locked ? (
+              <Lock />
+            ) : (
+              <LockOpen />
+            )}
           </IconButton>
           <IconButton color="inherit" i edge="end">
             <Delete onClick={handleDeleteClick} />
