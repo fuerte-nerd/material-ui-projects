@@ -36,6 +36,9 @@ export default (state = initialState, action) => {
     case DELETE_NOTE:
       return {
         ...state,
+        notes: state.notes.filter((i) => {
+          return i.id !== action.payload ? i : null;
+        }),
       };
     case UPDATE_NOTE:
       return {

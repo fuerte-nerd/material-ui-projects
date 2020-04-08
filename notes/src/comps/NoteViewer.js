@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleViewer, updateNote } from "../redux/actions";
+import { toggleViewer, updateNote, deleteNote } from "../redux/actions";
 import {
   Dialog,
   Container,
@@ -28,6 +28,11 @@ const NoteViewer = (props) => {
     );
   };
 
+  const handleDeleteClick = () => {
+    props.dispatch(deleteNote(props.noteLoaded.id));
+    props.dispatch(toggleViewer());
+  };
+
   return props.noteLoaded ? (
     <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
       <AppBar>
@@ -41,7 +46,7 @@ const NoteViewer = (props) => {
             <LockOpen />
           </IconButton>
           <IconButton color="inherit" i edge="end">
-            <Delete />
+            <Delete onClick={handleDeleteClick} />
           </IconButton>
         </Toolbar>
       </AppBar>
