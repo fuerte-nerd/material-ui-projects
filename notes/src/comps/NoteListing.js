@@ -62,6 +62,7 @@ const NoteListing = (props) => {
                   : props.data.create_date.getFullYear()
               } ${moment(props.data.create_date).format("HH:mm")}`}
             </Typography>
+            {` `}
             <Typography
               variant="caption"
               color="textSecondary"
@@ -74,7 +75,9 @@ const NoteListing = (props) => {
               ) : null}
             </Typography>
             <Divider />
-            <Typography variant="body1">{excerpt()}</Typography>
+            <Box mt={2}>
+              <Typography variant="body1">{excerpt()}</Typography>
+            </Box>
           </CardContent>
         </CardActionArea>
         <Divider />
