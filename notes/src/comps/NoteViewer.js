@@ -25,9 +25,12 @@ const NoteViewer = (props) => {
   };
 
   const handleChange = (e) => {
+    const currentNote = props.notes.filter((i) => {
+      return props.noteLoaded.id === i.id ? i : null;
+    })[0];
     props.dispatch(
       updateNote({
-        ...props.noteLoaded,
+        ...currentNote,
         [e.target.getAttribute("id")]: e.target.value,
       })
     );
