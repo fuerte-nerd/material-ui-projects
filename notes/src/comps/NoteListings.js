@@ -17,7 +17,7 @@ const NoteListings = (props) => {
       <Grid container spacing={4}>
         {props.notes && props.notes.length > 0 ? (
           props.notes.map((i) => {
-            return <NoteListing data={i} />;
+            return <NoteListing key={i.id} data={i} />;
           })
         ) : (
           <Box align="center" width="1" p={5}>
