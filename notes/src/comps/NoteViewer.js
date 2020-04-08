@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   toggleViewer,
@@ -42,6 +42,12 @@ const NoteViewer = (props) => {
     props.dispatch(loadNote(null));
     props.dispatch(deleteNote(idToDelete));
   };
+
+  useEffect(() => {
+    if (!props.isOpen) {
+      props.dispatch(loadNote(null));
+    }
+  }, [props.isOpen]);
 
   return props.noteLoaded ? (
     <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
