@@ -97,6 +97,7 @@ const NoteViewer = (props) => {
       <Container style={{ marginTop: "6rem" }}>
         <TextField
           fullWidth
+          multiline
           id="title"
           autoFocus
           InputProps={{
@@ -106,7 +107,7 @@ const NoteViewer = (props) => {
               })[0].title.length === 0
                 ? false
                 : true,
-            style: { fontSize: "6rem", fontWeight: 300 },
+            style: { fontSize: "3rem", fontWeight: 300 },
           }}
           onChange={handleChange}
           value={
