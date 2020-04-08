@@ -10,10 +10,13 @@ import AddNote from "./comps/AddNote";
 function App(props) {
   useEffect(() => {
     if (localStorage.getItem("daves_notes_app")) {
-      props.dispatch(
-        loadNotes(JSON.parse(localStorage.getItem("daves_notes_app")))
-      );
+      const notes = JSON.parse(localStorage.getItem("daves_notes_app"));
+      const notesToLoad = notes.filter((i) => {
+        return i.title.length > 0 && i.body.length > 0 ? i : null;
+      });
+      props.dispatch(loadNotes(notesToLoad));
     }
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {

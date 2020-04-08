@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { addNote, loadNote, deleteNote, toggleViewer } from "../redux/actions";
 import newNoteConfig from "./newNoteConfig";
@@ -13,14 +13,6 @@ const NoteListings = (props) => {
     props.dispatch(toggleViewer());
   };
 
-  useEffect(() => {
-    props.notes.map((i) => {
-      if (i.title.length === 0 && i.body.length === 0) {
-        props.dispatch(deleteNote(i.id));
-      }
-      return;
-    });
-  }, [props.notes]);
   return (
     <Container>
       <Grid container spacing={4}>
