@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import {
   toggleViewer,
@@ -20,7 +20,7 @@ import newNoteConfig from "./newNoteConfig";
 import moment from "moment";
 
 const NoteViewer = (props) => {
-  let noteDisplayed = newNoteConfig();
+  const [currentNoteState, setCurrentNoteState] = useState(newNoteConfig());
 
   const handleBackClick = () => {
     props.dispatch(toggleViewer());
@@ -75,9 +75,11 @@ const NoteViewer = (props) => {
 
   useEffect(() => {
     if (props.noteLoaded) {
-      noteDisplayed = props.notes.filter((i) => {
-        return props.noteLoaded.id === i.id ? i : null;
-      })[0];
+      setCurrentNoteState(
+        props.notes.filter((i) => {
+          return props.noteLoaded.id === i.id ? i : null;
+        })[0]
+      );
     }
   }, [props.notes]);
 
@@ -91,7 +93,7 @@ const NoteViewer = (props) => {
           <Typography onClick={handleBackClick}>Back to main menu</Typography>
           <span style={{ flex: 1 }} />
           <IconButton color="inherit" onClick={handleLockClick}>
-            {noteDisplayed.locked ? <Lock /> : <LockOpen />}
+            {currentNoteState.locked ? <Lock /> : <LockOpen />}
           </IconButton>
           <IconButton color="inherit" onClick={handleDeleteClick} edge="end">
             <Delete />
