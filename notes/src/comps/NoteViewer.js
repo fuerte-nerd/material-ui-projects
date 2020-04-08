@@ -98,6 +98,7 @@ const NoteViewer = (props) => {
         <TextField
           fullWidth
           id="title"
+          autoFocus
           InputProps={{
             disableUnderline:
               props.notes.filter((i) => {
