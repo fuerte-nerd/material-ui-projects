@@ -13,7 +13,6 @@ function App(props) {
       props.dispatch(
         loadNotes(JSON.parse(localStorage.getItem("daves_notes_app")))
       );
-      console.log(props.notes);
       props.notes.map((i) => {
         console.log(i.title.length);
         console.log(i.body.length);
@@ -27,6 +26,7 @@ function App(props) {
 
   useEffect(() => {
     localStorage.setItem("daves_notes_app", JSON.stringify(props.notes));
+    console.log("triggered");
   }, [props.notes]);
 
   return (
