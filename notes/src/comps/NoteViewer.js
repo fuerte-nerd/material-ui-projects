@@ -1,6 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleViewer, updateNote, deleteNote } from "../redux/actions";
+import {
+  toggleViewer,
+  updateNote,
+  deleteNote,
+  loadNote,
+} from "../redux/actions";
 import {
   Dialog,
   Container,
@@ -29,8 +34,10 @@ const NoteViewer = (props) => {
   };
 
   const handleDeleteClick = () => {
-    props.dispatch(deleteNote(props.noteLoaded.id));
+    const idToDelete = props.noteLoaded.id;
     props.dispatch(toggleViewer());
+    props.dispatch(loadNote(null));
+    props.dispatch(deleteNote(idToDelete));
   };
 
   return props.noteLoaded ? (
