@@ -14,7 +14,7 @@ import {
 import moment from "moment";
 
 const NoteListing = (props) => {
-  const { id, title, create_date, body } = props.data;
+  const { id, title, create_date, modified_date, body } = props.data;
 
   const excerpt = () => {
     return body.length > 50 ? body.substr(0, 50) + "..." : body;
@@ -43,6 +43,10 @@ const NoteListing = (props) => {
                   ? ""
                   : create_date.getFullYear()
               } ${moment(create_date).format("HH:mm")}`}
+
+              {modified_date ? (
+                <em>(Modified {moment(modified_date).fromNow()})</em>
+              ) : null}
             </Typography>
             <Typography variant="body1">{excerpt()}</Typography>
           </CardContent>
