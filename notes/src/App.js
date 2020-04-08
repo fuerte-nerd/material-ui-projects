@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { loadNotes } from "./redux/actions";
+import { loadNotes, deleteNote } from "./redux/actions";
 import "./App.css";
 import Header from "./comps/Header";
 import Main from "./comps/Main";
@@ -13,6 +13,14 @@ function App(props) {
       props.dispatch(
         loadNotes(JSON.parse(localStorage.getItem("daves_notes_app")))
       );
+
+      props.notes.map((i) => {
+        console.log(i.title.length);
+        console.log(i.body.length);
+        if (i.title.length === 0 && i.body.length === 0) {
+          props.dispatch(deleteNote(i.id));
+        }
+      });
     }
   }, []);
 
