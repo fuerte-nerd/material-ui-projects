@@ -32,7 +32,7 @@ const NoteListings = (props) => {
             return <NoteListing data={i} />;
           })
         ) : (
-          <Box align="center">
+          <Box align="center" width="1" p={5}>
             <Typography>You don't have any notes yet...</Typography>
             <Box m={1}>
               <Button
