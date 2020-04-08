@@ -105,7 +105,7 @@ const NoteViewer = (props) => {
           fullWidth
           multiline
           id="title"
-          {props.noteLoaded.title.length === 0 ? autoFocus : null }
+          autoFocus={props.noteLoaded.title.length === 0 ? true : false}
           InputProps={{
             disableUnderline:
               currentNoteState.title.length === 0 ? false : true,
