@@ -110,7 +110,12 @@ const NoteViewer = (props) => {
           }
         />
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-          {moment(props.noteLoaded.create_date).format("D MMM")}
+          {`${moment(props.noteLoaded.create_date).format("D MMMM")} ${
+            new Date(props.noteLoaded.create_date).getFullYear() ===
+            new Date().getFullYear()
+              ? ""
+              : props.noteLoaded.create_date.getFullYear()
+          } ${moment(props.noteLoaded.create_date).format("HH:mm")}`}
         </Typography>
         <TextField
           fullWidth
