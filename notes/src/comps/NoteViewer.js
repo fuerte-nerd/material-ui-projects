@@ -108,45 +108,28 @@ const NoteViewer = (props) => {
           autoFocus
           InputProps={{
             disableUnderline:
-              props.notes.filter((i) => {
-                return i.id === props.noteLoaded.id ? i : null;
-              })[0].title.length === 0
-                ? false
-                : true,
+              currentNoteState.title.length === 0 ? false : true,
             style: { fontSize: "3rem", fontWeight: 300 },
           }}
           onChange={handleChange}
-          value={
-            props.notes.filter((i) => {
-              return i.id === props.noteLoaded.id ? i : null;
-            })[0].title
-          }
+          value={currentNoteState.title}
         />
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
-          {`${moment(props.noteLoaded.create_date).format("D MMMM")} ${
-            new Date(props.noteLoaded.create_date).getFullYear() ===
+          {`${moment(currentNoteState.create_date).format("D MMMM")} ${
+            new Date(currentNoteState.create_date).getFullYear() ===
             new Date().getFullYear()
               ? ""
-              : props.noteLoaded.create_date.getFullYear()
-          } ${moment(props.noteLoaded.create_date).format("HH:mm")}`}
+              : currentNoteState.create_date.getFullYear()
+          } ${moment(currentNoteState.create_date).format("HH:mm")}`}
         </Typography>
         <TextField
           fullWidth
           multiline
           id="body"
-          value={
-            props.notes.filter((i) => {
-              return i.id === props.noteLoaded.id ? i : null;
-            })[0].body
-          }
+          value={currentNoteState.body}
           onChange={handleChange}
           InputProps={{
-            disableUnderline:
-              props.notes.filter((i) => {
-                return i.id === props.noteLoaded.id ? i : null;
-              })[0].body.length === 0
-                ? false
-                : true,
+            disableUnderline: currentNoteState.body.length === 0 ? false : true,
             style: { fontSize: "1rem", fontWeight: 400, lineHeight: 1.5 },
           }}
         />
