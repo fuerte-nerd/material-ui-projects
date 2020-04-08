@@ -7,7 +7,7 @@ import { Edit } from "@material-ui/icons";
 
 const AddNote = (props) => {
   const handleClick = () => {
-    const newNote = newNoteConfig;
+    const newNote = newNoteConfig();
     props.dispatch(addNote(newNote));
     props.dispatch(loadNote(newNote.id));
     props.dispatch(toggleViewer());

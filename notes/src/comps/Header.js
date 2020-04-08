@@ -26,7 +26,7 @@ const Header = (props) => {
 
   const handleNewNoteClick = () => {
     setAnchor(null);
-    const newNote = newNoteConfig;
+    const newNote = newNoteConfig();
     props.dispatch(addNote(newNote));
     props.dispatch(loadNote(newNote.id));
     props.dispatch(toggleViewer());
