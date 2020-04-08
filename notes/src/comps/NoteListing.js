@@ -37,13 +37,14 @@ const NoteListing = (props) => {
             <Typography variant="h4" variantMapping={{ h4: "h2" }}>
               {title}
             </Typography>
-            <Typography variant="subtitle1" color="textSecondary" gutterBottom>
+            <Typography variant="subtitle1" color="textSecondary">
               {`${moment(create_date).format("D MMMM")} ${
                 new Date(create_date).getFullYear() === new Date().getFullYear()
                   ? ""
                   : create_date.getFullYear()
               } ${moment(create_date).format("HH:mm")}`}
-
+            </Typography>
+            <Typography variant="caption" color="textSecondary">
               {modified_date ? (
                 <em>(Modified {moment(modified_date).fromNow()})</em>
               ) : null}
