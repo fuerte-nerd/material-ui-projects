@@ -71,6 +71,7 @@ const NoteViewer = (props) => {
         props.dispatch(deleteNote(currentId));
       }
     }
+    // eslint-disable-next-line
   }, [props.isOpen]);
 
   useEffect(() => {
@@ -81,6 +82,7 @@ const NoteViewer = (props) => {
         })[0]
       );
     }
+    // eslint-disable-next-line
   }, [props.notes, props.isOpen]);
 
   return props.noteLoaded ? (
@@ -104,6 +106,7 @@ const NoteViewer = (props) => {
         <TextField
           fullWidth
           multiline
+          placeholder="Title"
           id="title"
           autoFocus={props.noteLoaded.title.length === 0 ? true : false}
           InputProps={{
@@ -125,6 +128,7 @@ const NoteViewer = (props) => {
         <TextField
           fullWidth
           multiline
+          placeholder="Write your note here..."
           id="body"
           value={currentNoteState.body}
           onChange={handleChange}

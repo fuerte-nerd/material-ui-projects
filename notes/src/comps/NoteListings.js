@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addNote, loadNote, deleteNote, toggleViewer } from "../redux/actions";
+import { addNote, loadNote, toggleViewer } from "../redux/actions";
 import newNoteConfig from "./newNoteConfig";
 import NoteListing from "./NoteListing";
 import { Box, Grid, Container, Typography, Button } from "@material-ui/core";

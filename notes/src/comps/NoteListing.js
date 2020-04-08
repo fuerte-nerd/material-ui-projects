@@ -14,7 +14,7 @@ import {
 import moment from "moment";
 
 const NoteListing = (props) => {
-  const { id, title, create_date, modified_date, body } = props.data;
+  const { id, title, create_date, body } = props.data;
 
   const excerpt = () => {
     return body.length > 50 ? body.substr(0, 50) + "..." : body;

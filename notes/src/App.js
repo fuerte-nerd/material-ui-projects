@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { loadNotes, deleteNote } from "./redux/actions";
+import { loadNotes } from "./redux/actions";
 import "./App.css";
 import Header from "./comps/Header";
 import Main from "./comps/Main";
