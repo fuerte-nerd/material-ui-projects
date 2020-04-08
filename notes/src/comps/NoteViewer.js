@@ -56,8 +56,8 @@ const NoteViewer = (props) => {
           onChange={handleChange}
           value={
             props.notes.filter((i) => {
-              return i.id === props.noteLoaded.id ? i.title : null;
-            })[0]["title"]
+              return i.id === props.noteLoaded.id ? i : null;
+            })[0].title
           }
         />
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
@@ -69,8 +69,8 @@ const NoteViewer = (props) => {
           id="body"
           value={
             props.notes.filter((i) => {
-              return i.id === props.noteLoaded.id ? i.body : null;
-            })[0]["body"]
+              return i.id === props.noteLoaded.id ? i : null;
+            })[0].body
           }
           onChange={handleChange}
           InputProps={{
