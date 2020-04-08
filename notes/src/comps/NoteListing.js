@@ -8,7 +8,7 @@ import {
   CardContent,
   Button,
   Typography,
-  Grid,
+Dividerm  Grid,
 } from "@material-ui/core";
 
 import moment from "moment";
@@ -54,12 +54,12 @@ const NoteListing = (props) => {
               color="textSecondary"
               display="inline"
             >
-              {`${moment(currentNoteState.create_date).format("D MMMM")} ${
-                new Date(currentNoteState.create_date).getFullYear() ===
+              {`${moment(props.data.create_date).format("D MMMM")} ${
+                new Date(props.data.create_date).getFullYear() ===
                 new Date().getFullYear()
                   ? ""
-                  : currentNoteState.create_date.getFullYear()
-              } ${moment(currentNoteState.create_date).format("HH:mm")}`}
+                  : props.data.create_date.getFullYear()
+              } ${moment(props.data.create_date).format("HH:mm")}`}
             </Typography>
             <Typography
               variant="caption"
