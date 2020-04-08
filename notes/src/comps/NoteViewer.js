@@ -36,6 +36,7 @@ const NoteViewer = (props) => {
         updateNote({
           ...currentNote,
           [e.target.getAttribute("id")]: e.target.value,
+          modified_date: new Date(),
         })
       );
     }
