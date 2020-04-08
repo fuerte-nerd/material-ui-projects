@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { addNote, loadNote, toggleViewer } from "../redux/actions";
+import { addNote, loadNote, deleteNote, toggleViewer } from "../redux/actions";
 import newNoteConfig from "./newNoteConfig";
 import NoteListing from "./NoteListing";
 import { Box, Grid, Container, Typography, Button } from "@material-ui/core";
@@ -12,6 +12,15 @@ const NoteListings = (props) => {
     props.dispatch(loadNote(newNote.id));
     props.dispatch(toggleViewer());
   };
+
+  useEffect(() => {
+    props.notes.map((i) => {
+      if (i.title.length === 0 && i.body.length === 0) {
+        props.dispatch(deleteNote(i.id));
+      }
+      return;
+    });
+  }, [props.notes]);
   return (
     <Container>
       <Grid container spacing={4}>
