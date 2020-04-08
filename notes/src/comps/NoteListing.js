@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { toggleViewer, loadNote, deleteNote } from "../redux/actions";
 import {
@@ -15,13 +15,16 @@ import moment from "moment";
 
 const NoteListing = (props) => {
   const { id, title, create_date, modified_date, body } = props.data;
+  const [currentNoteState, setCurrentNoteState] = useState(props.data);
 
   const excerpt = () => {
-    return body.length > 50 ? body.substr(0, 50) + "..." : body;
+    return currentNoteState.body.length > 50
+      ? currentNoteState.body.substr(0, 50) + "..."
+      : currentNoteState.body;
   };
 
   const handlePrimaryClick = () => {
-    props.dispatch(loadNote(id));
+    props.dispatch(loadNote(props.data.id));
     props.dispatch(toggleViewer());
   };
 
@@ -29,13 +32,21 @@ const NoteListing = (props) => {
     props.dispatch(deleteNote(id));
   };
 
+  useEffect(() => {
+    setCurrentNoteState(
+      props.notes.filter((i) => {
+        return i.id === props.data.id ? i : null;
+      })[0]
+    );
+  }, [props.notes]);
+
   return (
     <Grid item xs={12} md={6}>
       <Card>
         <CardActionArea onClick={handlePrimaryClick}>
           <CardContent>
             <Typography variant="h4" variantMapping={{ h4: "h2" }}>
-              {title}
+              {currentNoteState.title}
             </Typography>
             {` `}
             <Typography
@@ -43,19 +54,22 @@ const NoteListing = (props) => {
               color="textSecondary"
               display="inline"
             >
-              {`${moment(create_date).format("D MMMM")} ${
-                new Date(create_date).getFullYear() === new Date().getFullYear()
+              {`${moment(currentNoteState.create_date).format("D MMMM")} ${
+                new Date(currentNoteState.create_date).getFullYear() ===
+                new Date().getFullYear()
                   ? ""
-                  : create_date.getFullYear()
-              } ${moment(create_date).format("HH:mm")}`}
+                  : currentNoteState.create_date.getFullYear()
+              } ${moment(currentNoteState.create_date).format("HH:mm")}`}
             </Typography>
             <Typography
               variant="caption"
               color="textSecondary"
               display="inline"
             >
-              {modified_date ? (
-                <em>(Modified {moment(modified_date).fromNow()})</em>
+              {currentNoteState.modified_date ? (
+                <em>
+                  (Modified {moment(currentNoteState.modified_date).fromNow()})
+                </em>
               ) : null}
             </Typography>
             <Typography variant="body1">{excerpt()}</Typography>
@@ -74,4 +88,8 @@ const NoteListing = (props) => {
   );
 };
 
-export default connect()(NoteListing);
+const mapStateToProps = (state) => ({
+  notes: state.notes,
+});
+
+export default connect(mapStateToProps)(NoteListing);
