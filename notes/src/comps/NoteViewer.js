@@ -16,10 +16,12 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ArrowBack, LockOpen, Lock, Delete } from "@material-ui/icons";
-
+import newNoteConfig from "./newNoteConfig";
 import moment from "moment";
 
 const NoteViewer = (props) => {
+  let noteDisplayed = newNoteConfig();
+
   const handleBackClick = () => {
     props.dispatch(toggleViewer());
   };
@@ -71,6 +73,14 @@ const NoteViewer = (props) => {
     }
   }, [props.isOpen]);
 
+  useEffect(() => {
+    if (props.noteLoaded) {
+      noteDisplayed = props.notes.filter((i) => {
+        return props.noteLoaded.id === i.id ? i : null;
+      })[0];
+    }
+  }, [props.notes]);
+
   return props.noteLoaded ? (
     <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
       <AppBar>
@@ -81,13 +91,7 @@ const NoteViewer = (props) => {
           <Typography onClick={handleBackClick}>Back to main menu</Typography>
           <span style={{ flex: 1 }} />
           <IconButton color="inherit" onClick={handleLockClick}>
-            {props.notes.filter((i) => {
-              return i.id === props.noteLoaded.id ? i : null;
-            })[0].locked ? (
-              <Lock />
-            ) : (
-              <LockOpen />
-            )}
+            {noteDisplayed.locked ? <Lock /> : <LockOpen />}
           </IconButton>
           <IconButton color="inherit" onClick={handleDeleteClick} edge="end">
             <Delete />
