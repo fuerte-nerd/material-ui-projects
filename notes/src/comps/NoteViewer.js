@@ -99,7 +99,12 @@ const NoteViewer = (props) => {
           fullWidth
           id="title"
           InputProps={{
-            disableUnderline: true,
+            disableUnderline:
+              props.notes.filter((i) => {
+                return i.id === props.noteLoaded.id ? i : null;
+              })[0].title.length === 0
+                ? false
+                : true,
             style: { fontSize: "6rem", fontWeight: 300 },
           }}
           onChange={handleChange}
