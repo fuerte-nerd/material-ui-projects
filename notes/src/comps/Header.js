@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addNote, loadNote, toggleViewer } from "../redux/actions";
+import newNoteConfig from "./newNoteConfig";
 import {
   Container,
   IconButton,
@@ -10,7 +13,7 @@ import {
 } from "@material-ui/core";
 import { MoreVert } from "@material-ui/icons";
 
-const Header = () => {
+const Header = (props) => {
   const [anchor, setAnchor] = useState(false);
 
   const handleClick = (e) => {
@@ -19,6 +22,14 @@ const Header = () => {
 
   const handleClose = () => {
     setAnchor(null);
+  };
+
+  const handleNewNoteClick = () => {
+    setAnchor(null);
+    const newNote = newNoteConfig;
+    props.dispatch(addNote(newNote));
+    props.dispatch(loadNote(newNote.id));
+    props.dispatch(toggleViewer());
   };
 
   return (
@@ -41,7 +52,7 @@ const Header = () => {
             open={Boolean(anchor)}
             onClose={handleClose}
           >
-            <MenuItem>New note</MenuItem>
+            <MenuItem onClick={handleNewNoteClick}>New note</MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>
@@ -63,4 +74,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default connect()(Header);
