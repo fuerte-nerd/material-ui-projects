@@ -3,14 +3,13 @@ import { connect } from "react-redux";
 import { toggleViewer, addNote, loadNote } from "../redux/actions";
 import newNoteConfig from "./newNoteConfig";
 import { Fab } from "@material-ui/core";
-import uniqId from "uniqid";
 import { Edit } from "@material-ui/icons";
 
 const AddNote = (props) => {
   const handleClick = () => {
-    const newId = uniqId();
-    props.dispatch(addNote(newNoteConfig));
-    props.dispatch(loadNote(newId));
+    const newNote = newNoteConfig;
+    props.dispatch(addNote(newNote));
+    props.dispatch(loadNote(newNote.id));
     props.dispatch(toggleViewer());
   };
 

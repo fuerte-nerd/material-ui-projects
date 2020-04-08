@@ -1,27 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addNote, loadNote, toggleViewer } from "../redux/actions";
+import newNoteConfig from "./newNoteConfig";
 import NoteListing from "./NoteListing";
 import { Box, Grid, Container, Typography, Button } from "@material-ui/core";
 
-import uniqId from "uniqid";
-
-import dummyData from "../dummyData";
-
 const NoteListings = (props) => {
   const handleClick = () => {
-    const newId = uniqId();
-    props.dispatch(
-      addNote({
-        id: newId,
-        title: "",
-        body: "",
-        locked: false,
-        create_date: new Date(),
-        modified_date: new Date(),
-      })
-    );
-    props.dispatch(loadNote(newId));
+    const newNote = newNoteConfig;
+    props.dispatch(addNote(newNote));
+    props.dispatch(loadNote(newNote.id));
     props.dispatch(toggleViewer());
   };
   return (
