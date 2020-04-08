@@ -59,8 +59,15 @@ const NoteViewer = (props) => {
   };
 
   useEffect(() => {
-    if (!props.isOpen) {
+    if (!props.isOpen && props.noteLoaded) {
+      const currentId = props.noteLoaded.id;
       props.dispatch(loadNote(null));
+      const currentNote = props.notes.filter((i) => {
+        return currentId === i.id ? i : null;
+      })[0];
+      if (currentNote.title.length === 0 && currentNote.body.length === 0) {
+        props.dispatch(deleteNote(currentId));
+      }
     }
   }, [props.isOpen]);
 

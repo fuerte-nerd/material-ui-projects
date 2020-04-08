@@ -42,7 +42,7 @@ const NoteListing = (props) => {
                 new Date(create_date).getFullYear() === new Date().getFullYear()
                   ? ""
                   : create_date.getFullYear()
-              }`}
+              } ${moment(create_date).format("HH:mm")}`}
             </Typography>
             <Typography variant="body1">{excerpt()}</Typography>
           </CardContent>
