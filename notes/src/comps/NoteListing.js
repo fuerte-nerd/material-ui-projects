@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { toggleViewer, loadNote, deleteNote } from "../redux/actions";
 import {
+  Box,
   Card,
   CardActions,
   CardActionArea,
   CardContent,
   Button,
   Typography,
-Dividerm  Grid,
+  Divider,
+  Grid,
 } from "@material-ui/core";
 
 import moment from "moment";
@@ -48,7 +50,6 @@ const NoteListing = (props) => {
             <Typography variant="h4" variantMapping={{ h4: "h2" }}>
               {currentNoteState.title}
             </Typography>
-            {` `}
             <Typography
               variant="caption"
               color="textSecondary"
@@ -72,9 +73,11 @@ const NoteListing = (props) => {
                 </em>
               ) : null}
             </Typography>
+            <Divider />
             <Typography variant="body1">{excerpt()}</Typography>
           </CardContent>
         </CardActionArea>
+        <Divider />
         <CardActions>
           <Button color="primary" onClick={handlePrimaryClick}>
             View / Edit
