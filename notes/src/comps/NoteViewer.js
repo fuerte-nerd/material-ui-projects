@@ -81,7 +81,7 @@ const NoteViewer = (props) => {
         })[0]
       );
     }
-  }, [props.notes]);
+  }, [props.notes, props.isOpen]);
 
   return props.noteLoaded ? (
     <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
