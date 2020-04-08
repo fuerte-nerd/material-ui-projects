@@ -28,12 +28,15 @@ const NoteViewer = (props) => {
     const currentNote = props.notes.filter((i) => {
       return props.noteLoaded.id === i.id ? i : null;
     })[0];
-    props.dispatch(
-      updateNote({
-        ...currentNote,
-        [e.target.getAttribute("id")]: e.target.value,
-      })
-    );
+
+    if (!currentNote.locked) {
+      props.dispatch(
+        updateNote({
+          ...currentNote,
+          [e.target.getAttribute("id")]: e.target.value,
+        })
+      );
+    }
   };
 
   const handleDeleteClick = () => {
@@ -70,7 +73,7 @@ const NoteViewer = (props) => {
           </IconButton>
           <Typography onClick={handleBackClick}>Back to main menu</Typography>
           <span style={{ flex: 1 }} />
-          <IconButton color="inherit">
+          <IconButton color="inherit" onClick={handleLockClick}>
             {props.notes.filter((i) => {
               return i.id === props.noteLoaded.id ? i : null;
             })[0].locked ? (
@@ -79,8 +82,8 @@ const NoteViewer = (props) => {
               <LockOpen />
             )}
           </IconButton>
-          <IconButton color="inherit" i edge="end">
-            <Delete onClick={handleDeleteClick} />
+          <IconButton color="inherit" onClick={handleDeleteClick} edge="end">
+            <Delete />
           </IconButton>
         </Toolbar>
       </AppBar>
