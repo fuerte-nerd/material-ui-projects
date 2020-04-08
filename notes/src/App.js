@@ -13,13 +13,14 @@ function App(props) {
       props.dispatch(
         loadNotes(JSON.parse(localStorage.getItem("daves_notes_app")))
       );
-
+      console.log(props.notes);
       props.notes.map((i) => {
         console.log(i.title.length);
         console.log(i.body.length);
         if (i.title.length === 0 && i.body.length === 0) {
           props.dispatch(deleteNote(i.id));
         }
+        return;
       });
     }
   }, []);
