@@ -26,24 +26,26 @@ const NoteListings = (props) => {
   };
   return (
     <Container>
-      {props.notes && props.notes.length > 0 ? (
-        props.notes.map((i) => {
-          return (
-            <Grid container spacing={4}>
-              <NoteListing data={i} />
-            </Grid>
-          );
-        })
-      ) : (
-        <Box align="center" p={5}>
-          <Typography>You don't have any notes yet...</Typography>
-          <Box m={1}>
-            <Button color="secondary" variant="contained" onClick={handleClick}>
-              Add Note
-            </Button>
+      <Grid container spacing={4}>
+        {props.notes && props.notes.length > 0 ? (
+          props.notes.map((i) => {
+            return <NoteListing data={i} />;
+          })
+        ) : (
+          <Box align="center" p={5}>
+            <Typography>You don't have any notes yet...</Typography>
+            <Box m={1}>
+              <Button
+                color="secondary"
+                variant="contained"
+                onClick={handleClick}
+              >
+                Add Note
+              </Button>
+            </Box>
           </Box>
-        </Box>
-      )}
+        )}
+      </Grid>
     </Container>
   );
 };
