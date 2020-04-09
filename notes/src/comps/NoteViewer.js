@@ -16,7 +16,6 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ArrowBack, LockOpen, Lock, Delete } from "@material-ui/icons";
-import newNoteConfig from "./newNoteConfig";
 import moment from "moment";
 
 const NoteViewer = (props) => {
@@ -38,7 +37,6 @@ const NoteViewer = (props) => {
       props.noteLoaded.body !== fieldValues.body ||
       props.noteLoaded.locked !== fieldValues.locked
     ) {
-      console.log("reached");
       props.dispatch(
         updateNote({
           ...props.noteLoaded,
@@ -52,28 +50,13 @@ const NoteViewer = (props) => {
   };
 
   const handleChange = (e) => {
-    setFieldValues({
-      ...fieldValues,
-      [e.target.getAttribute("id")]: e.target.value,
-    });
-
-    clearTimeout(timer);
-    setTimer(
-      setTimeout(() => {
-        saveCheck();
-      }, 5000)
-    );
-  };
-
-  useEffect(() => {
-    if (props.noteLoaded) {
+    if (!fieldValues.locked) {
       setFieldValues({
-        title: props.noteLoaded.title,
-        body: props.noteLoaded.body,
-        locked: props.noteLoaded.locked,
+        ...fieldValues,
+        [e.target.getAttribute("id")]: e.target.value,
       });
     }
-  }, [props.noteLoaded]);
+  };
 
   const handleDeleteClick = () => {
     const idToDelete = props.noteLoaded.id;
@@ -90,6 +73,16 @@ const NoteViewer = (props) => {
   };
 
   useEffect(() => {
+    if (props.noteLoaded) {
+      setFieldValues({
+        title: props.noteLoaded.title,
+        body: props.noteLoaded.body,
+        locked: props.noteLoaded.locked,
+      });
+    }
+  }, [props.noteLoaded]);
+
+  useEffect(() => {
     if (!props.isOpen && props.noteLoaded) {
       const currentId = props.noteLoaded.id;
       props.dispatch(loadNote(null));
@@ -100,16 +93,16 @@ const NoteViewer = (props) => {
     // eslint-disable-next-line
   }, [props.isOpen]);
 
-  //  useEffect(() => {
-  //if (props.noteLoaded) {
-  //  setCurrentNoteState(
-  //    props.notes.filter((i) => {
-  //      return props.noteLoaded.id === i.id ? i : null;
-  //    })[0]
-  //  );
-  //}
-  // eslint-disable-next-line
-  //}, [props.notes, props.isOpen]);
+  useEffect(() => {
+    if (props.noteLoaded) {
+      clearTimeout(timer);
+      setTimer(
+        setTimeout(() => {
+          saveCheck();
+        }, 5000)
+      );
+    }
+  }, [fieldValues]);
 
   return props.noteLoaded ? (
     <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
