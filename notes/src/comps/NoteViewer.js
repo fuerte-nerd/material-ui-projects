@@ -20,6 +20,7 @@ import newNoteConfig from "./newNoteConfig";
 import moment from "moment";
 
 const NoteViewer = (props) => {
+  const [timer, setTimer] = useState(0);
   const [fieldValues, setFieldValues] = useState({
     title: "",
     body: "",
@@ -74,6 +75,15 @@ const NoteViewer = (props) => {
       ...fieldValues,
       [e.target.getAttribute("id")]: e.target.value,
     });
+
+    clearTimeout();
+
+    setTimer(
+      setTimeout(() => {
+        autoSave();
+      }),
+      5000
+    );
     //const currentNote = props.notes.filter((i) => {
     //  return props.noteLoaded.id === i.id ? i : null;
     //})[0];
