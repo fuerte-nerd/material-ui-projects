@@ -61,6 +61,7 @@ const NoteViewer = (props) => {
   };
   useEffect(() => {
     if (props.isOpen && props.autosave) {
+      console.log(fieldValues);
       setInterval(() => {
         console.log(fieldValues);
         saveCheck();
