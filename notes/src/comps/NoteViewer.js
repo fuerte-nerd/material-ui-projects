@@ -20,6 +20,11 @@ import newNoteConfig from "./newNoteConfig";
 import moment from "moment";
 
 const NoteViewer = (props) => {
+  const [fieldValues, setFieldValues] = useState({
+    title: "",
+    body: "",
+  });
+
   const [currentNoteState, setCurrentNoteState] = useState(newNoteConfig());
 
   const handleBackClick = () => {
@@ -28,19 +33,34 @@ const NoteViewer = (props) => {
   };
 
   const handleChange = (e) => {
+    setFieldValues({
+      ...fieldValues,
+      [e.target.getAttribute("id")]: e.target.value,
+    });
     const currentNote = props.notes.filter((i) => {
       return props.noteLoaded.id === i.id ? i : null;
     })[0];
+
+    const fieldChanged = e.target.getAttribute("id");
 
     if (!currentNote.locked) {
       props.dispatch(
         updateNote({
           ...currentNote,
-          [e.target.getAttribute("id")]: e.target.value,
+          [fieldChanged]: fieldValues.fieldChanged,
         })
       );
     }
   };
+
+  useEffect(() => {
+    if (props.noteLoaded) {
+      setFieldValues({
+        title: props.noteLoaded.title,
+        body: props.noteLoaded.body,
+      });
+    }
+  }, [props.noteLoaded]);
 
   const handleDeleteClick = () => {
     const idToDelete = props.noteLoaded.id;
@@ -109,14 +129,14 @@ const NoteViewer = (props) => {
           multiline
           placeholder="Title"
           id="title"
+          defaultValue={props.noteLoaded.title}
           autoFocus={props.noteLoaded.title.length === 0 ? true : false}
           InputProps={{
-            disableUnderline:
-              currentNoteState.title.length === 0 ? false : true,
+            disableUnderline: fieldValues.title.length === 0 ? false : true,
             style: { fontSize: "3rem", fontWeight: 300 },
           }}
           onChange={handleChange}
-          value={currentNoteState.title}
+          value={fieldValues.title}
         />
         <Typography variant="subtitle1" color="textSecondary" gutterBottom>
           {`${moment(props.noteLoaded.create_date).format("D MMMM")} ${
@@ -131,10 +151,11 @@ const NoteViewer = (props) => {
           multiline
           placeholder="Write your note here..."
           id="body"
-          value={currentNoteState.body}
+          defaultValue={props.noteLoaded.body}
+          value={fieldValues.body}
           onChange={handleChange}
           InputProps={{
-            disableUnderline: currentNoteState.body.length === 0 ? false : true,
+            disableUnderline: fieldValues.body.length === 0 ? false : true,
             style: { fontSize: "1rem", fontWeight: 400, lineHeight: 1.5 },
           }}
         />
