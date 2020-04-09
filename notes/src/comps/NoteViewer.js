@@ -35,11 +35,19 @@ const NoteViewer = (props) => {
   };
 
   const saveCheck = () => {
+    console.log(fieldValues);
+    console.log(props.noteLoaded.title);
+    console.log(fieldValues.title);
+    console.log();
+    console.log(props.noteLoaded.body);
+    console.log(fieldValues.body);
+
     if (
       props.noteLoaded.title !== fieldValues.title ||
       props.noteLoaded.body !== fieldValues.body ||
       props.noteLoaded.locked !== fieldValues.locked
     ) {
+      console.log("reached");
       props.dispatch(
         updateNote({
           ...props.noteLoaded,
@@ -54,7 +62,6 @@ const NoteViewer = (props) => {
   useEffect(() => {
     if (props.isOpen && props.autosave) {
       setInterval(() => {
-        console.log("reached");
         saveCheck();
       }, props.autosave_interval);
     }
