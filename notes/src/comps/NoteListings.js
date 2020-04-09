@@ -23,7 +23,7 @@ const NoteListings = (props) => {
 
   return (
     <Container>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} alignItems="center">
         {notes && notes.length > 0 ? (
           notes.map((i) => {
             return <NoteListing key={i.id} data={i} />;

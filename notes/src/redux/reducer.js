@@ -5,31 +5,16 @@ import {
   LOAD_NOTES,
   UPDATE_NOTE,
   DELETE_NOTE,
-  TOGGLE_AUTOSAVE,
-  UPDATE_AUTOSAVE_INTERVAL,
 } from "./types";
 
 const initialState = {
   isViewerOpen: false,
   noteLoaded: null,
   notes: [],
-  autosave: true,
-  autosave_interval: 30000,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_AUTOSAVE:
-      return {
-        ...state,
-        autosave: !state.autosave,
-      };
-
-    case UPDATE_AUTOSAVE_INTERVAL:
-      return {
-        ...state,
-        autosave_interval: action.payload,
-      };
     case LOAD_NOTES:
       return {
         ...state,
