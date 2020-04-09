@@ -166,7 +166,5 @@ const mapStateToProps = (state) => ({
   isOpen: state.isViewerOpen,
   noteLoaded: state.noteLoaded,
   notes: state.notes,
-  autosave: state.autosave,
-  autosave_interval: state.autosave_interval,
 });
 export default connect(mapStateToProps)(NoteViewer);
