@@ -11,7 +11,11 @@ const Footer = () => {
           display="block"
           variant="overline"
         >
-          &copy; 2020 David Andrews
+          &copy; 2020{" "}
+          {new Date().getFullYear() === 2020
+            ? null
+            : ` - ${new Date().getFullYear()} `}
+          David Andrews
         </Typography>
       </Container>{" "}
     </footer>

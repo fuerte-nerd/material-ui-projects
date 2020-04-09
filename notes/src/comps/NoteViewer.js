@@ -27,6 +27,7 @@ const NoteViewer = (props) => {
   });
 
   const handleBackClick = () => {
+    clearTimeout(timer);
     saveCheck();
     props.dispatch(toggleViewer());
   };
