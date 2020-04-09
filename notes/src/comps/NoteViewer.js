@@ -32,9 +32,23 @@ const NoteViewer = (props) => {
     props.dispatch(toggleViewer());
   };
 
-  const autoSave = () => {
-    autoSave;
-  };
+  useEffect(() => {
+    if (props.isOpen && props.autosave) {
+      if (
+        props.noteLoaded.title !== fieldValues.title ||
+        props.noteLoaded.body !== fieldValues.body
+      ) {
+        setInterval(() => {
+          props.dispatch({
+            ...props.noteLoaded,
+            title: fieldValues.title,
+            body: fieldValues.body,
+            modified_date: new Date(),
+          });
+        }, props.autosave_interval);
+      }
+    }
+  }, [props.isOpen]);
 
   const handleChange = (e) => {
     setFieldValues({
@@ -171,5 +185,7 @@ const mapStateToProps = (state) => ({
   isOpen: state.isViewerOpen,
   noteLoaded: state.noteLoaded,
   notes: state.notes,
+  autosave: state.autosave,
+  autosave_interval: state.autosave_interval,
 });
 export default connect(mapStateToProps)(NoteViewer);
