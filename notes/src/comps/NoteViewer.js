@@ -27,22 +27,12 @@ const NoteViewer = (props) => {
     locked: false,
   });
 
-  // const [currentNoteState, setCurrentNoteState] = useState(newNoteConfig());
-
   const handleBackClick = () => {
-    // if title and body have changed, dispatch modified_date first
     saveCheck();
     props.dispatch(toggleViewer());
   };
 
   const saveCheck = () => {
-    console.log(fieldValues);
-    console.log(props.noteLoaded.title);
-    console.log(fieldValues.title);
-    console.log();
-    console.log(props.noteLoaded.body);
-    console.log(fieldValues.body);
-
     if (
       props.noteLoaded.title !== fieldValues.title ||
       props.noteLoaded.body !== fieldValues.body ||
@@ -60,15 +50,6 @@ const NoteViewer = (props) => {
       );
     }
   };
-  // useEffect(() => {
-  // if (props.isOpen && props.autosave) {
-  //    console.log(fieldValues);
-  //    setInterval(() => {
-  //      console.log(fieldValues);
-  //      saveCheck();
-  //   }, props.autosave_interval);
-  //  }
-  // }, [props.isOpen]);
 
   const handleChange = (e) => {
     setFieldValues({
@@ -82,20 +63,6 @@ const NoteViewer = (props) => {
         saveCheck();
       }, 5000)
     );
-    //const currentNote = props.notes.filter((i) => {
-    //  return props.noteLoaded.id === i.id ? i : null;
-    //})[0];
-
-    //const fieldChanged = e.target.getAttribute("id");
-
-    //if (!currentNote.locked) {
-    //  props.dispatch(
-    //    updateNote({
-    //      ...currentNote,
-    //      [fieldChanged]: fieldValues.fieldChanged,
-    //   })
-    // );
-    // }
   };
 
   useEffect(() => {
