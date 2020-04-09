@@ -18,8 +18,12 @@ function App(props) {
         return i.title.length > 0 && i.body.length > 0 ? i : null;
       });
       props.dispatch(loadNotes(notesToLoad));
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
+    } else {
+      setIsLoading(false);
     }
-    setIsLoading(false);
     // eslint-disable-next-line
   }, []);
 
