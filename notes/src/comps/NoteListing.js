@@ -17,12 +17,9 @@ import moment from "moment";
 
 const NoteListing = (props) => {
   const { id, title, create_date, modified_date, body } = props.data;
-  const [currentNoteState, setCurrentNoteState] = useState(props.data);
 
   const excerpt = () => {
-    return currentNoteState.body.length > 50
-      ? currentNoteState.body.substr(0, 50) + "..."
-      : currentNoteState.body;
+    return body.length > 50 ? body.substr(0, 50) + "..." : body;
   };
 
   const handlePrimaryClick = () => {
@@ -34,33 +31,24 @@ const NoteListing = (props) => {
     props.dispatch(deleteNote(id));
   };
 
-  useEffect(() => {
-    setCurrentNoteState(
-      props.notes.filter((i) => {
-        return i.id === props.data.id ? i : null;
-      })[0]
-    );
-  }, [props.notes]);
-
   return (
     <Grid item xs={12} md={6}>
       <Card>
         <CardActionArea onClick={handlePrimaryClick}>
           <CardContent>
             <Typography variant="h4" variantMapping={{ h4: "h2" }}>
-              {currentNoteState.title}
+              {title}
             </Typography>
             <Typography
               variant="caption"
               color="textSecondary"
               display="inline"
             >
-              {`${moment(props.data.create_date).format("D MMMM")} ${
-                new Date(props.data.create_date).getFullYear() ===
-                new Date().getFullYear()
+              {`${moment(create_date).format("D MMMM")} ${
+                new Date(create_date).getFullYear() === new Date().getFullYear()
                   ? ""
-                  : props.data.create_date.getFullYear()
-              } ${moment(props.data.create_date).format("HH:mm")}`}
+                  : create_date.getFullYear()
+              } ${moment(create_date).format("HH:mm")}`}
             </Typography>
             {` `}
             <Typography
@@ -68,10 +56,8 @@ const NoteListing = (props) => {
               color="textSecondary"
               display="inline"
             >
-              {currentNoteState.modified_date ? (
-                <em>
-                  (Modified {moment(currentNoteState.modified_date).fromNow()})
-                </em>
+              {modified_date ? (
+                <em>(Modified {moment(modified_date).fromNow()})</em>
               ) : null}
             </Typography>
             <Divider />

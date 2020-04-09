@@ -23,6 +23,7 @@ const NoteViewer = (props) => {
   const [currentNoteState, setCurrentNoteState] = useState(newNoteConfig());
 
   const handleBackClick = () => {
+    // if title and body have changed, dispatch modified_date first
     props.dispatch(toggleViewer());
   };
 
@@ -36,7 +37,6 @@ const NoteViewer = (props) => {
         updateNote({
           ...currentNote,
           [e.target.getAttribute("id")]: e.target.value,
-          modified_date: new Date(),
         })
       );
     }

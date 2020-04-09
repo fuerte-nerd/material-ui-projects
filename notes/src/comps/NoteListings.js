@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { addNote, loadNote, toggleViewer } from "../redux/actions";
 import newNoteConfig from "./newNoteConfig";
@@ -6,6 +6,14 @@ import NoteListing from "./NoteListing";
 import { Box, Grid, Container, Typography, Button } from "@material-ui/core";
 
 const NoteListings = (props) => {
+  const [notes, setNotes] = useState(null);
+
+  useEffect(() => {
+    if (!props.isOpen) {
+      setNotes(props.notes);
+    }
+  }, [props]);
+
   const handleClick = () => {
     const newNote = newNoteConfig();
     props.dispatch(addNote(newNote));
@@ -16,8 +24,8 @@ const NoteListings = (props) => {
   return (
     <Container>
       <Grid container spacing={4}>
-        {props.notes && props.notes.length > 0 ? (
-          props.notes.map((i) => {
+        {notes && notes.length > 0 ? (
+          notes.map((i) => {
             return <NoteListing key={i.id} data={i} />;
           })
         ) : (
@@ -41,6 +49,7 @@ const NoteListings = (props) => {
 
 const mapStateToProps = (state) => ({
   notes: state.notes,
+  isOpen: state.isViewerOpen,
 });
 
 export default connect(mapStateToProps)(NoteListings);
