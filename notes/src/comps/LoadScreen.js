@@ -1,5 +1,5 @@
 import React from "react";
-import { Dialog } from "@material-ui/core";
+import { Dialog, Box, CircularProgress } from "@material-ui/core";
 const LoadScreen = () => {
   return (
     <Dialog
@@ -8,7 +8,17 @@ const LoadScreen = () => {
       transitionDuration={0}
       disableEscapeKeyDown
       disableBackdropClick
-    ></Dialog>
+    >
+      <Box
+        width="100%"
+        height="100%"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <CircularProgress size={120} />
+      </Box>
+    </Dialog>
   );
 };
 
