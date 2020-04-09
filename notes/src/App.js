@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { loadNotes } from "./redux/actions";
 import "./App.css";
@@ -9,6 +9,8 @@ import AddNote from "./comps/AddNote";
 import LoadScreen from "./comps/LoadScreen";
 
 function App(props) {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     if (localStorage.getItem("daves_notes_app")) {
       const notes = JSON.parse(localStorage.getItem("daves_notes_app"));
@@ -24,8 +26,13 @@ function App(props) {
     localStorage.setItem("daves_notes_app", JSON.stringify(props.notes));
   }, [props.notes]);
 
+  //useEffect(()=>{
+
+  //}, [isLoading])
+
   return (
     <>
+      {isLoading ? <LoadScreen /> : null}
       <Header />
       <Main />
       <Footer />
