@@ -30,6 +30,7 @@ const NoteViewer = (props) => {
 
   const handleBackClick = () => {
     // if title and body have changed, dispatch modified_date first
+    saveCheck();
     props.dispatch(toggleViewer());
   };
 
@@ -39,18 +40,22 @@ const NoteViewer = (props) => {
       props.noteLoaded.body !== fieldValues.body ||
       props.noteLoaded.locked !== fieldValues.locked
     ) {
-      props.dispatch({
-        ...props.noteLoaded,
-        title: fieldValues.title,
-        body: fieldValues.body,
-        locked: fieldValues.locked,
-        modified_date: new Date(),
-      });
+      props.dispatch(
+        updateNote({
+          ...props.noteLoaded,
+          title: fieldValues.title,
+          body: fieldValues.body,
+          locked: fieldValues.locked,
+          modified_date: new Date(),
+        })
+      );
     }
   };
   useEffect(() => {
     if (props.isOpen && props.autosave) {
-      setInterval(() => {}, props.autosave_interval);
+      setInterval(() => {
+        saveCheck();
+      }, props.autosave_interval);
     }
   }, [props.isOpen]);
 
@@ -59,20 +64,20 @@ const NoteViewer = (props) => {
       ...fieldValues,
       [e.target.getAttribute("id")]: e.target.value,
     });
-    const currentNote = props.notes.filter((i) => {
-      return props.noteLoaded.id === i.id ? i : null;
-    })[0];
+    //const currentNote = props.notes.filter((i) => {
+    //  return props.noteLoaded.id === i.id ? i : null;
+    //})[0];
 
-    const fieldChanged = e.target.getAttribute("id");
+    //const fieldChanged = e.target.getAttribute("id");
 
-    if (!currentNote.locked) {
-      props.dispatch(
-        updateNote({
-          ...currentNote,
-          [fieldChanged]: fieldValues.fieldChanged,
-        })
-      );
-    }
+    //if (!currentNote.locked) {
+    //  props.dispatch(
+    //    updateNote({
+    //      ...currentNote,
+    //      [fieldChanged]: fieldValues.fieldChanged,
+    //   })
+    // );
+    // }
   };
 
   useEffect(() => {
@@ -80,6 +85,7 @@ const NoteViewer = (props) => {
       setFieldValues({
         title: props.noteLoaded.title,
         body: props.noteLoaded.body,
+        locked: props.noteLoaded.locked,
       });
     }
   }, [props.noteLoaded]);
@@ -92,41 +98,33 @@ const NoteViewer = (props) => {
   };
 
   const handleLockClick = () => {
-    const currentNote = props.notes.filter((i) => {
-      return props.noteLoaded.id === i.id ? i : null;
-    })[0];
-    props.dispatch(
-      updateNote({
-        ...currentNote,
-        locked: !currentNote.locked,
-      })
-    );
+    setFieldValues({
+      ...fieldValues,
+      locked: !fieldValues.locked,
+    });
   };
 
   useEffect(() => {
     if (!props.isOpen && props.noteLoaded) {
       const currentId = props.noteLoaded.id;
       props.dispatch(loadNote(null));
-      const currentNote = props.notes.filter((i) => {
-        return currentId === i.id ? i : null;
-      })[0];
-      if (currentNote.title.length === 0 && currentNote.body.length === 0) {
+      if (fieldValues.title.length === 0 && fieldValues.body.length === 0) {
         props.dispatch(deleteNote(currentId));
       }
     }
     // eslint-disable-next-line
   }, [props.isOpen]);
 
-  useEffect(() => {
-    if (props.noteLoaded) {
-      setCurrentNoteState(
-        props.notes.filter((i) => {
-          return props.noteLoaded.id === i.id ? i : null;
-        })[0]
-      );
-    }
-    // eslint-disable-next-line
-  }, [props.notes, props.isOpen]);
+  //  useEffect(() => {
+  //if (props.noteLoaded) {
+  //  setCurrentNoteState(
+  //    props.notes.filter((i) => {
+  //      return props.noteLoaded.id === i.id ? i : null;
+  //    })[0]
+  //  );
+  //}
+  // eslint-disable-next-line
+  //}, [props.notes, props.isOpen]);
 
   return props.noteLoaded ? (
     <Dialog open={props.isOpen} fullScreen transitionDuration={500}>
@@ -138,7 +136,7 @@ const NoteViewer = (props) => {
           <Typography onClick={handleBackClick}>Back to main menu</Typography>
           <span style={{ flex: 1 }} />
           <IconButton color="inherit" onClick={handleLockClick}>
-            {currentNoteState.locked ? <Lock /> : <LockOpen />}
+            {fieldValues.locked ? <Lock /> : <LockOpen />}
           </IconButton>
           <IconButton color="inherit" onClick={handleDeleteClick} edge="end">
             <Delete />
