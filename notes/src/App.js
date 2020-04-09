@@ -31,10 +31,6 @@ function App(props) {
     localStorage.setItem("daves_notes_app", JSON.stringify(props.notes));
   }, [props.notes]);
 
-  //useEffect(()=>{
-
-  //}, [isLoading])
-
   return (
     <>
       {isLoading ? <LoadScreen /> : null}
