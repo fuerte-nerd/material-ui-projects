@@ -6,6 +6,7 @@ import Header from "./comps/Header";
 import Main from "./comps/Main";
 import Footer from "./comps/Footer";
 import AddNote from "./comps/AddNote";
+import LoadScreen from "./comps/LoadScreen";
 
 function App(props) {
   useEffect(() => {
