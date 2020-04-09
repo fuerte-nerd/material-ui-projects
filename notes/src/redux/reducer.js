@@ -11,6 +11,8 @@ const initialState = {
   isViewerOpen: false,
   noteLoaded: null,
   notes: [],
+  autosave: true,
+  autosave_interval: 30000,
 };
 
 export default (state = initialState, action) => {

@@ -32,6 +32,10 @@ const NoteViewer = (props) => {
     props.dispatch(toggleViewer());
   };
 
+  const autoSave = () => {
+    autoSave;
+  };
+
   const handleChange = (e) => {
     setFieldValues({
       ...fieldValues,
