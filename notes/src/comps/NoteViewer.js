@@ -60,15 +60,15 @@ const NoteViewer = (props) => {
       );
     }
   };
-  useEffect(() => {
-    if (props.isOpen && props.autosave) {
-      console.log(fieldValues);
-      setInterval(() => {
-        console.log(fieldValues);
-        saveCheck();
-      }, props.autosave_interval);
-    }
-  }, [props.isOpen]);
+  // useEffect(() => {
+  // if (props.isOpen && props.autosave) {
+  //    console.log(fieldValues);
+  //    setInterval(() => {
+  //      console.log(fieldValues);
+  //      saveCheck();
+  //   }, props.autosave_interval);
+  //  }
+  // }, [props.isOpen]);
 
   const handleChange = (e) => {
     setFieldValues({
@@ -76,13 +76,11 @@ const NoteViewer = (props) => {
       [e.target.getAttribute("id")]: e.target.value,
     });
 
-    clearTimeout();
-
+    clearTimeout(timer);
     setTimer(
       setTimeout(() => {
-        autoSave();
-      }),
-      5000
+        saveCheck();
+      }, 5000)
     );
     //const currentNote = props.notes.filter((i) => {
     //  return props.noteLoaded.id === i.id ? i : null;
