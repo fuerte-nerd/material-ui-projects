@@ -23,6 +23,7 @@ const NoteViewer = (props) => {
   const [fieldValues, setFieldValues] = useState({
     title: "",
     body: "",
+    locked: false,
   });
 
   const [currentNoteState, setCurrentNoteState] = useState(newNoteConfig());
@@ -34,19 +35,20 @@ const NoteViewer = (props) => {
 
   useEffect(() => {
     if (props.isOpen && props.autosave) {
-      if (
-        props.noteLoaded.title !== fieldValues.title ||
-        props.noteLoaded.body !== fieldValues.body
-      ) {
-        setInterval(() => {
+      setInterval(() => {
+        if (
+          props.noteLoaded.title !== fieldValues.title ||
+          props.noteLoaded.body !== fieldValues.body ||
+          props.noteLoaded.locked !== fieldValues.locked
+        ) {
           props.dispatch({
             ...props.noteLoaded,
             title: fieldValues.title,
             body: fieldValues.body,
             modified_date: new Date(),
           });
-        }, props.autosave_interval);
-      }
+        }
+      }, props.autosave_interval);
     }
   }, [props.isOpen]);
 
