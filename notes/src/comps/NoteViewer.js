@@ -26,29 +26,31 @@ const NoteViewer = (props) => {
     locked: false,
   });
 
-  const [currentNoteState, setCurrentNoteState] = useState(newNoteConfig());
+  // const [currentNoteState, setCurrentNoteState] = useState(newNoteConfig());
 
   const handleBackClick = () => {
     // if title and body have changed, dispatch modified_date first
     props.dispatch(toggleViewer());
   };
 
+  const saveCheck = () => {
+    if (
+      props.noteLoaded.title !== fieldValues.title ||
+      props.noteLoaded.body !== fieldValues.body ||
+      props.noteLoaded.locked !== fieldValues.locked
+    ) {
+      props.dispatch({
+        ...props.noteLoaded,
+        title: fieldValues.title,
+        body: fieldValues.body,
+        locked: fieldValues.locked,
+        modified_date: new Date(),
+      });
+    }
+  };
   useEffect(() => {
     if (props.isOpen && props.autosave) {
-      setInterval(() => {
-        if (
-          props.noteLoaded.title !== fieldValues.title ||
-          props.noteLoaded.body !== fieldValues.body ||
-          props.noteLoaded.locked !== fieldValues.locked
-        ) {
-          props.dispatch({
-            ...props.noteLoaded,
-            title: fieldValues.title,
-            body: fieldValues.body,
-            modified_date: new Date(),
-          });
-        }
-      }, props.autosave_interval);
+      setInterval(() => {}, props.autosave_interval);
     }
   }, [props.isOpen]);
 
