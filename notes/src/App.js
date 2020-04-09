@@ -19,10 +19,10 @@ function App(props) {
       });
       props.dispatch(loadNotes(notesToLoad));
       setTimeout(() => {
-        setIsLoading(false);
+        // setIsLoading(false);
       }, 500);
     } else {
-      setIsLoading(false);
+      // setIsLoading(false);
     }
     // eslint-disable-next-line
   }, []);

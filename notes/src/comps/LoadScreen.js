@@ -13,11 +13,13 @@ const LoadScreen = () => {
         width="100%"
         height="100%"
         display="flex"
+        flexDirection="column"
         alignItems="center"
         justifyContent="center"
+        pb={3}
       >
         <CircularProgress size={80} />
-        <Box display="block">
+        <Box display="block" pt={1}>
           <Typography>Loading notes...</Typography>
         </Box>
       </Box>
