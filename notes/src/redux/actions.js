@@ -5,7 +5,18 @@ import {
   TOGGLE_VIEWER,
   LOAD_NOTE,
   LOAD_NOTES,
+  TOGGLE_AUTOSAVE,
+  UPDATE_AUTOSAVE_INTERVAL,
 } from "./types";
+
+export const toggleAutosave = () => ({
+  type: TOGGLE_AUTOSAVE,
+});
+
+export const updateAutosaveInterval = (interval) => ({
+  type: UPDATE_AUTOSAVE_INTERVAL,
+  payload: interval,
+});
 
 export const loadNotes = (notes) => ({
   type: LOAD_NOTES,
