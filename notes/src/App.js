@@ -19,6 +19,7 @@ function App(props) {
       });
       props.dispatch(loadNotes(notesToLoad));
     }
+    setIsLoading(false);
     // eslint-disable-next-line
   }, []);
 
