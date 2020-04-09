@@ -12,8 +12,6 @@ function App(props) {
     if (localStorage.getItem("daves_notes_app")) {
       const notes = JSON.parse(localStorage.getItem("daves_notes_app"));
       const notesToLoad = notes.filter((i) => {
-        console.log(i);
-
         return i.title.length > 0 && i.body.length > 0 ? i : null;
       });
       props.dispatch(loadNotes(notesToLoad));

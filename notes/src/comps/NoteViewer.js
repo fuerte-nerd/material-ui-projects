@@ -102,6 +102,7 @@ const NoteViewer = (props) => {
         }, 5000)
       );
     }
+    // eslint-disable-next-line
   }, [fieldValues]);
 
   return props.noteLoaded ? (
