@@ -1,7 +1,7 @@
 import React from "react";
 import { GamesListEntry } from "../Components";
 
-import { Grid, List } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 
 import Data from "../Data";
 
