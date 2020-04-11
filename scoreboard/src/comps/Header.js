@@ -1,14 +1,15 @@
 import React from "react";
 
-import { Box, Typography } from "@material-ui/core";
+import { Button, AppBar, Toolbar, Typography } from "@material-ui/core";
 
 const Header = () => {
   return (
-    <Box p={4}>
-      <Typography variant="h1" align="center">
-        Scoreboard
-      </Typography>
-    </Box>
+    <AppBar>
+      <Toolbar>
+        <Typography style={{ flex: 1 }}>Scoreboard</Typography>
+        <Button>New</Button>
+      </Toolbar>
+    </AppBar>
   );
 };
 
