@@ -9,6 +9,7 @@ import {
   Box,
   TextField,
   Container,
+  Grid,
 } from "@material-ui/core";
 
 const ScoreboardViewer = (props) => {
@@ -26,12 +27,14 @@ const ScoreboardViewer = (props) => {
 
       <Box mt={3}>
         <Container>
-          <TextField
-            fullWidth
-            InputProps={{ style: { fontSize: "4rem", marginBottom: "1rem" } }}
-            placeholder="Title"
-          />
-          <TextField fullWidth placeholder="Description" />
+          <Grid container>
+            <TextField
+              fullWidth
+              InputProps={{ style: { fontSize: "4rem", marginBottom: "3rem" } }}
+              placeholder="Title"
+            />
+            <TextField fullWidth multiline placeholder="Description" />
+          </Grid>
         </Container>
       </Box>
     </Dialog>
