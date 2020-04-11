@@ -119,10 +119,10 @@ const GamesListEntry = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button color="primary" size="small">
+        <Button variant="outlined" color="primary">
           Open
         </Button>
-        <Button color="secondary" size="small">
+        <Button variant="outlined" color="secondary">
           Delete
         </Button>
       </CardActions>
