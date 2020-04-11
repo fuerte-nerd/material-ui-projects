@@ -36,7 +36,7 @@ const GamesListEntry = (props) => {
           <Typography variant="subtitle1" color="textSecondary" gutterBottom>
             {props.gameData.description}
           </Typography>
-          <Alert>
+          <Alert icon={null}>
             {props.gameData.in_progress
               ? `This game is in progress`
               : `This game has finished`}
