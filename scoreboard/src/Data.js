@@ -5,6 +5,7 @@ export default [
     description: "Good golly...this is the very first description!",
     date_created: new Date(2020, 2, 3),
     date_modified: new Date(2020, 2, 10),
+    in_progress: true,
     players: [
       {
         name: "John",
@@ -30,6 +31,7 @@ export default [
     description: "This is the second dummy data game. How exciting!?",
     date_created: new Date(2020, 3, 5),
     date_modified: new Date(2020, 3, 7),
+    in_progress: false,
     players: [
       {
         name: "Dan",
