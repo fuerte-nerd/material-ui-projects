@@ -118,7 +118,11 @@ const GamesListEntry = (props) => {
           </List>
         </CardContent>
       </CardActionArea>
-      <CardActions></CardActions>
+      <CardActions>
+        <Button color="primary" size="small">
+          Open
+        </Button>
+      </CardActions>
     </Card>
   );
 };
