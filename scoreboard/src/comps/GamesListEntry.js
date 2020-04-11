@@ -12,6 +12,7 @@ import {
   ListItemIcon,
 } from "@material-ui/core";
 
+import { CalendarToday } from "@material-ui/icons";
 import Data from "../Data";
 
 const GamesListEntry = (props) => {
@@ -23,11 +24,14 @@ const GamesListEntry = (props) => {
           <Typography variant="subtitle1" color="textSecondary" gutterBottom>
             {props.gameData.description}
           </Typography>
-          <Divider />
           <List>
+            <Divider />
             <ListItem>
-              <ListItemIcon></ListItemIcon>
+              <ListItemIcon edge="start">
+                <CalendarToday />
+              </ListItemIcon>
             </ListItem>
+            <Divider />
           </List>
         </CardContent>
       </CardActionArea>
