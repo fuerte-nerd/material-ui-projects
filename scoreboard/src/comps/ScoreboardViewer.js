@@ -28,12 +28,18 @@ const ScoreboardViewer = (props) => {
       <Box mt={3}>
         <Container>
           <Grid container>
-            <TextField
-              fullWidth
-              InputProps={{ style: { fontSize: "4rem", marginBottom: "3rem" } }}
-              placeholder="Title"
-            />
-            <TextField fullWidth multiline placeholder="Description" />
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                InputProps={{
+                  style: { fontSize: "4rem" },
+                }}
+                placeholder="Title"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField fullWidth multiline placeholder="Description" />
+            </Grid>
           </Grid>
         </Container>
       </Box>
