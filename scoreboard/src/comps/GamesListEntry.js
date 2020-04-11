@@ -14,7 +14,7 @@ import {
   Tooltip,
 } from "@material-ui/core";
 
-import { CalendarToday } from "@material-ui/icons";
+import { CalendarToday, People } from "@material-ui/icons";
 
 import moment from "moment";
 
@@ -43,6 +43,17 @@ const GamesListEntry = (props) => {
                 365
                   ? moment(props.gameData.date_created).format("D MMMM")
                   : moment(props.gameData.date_created).format("D MMMM YYYY")}
+              </ListItemText>
+            </ListItem>
+            <ListItem>
+              <Tooltip title="Date created" placement="left">
+                <ListItemIcon edge="start">
+                  <People />
+                </ListItemIcon>
+              </Tooltip>
+              <ListItemText>
+                {props.gameData.players.length}
+                {` players`}
               </ListItemText>
             </ListItem>
             <Divider />
