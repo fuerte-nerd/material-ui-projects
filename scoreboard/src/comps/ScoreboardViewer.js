@@ -8,6 +8,7 @@ import {
   Typography,
   Box,
   TextField,
+  Container,
 } from "@material-ui/core";
 const ScoreboardViewer = (props) => {
   return (
@@ -21,9 +22,11 @@ const ScoreboardViewer = (props) => {
         </Toolbar>
       </AppBar>
       <Toolbar />
+
       <Box mt={3}>
-        <TextField placeholder="Title" />
-        <Typography>hello</Typography>
+        <Container>
+          <TextField fullWidth placeholder="Title" />
+        </Container>
       </Box>
     </Dialog>
   );
