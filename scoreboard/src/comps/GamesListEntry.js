@@ -122,6 +122,9 @@ const GamesListEntry = (props) => {
         <Button color="primary" size="small">
           Open
         </Button>
+        <Button color="secondary" size="small">
+          Delete
+        </Button>
       </CardActions>
     </Card>
   );
