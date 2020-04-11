@@ -72,9 +72,12 @@ const GamesListEntry = (props) => {
             </ListItem>
             <Divider />
             <ListItem>
-              <Tooltip title="Number of players" placement="left">
+              <Tooltip
+                title={props.gameData.inProgress ? `Current leader` : `Winner`}
+                placement="left"
+              >
                 <ListItemIcon edge="start">
-                  <People />
+                  <EmojiEvents />
                 </ListItemIcon>
               </Tooltip>
               <ListItemText>
