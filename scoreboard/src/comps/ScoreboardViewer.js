@@ -34,9 +34,9 @@ const ScoreboardViewer = (props) => {
     in_progress,
   } = TempData[0];
 
-  const leader = props.gameData.players.reduce((acc, cv) => {
+  const leader = players.reduce((acc, cv) => {
     return cv.score > acc.score ? cv : acc;
-  }, props.gameData.players[0]);
+  }, players[0]);
 
   return (
     <Dialog fullScreen open={true}>
@@ -54,22 +54,25 @@ const ScoreboardViewer = (props) => {
         <Container>
           <Grid container>
             <Grid item xs={12} md={6}>
-              <TextField
-                fullWidth
-                InputProps={{
-                  style: { fontSize: "4rem" },
-                }}
-                placeholder="Title"
-                defaultValue={title}
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <TextField
-                fullWidth
-                defaultValue={description}
-                multiline
-                placeholder="Description"
-              />
+              <Box>
+                <TextField
+                  fullWidth
+                  InputProps={{
+                    style: { fontSize: "4rem" },
+                  }}
+                  placeholder="Title"
+                  defaultValue={title}
+                  disableUnderline
+                />
+              </Box>
+              <Box mt={3}>
+                <TextField
+                  fullWidth
+                  defaultValue={description}
+                  multiline
+                  placeholder="Description"
+                />
+              </Box>
               <List>
                 <Divider />
                 <ListItem>
@@ -127,6 +130,7 @@ const ScoreboardViewer = (props) => {
                 <Divider />
               </List>
             </Grid>
+            <Grid item xs={12} md={6}></Grid>
           </Grid>
         </Container>
       </Box>
