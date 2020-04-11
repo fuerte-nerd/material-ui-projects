@@ -36,9 +36,9 @@ const GamesListEntry = (props) => {
               </ListItemIcon>
               <ListItemText>
                 {moment(props.gameData.create_date).format("D MMM")}
-                {new Date(props.gameData.create_date).getFullYear() ===
+                {Date(props.gameData.create_date).getFullYear() ===
                 new Date().getFullYear()
-                  ? null
+                  ? "fart"
                   : ` ${new Date(props.gameData.create_date).getFullYear()}`}
               </ListItemText>
             </ListItem>
