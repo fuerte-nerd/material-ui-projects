@@ -4,12 +4,17 @@ import { Button, AppBar, Toolbar, Typography } from "@material-ui/core";
 
 const Header = () => {
   return (
-    <AppBar>
-      <Toolbar>
-        <Typography style={{ flex: 1 }}>Scoreboard</Typography>
-        <Button>New</Button>
-      </Toolbar>
-    </AppBar>
+    <>
+      <AppBar>
+        <Toolbar>
+          <Typography style={{ flex: 1 }}>Scoreboard</Typography>
+          <Button color="inherit" edge="end">
+            New
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <Toolbar />
+    </>
   );
 };
 
