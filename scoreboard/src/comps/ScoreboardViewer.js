@@ -59,10 +59,10 @@ const ScoreboardViewer = (props) => {
                   fullWidth
                   InputProps={{
                     style: { fontSize: "4rem" },
+                    disableUnderline: true,
                   }}
                   placeholder="Title"
                   defaultValue={title}
-                  disableUnderline
                 />
               </Box>
               <Box mt={3}>
@@ -70,6 +70,7 @@ const ScoreboardViewer = (props) => {
                   fullWidth
                   defaultValue={description}
                   multiline
+                  InputProps={{ disableUnderline: true }}
                   placeholder="Description"
                 />
               </Box>
