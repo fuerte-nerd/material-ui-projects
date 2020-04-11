@@ -6,7 +6,17 @@ import { Grid, List } from "@material-ui/core";
 import Data from "../Data";
 
 const GamesList = () => {
-  return <GamesListEntry />;
+  return (
+    <Grid container>
+      {Data.map((i) => {
+        return (
+          <Grid item xs={12} md={6}>
+            <GamesListEntry gameId={i.id} />
+          </Grid>
+        );
+      })}
+    </Grid>
+  );
 };
 
 export default GamesList;
