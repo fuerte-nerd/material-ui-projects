@@ -1,7 +1,8 @@
 import React from "react";
+import { GamesListEntry } from "../Components";
 
 const GamesList = () => {
-  return null;
+  return <GamesListEntry />;
 };
 
 export default GamesList;
