@@ -27,23 +27,20 @@ import {
 
 import moment from "moment";
 
-import Data from "../Data";
-
 const GamesListEntry = (props) => {
   const leader = props.gameData.players.reduce((acc, cv) => {
     return cv.score > acc.score ? cv : acc;
   }, props.gameData.players[0]);
 
-  console.log(moment().diff(moment(props.gameData.date_created), "days"));
   return (
     <Card raised>
       <CardActionArea>
         <CardContent>
-          <Typography variant="h4" align="center">
+          <Typography variant="h5" align="center">
             {props.gameData.title}
           </Typography>
           <Typography
-            variant="subtitle1"
+            variant="subtitle2"
             align="center"
             color="textSecondary"
             gutterBottom
