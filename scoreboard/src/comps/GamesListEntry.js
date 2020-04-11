@@ -20,6 +20,7 @@ import moment from "moment";
 import Data from "../Data";
 
 const GamesListEntry = (props) => {
+  console.log(moment().diff(moment(props.gameData.date_created), "days"));
   return (
     <Card elevation={4}>
       <CardActionArea>
@@ -35,15 +36,10 @@ const GamesListEntry = (props) => {
                 <CalendarToday />
               </ListItemIcon>
               <ListItemText>
-                {moment().diff(moment(props.gameData.create_date), "days") >=
+                {moment().diff(moment(props.gameData.date_created), "days") >==
                 365
-                  ? moment(props.gameData.create_date).format("D MMM")
-                  : moment(props.gameData.create_date).format("D MMM YYYY")}
-                {moment(props.gameData.create_date).format("D MMM")}
-                {Date(props.gameData.create_date).getFullYear() ===
-                new Date().getFullYear()
-                  ? "fart"
-                  : ` ${new Date(props.gameData.create_date).getFullYear()}`}
+                  ? moment(props.gameData.date_created).format("D MMM")
+                  : moment(props.gameData.date_created).format("D MMM YYYY")}
               </ListItemText>
             </ListItem>
             <Divider />
