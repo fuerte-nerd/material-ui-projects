@@ -4,7 +4,7 @@ import { Box, Typography } from "@material-ui/core";
 
 const Header = () => {
   return (
-    <Box>
+    <Box p={4}>
       <Typography variant="h3" align="center" variantMapping={{ h3: "h1" }}>
         Scorecard
       </Typography>

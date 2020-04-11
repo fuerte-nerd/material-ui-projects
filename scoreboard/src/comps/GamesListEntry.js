@@ -16,7 +16,14 @@ import {
 
 import { Alert } from "@material-ui/lab";
 
-import { CalendarToday, Update, People, EmojiEvents } from "@material-ui/icons";
+import {
+  CalendarToday,
+  Update,
+  People,
+  EmojiEvents,
+  Lock,
+  LockOpen,
+} from "@material-ui/icons";
 
 import moment from "moment";
 
@@ -29,14 +36,24 @@ const GamesListEntry = (props) => {
 
   console.log(moment().diff(moment(props.gameData.date_created), "days"));
   return (
-    <Card elevation={4}>
+    <Card raised elevation={4}>
       <CardActionArea>
         <CardContent>
-          <Typography variant="h4">{props.gameData.title}</Typography>
-          <Typography variant="subtitle1" color="textSecondary" gutterBottom>
+          <Typography variant="h5" align="center">
+            {props.gameData.title}
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            align="center"
+            color="textSecondary"
+            gutterBottom
+          >
             {props.gameData.description}
           </Typography>
-          <Alert icon={null}>
+          <Alert
+            icon={props.gameData.in_progress ? <LockOpen /> : <Lock />}
+            color={props.gameData.in_progress ? "success" : "error"}
+          >
             {props.gameData.in_progress
               ? `This game is in progress`
               : `This game has finished`}
