@@ -11,7 +11,7 @@ const GamesList = () => {
       {Data.map((i) => {
         return (
           <Grid item xs={12} md={6}>
-            <GamesListEntry gameId={i.id} />
+            <GamesListEntry gameData={i} />
           </Grid>
         );
       })}
