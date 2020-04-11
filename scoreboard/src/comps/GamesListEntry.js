@@ -55,7 +55,7 @@ const GamesListEntry = (props) => {
               </Tooltip>
               <ListItemText>
                 {`Updated `}
-                {moment(props.gameData.date_modified).toNow()}
+                {moment(props.gameData.date_modified).fromNow()}
               </ListItemText>
             </ListItem>
             <Divider />
