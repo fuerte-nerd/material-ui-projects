@@ -25,7 +25,11 @@ const ScoreboardViewer = (props) => {
 
       <Box mt={3}>
         <Container>
-          <TextField fullWidth placeholder="Title" />
+          <TextField
+            fullWidth
+            InputProps={{ style: { fontSize: "4rem" } }}
+            placeholder="Title"
+          />
         </Container>
       </Box>
     </Dialog>
