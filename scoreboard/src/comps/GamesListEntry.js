@@ -35,6 +35,10 @@ const GamesListEntry = (props) => {
                 <CalendarToday />
               </ListItemIcon>
               <ListItemText>
+                {moment().diff(moment(props.gameData.create_date), "days") >=
+                365
+                  ? moment(props.gameData.create_date).format("D MMM")
+                  : moment(props.gameData.create_date).format("D MMM YYYY")}
                 {moment(props.gameData.create_date).format("D MMM")}
                 {Date(props.gameData.create_date).getFullYear() ===
                 new Date().getFullYear()
