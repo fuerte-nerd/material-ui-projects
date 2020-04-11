@@ -28,7 +28,7 @@ const ScoreboardViewer = (props) => {
         <Container>
           <TextField
             fullWidth
-            InputProps={{ style: { fontSize: "4rem" } }}
+            InputProps={{ style: { fontSize: "4rem", marginBottom: "1rem" } }}
             placeholder="Title"
           />
           <TextField fullWidth placeholder="Description" />
