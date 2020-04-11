@@ -1,7 +1,8 @@
 import React from "react";
+import GamesList from "./GamesList";
 
 const Main = () => {
-  return null;
+  return <GamesList />;
 };
 
 export default Main;
