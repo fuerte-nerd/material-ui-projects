@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
 
-import { Header, Main } from "./Components";
+import { Header, Main, ScoreboardViewer } from "./Components";
 
 function App() {
   return (
     <>
+      <ScoreboardViewer />
       <Header />
       <Main />
     </>
