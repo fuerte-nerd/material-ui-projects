@@ -7,6 +7,9 @@ import {
   Button,
   Typography,
   Divider,
+  List,
+  ListItem,
+  ListItemIcon,
 } from "@material-ui/core";
 
 import Data from "../Data";
@@ -21,6 +24,11 @@ const GamesListEntry = (props) => {
             {props.gameData.description}
           </Typography>
           <Divider />
+          <List>
+            <ListItem>
+              <ListItemIcon></ListItemIcon>
+            </ListItem>
+          </List>
         </CardContent>
       </CardActionArea>
       <CardActions></CardActions>
