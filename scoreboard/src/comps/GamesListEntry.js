@@ -36,10 +36,10 @@ const GamesListEntry = (props) => {
 
   console.log(moment().diff(moment(props.gameData.date_created), "days"));
   return (
-    <Card raised elevation={4}>
+    <Card raised>
       <CardActionArea>
         <CardContent>
-          <Typography variant="h5" align="center">
+          <Typography variant="h4" align="center">
             {props.gameData.title}
           </Typography>
           <Typography
