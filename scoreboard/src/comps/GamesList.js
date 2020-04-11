@@ -7,7 +7,7 @@ import Data from "../Data";
 
 const GamesList = () => {
   return (
-    <Grid container>
+    <Grid container spacing={2}>
       {Data.map((i) => {
         return (
           <Grid item xs={12} md={6}>
