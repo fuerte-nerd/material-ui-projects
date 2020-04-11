@@ -14,6 +14,8 @@ import {
   Tooltip,
 } from "@material-ui/core";
 
+import { Alert } from "@material-ui/lab";
+
 import { CalendarToday, Update, People, EmojiEvents } from "@material-ui/icons";
 
 import moment from "moment";
@@ -34,6 +36,11 @@ const GamesListEntry = (props) => {
           <Typography variant="subtitle1" color="textSecondary" gutterBottom>
             {props.gameData.description}
           </Typography>
+          <Alert>
+            {props.gameData.in_progress
+              ? `This game is in progress`
+              : `This game has finished`}
+          </Alert>
           <List>
             <Divider />
             <ListItem>
