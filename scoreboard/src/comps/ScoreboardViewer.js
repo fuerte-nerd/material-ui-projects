@@ -18,7 +18,16 @@ import {
   List,
 } from "@material-ui/core";
 
-import { Update, People, EmojiEvents, CalendarToday } from "@material-ui/icons";
+import { Alert } from "@material-ui/lab";
+
+import {
+  Update,
+  People,
+  EmojiEvents,
+  CalendarToday,
+  Lock,
+  LockOpen,
+} from "@material-ui/icons";
 
 import moment from "moment";
 
@@ -74,6 +83,15 @@ const ScoreboardViewer = (props) => {
                   placeholder="Description"
                 />
               </Box>
+              <Alert
+                variant="filled"
+                icon={in_progress ? <LockOpen /> : <Lock />}
+                color={in_progress ? "success" : "error"}
+              >
+                {in_progress
+                  ? `This game is in progress`
+                  : `This game has finished`}
+              </Alert>
               <List>
                 <Divider />
                 <ListItem>
