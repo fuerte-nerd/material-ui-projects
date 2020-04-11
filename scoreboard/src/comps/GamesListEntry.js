@@ -9,10 +9,14 @@ import {
   Divider,
   List,
   ListItem,
+  ListItemText,
   ListItemIcon,
 } from "@material-ui/core";
 
 import { CalendarToday } from "@material-ui/icons";
+
+import moment from "moment";
+
 import Data from "../Data";
 
 const GamesListEntry = (props) => {
@@ -30,6 +34,9 @@ const GamesListEntry = (props) => {
               <ListItemIcon edge="start">
                 <CalendarToday />
               </ListItemIcon>
+              <ListItemText>
+                {moment(props.gameData.create_date).format("D MMM YYYY")}
+              </ListItemText>
             </ListItem>
             <Divider />
           </List>
