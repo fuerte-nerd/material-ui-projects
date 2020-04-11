@@ -14,7 +14,7 @@ import {
   Tooltip,
 } from "@material-ui/core";
 
-import { CalendarToday, Update, People } from "@material-ui/icons";
+import { CalendarToday, Update, People, EmojiEvents } from "@material-ui/icons";
 
 import moment from "moment";
 
@@ -56,6 +56,18 @@ const GamesListEntry = (props) => {
               <ListItemText>
                 {`Updated `}
                 {moment(props.gameData.date_modified).fromNow()}
+              </ListItemText>
+            </ListItem>
+            <Divider />
+            <ListItem>
+              <Tooltip title="Number of players" placement="left">
+                <ListItemIcon edge="start">
+                  <People />
+                </ListItemIcon>
+              </Tooltip>
+              <ListItemText>
+                {props.gameData.players.length}
+                {props.gameData.players.length > 1 ? ` players` : ` player`}
               </ListItemText>
             </ListItem>
             <Divider />
