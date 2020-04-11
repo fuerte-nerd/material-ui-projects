@@ -22,7 +22,22 @@ import { Update, People, EmojiEvents, CalendarToday } from "@material-ui/icons";
 
 import moment from "moment";
 
+import TempData from "../Data";
+
 const ScoreboardViewer = (props) => {
+  const {
+    title,
+    date_created,
+    date_modified,
+    description,
+    players,
+    in_progress,
+  } = TempData[0];
+
+  const leader = props.gameData.players.reduce((acc, cv) => {
+    return cv.score > acc.score ? cv : acc;
+  }, props.gameData.players[0]);
+
   return (
     <Dialog fullScreen open={true}>
       <AppBar>
@@ -45,10 +60,16 @@ const ScoreboardViewer = (props) => {
                   style: { fontSize: "4rem" },
                 }}
                 placeholder="Title"
+                defaultValue={title}
               />
             </Grid>
             <Grid item xs={12} md={6}>
-              <TextField fullWidth multiline placeholder="Description" />
+              <TextField
+                fullWidth
+                defaultValue={description}
+                multiline
+                placeholder="Description"
+              />
               <List>
                 <Divider />
                 <ListItem>
@@ -59,14 +80,9 @@ const ScoreboardViewer = (props) => {
                   </Tooltip>
                   <ListItemText>
                     {`Created on `}
-                    {moment().diff(
-                      moment(props.gameData.date_created),
-                      "days"
-                    ) < 365
-                      ? moment(props.gameData.date_created).format("Do MMMM")
-                      : moment(props.gameData.date_created).format(
-                          "Do MMMM YYYY"
-                        )}
+                    {moment().diff(moment(date_created), "days") < 365
+                      ? moment(date_created).format("Do MMMM")
+                      : moment(date_created).format("Do MMMM YYYY")}
                   </ListItemText>
                 </ListItem>
                 <Divider />
@@ -78,7 +94,7 @@ const ScoreboardViewer = (props) => {
                   </Tooltip>
                   <ListItemText>
                     {`Updated `}
-                    {moment(props.gameData.date_modified).fromNow()}
+                    {moment(date_modified).fromNow()}
                   </ListItemText>
                 </ListItem>
                 <Divider />
@@ -89,16 +105,14 @@ const ScoreboardViewer = (props) => {
                     </ListItemIcon>
                   </Tooltip>
                   <ListItemText>
-                    {props.gameData.players.length}
-                    {props.gameData.players.length > 1 ? ` players` : ` player`}
+                    {players.length}
+                    {players.length > 1 ? ` players` : ` player`}
                   </ListItemText>
                 </ListItem>
                 <Divider />
                 <ListItem>
                   <Tooltip
-                    title={
-                      props.gameData.in_progress ? `Current leader` : `Winner`
-                    }
+                    title={in_progress ? `Current leader` : `Winner`}
                     placement="left"
                   >
                     <ListItemIcon edge="start">
@@ -107,7 +121,7 @@ const ScoreboardViewer = (props) => {
                   </Tooltip>
                   <ListItemText>
                     {leader.name}
-                    {props.gameData.in_progress ? ` is winning` : ` won`}
+                    {in_progress ? ` is winning` : ` won`}
                   </ListItemText>
                 </ListItem>
                 <Divider />
