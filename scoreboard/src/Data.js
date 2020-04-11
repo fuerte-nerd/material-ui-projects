@@ -2,8 +2,8 @@ export default [
   {
     id: 1,
     title: "My brilliant game!",
-    date_created: new Date(),
-    date_modified: new Date(),
+    date_created: new Date(2020, 2, 3),
+    date_modified: new Date(2020, 2, 10),
     players: [
       {
         name: "John",
@@ -26,8 +26,8 @@ export default [
   {
     id: 2,
     title: "My brilliant second game!",
-    date_created: new Date(),
-    date_modified: new Date(),
+    date_created: new Date(2020, 3, 5),
+    date_modified: new Date(2020, 3, 7),
     players: [
       {
         name: "Dan",
