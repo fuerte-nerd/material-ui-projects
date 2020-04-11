@@ -22,8 +22,9 @@ import Data from "../Data";
 
 const GamesListEntry = (props) => {
   const leader = props.gameData.players.reduce((acc, cv) => {
-    return cv.score > acc ? cv.score : acc;
-  }, 0);
+    return cv.score > acc.score ? cv : acc;
+  }, props.gameData.players[0]);
+
   console.log(moment().diff(moment(props.gameData.date_created), "days"));
   return (
     <Card elevation={4}>
@@ -76,14 +77,17 @@ const GamesListEntry = (props) => {
             <Divider />
             <ListItem>
               <Tooltip
-                title={props.gameData.inProgress ? `Current leader` : `Winner`}
+                title={props.gameData.in_progress ? `Current leader` : `Winner`}
                 placement="left"
               >
                 <ListItemIcon edge="start">
                   <EmojiEvents />
                 </ListItemIcon>
               </Tooltip>
-              <ListItemText></ListItemText>
+              <ListItemText>
+                {leader.name}
+                {props.gameData.in_progress ? ` is winning` : ` won`}
+              </ListItemText>
             </ListItem>
             <Divider />
           </List>
