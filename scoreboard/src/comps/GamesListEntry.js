@@ -21,6 +21,9 @@ import moment from "moment";
 import Data from "../Data";
 
 const GamesListEntry = (props) => {
+  const leader = props.gameData.players.reduce((acc, cv) => {
+    return cv.score > acc ? cv.score : acc;
+  }, 0);
   console.log(moment().diff(moment(props.gameData.date_created), "days"));
   return (
     <Card elevation={4}>
@@ -80,10 +83,7 @@ const GamesListEntry = (props) => {
                   <EmojiEvents />
                 </ListItemIcon>
               </Tooltip>
-              <ListItemText>
-                {props.gameData.players.length}
-                {props.gameData.players.length > 1 ? ` players` : ` player`}
-              </ListItemText>
+              <ListItemText></ListItemText>
             </ListItem>
             <Divider />
           </List>
