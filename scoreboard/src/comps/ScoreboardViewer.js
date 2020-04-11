@@ -10,6 +10,7 @@ import {
   TextField,
   Container,
 } from "@material-ui/core";
+
 const ScoreboardViewer = (props) => {
   return (
     <Dialog fullScreen open={true}>
@@ -30,6 +31,7 @@ const ScoreboardViewer = (props) => {
             InputProps={{ style: { fontSize: "4rem" } }}
             placeholder="Title"
           />
+          <TextField fullWidth placeholder="Description" />
         </Container>
       </Box>
     </Dialog>
