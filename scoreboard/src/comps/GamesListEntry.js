@@ -51,6 +51,7 @@ const GamesListEntry = (props) => {
             {props.gameData.description}
           </Typography>
           <Alert
+            variant="filled"
             icon={props.gameData.in_progress ? <LockOpen /> : <Lock />}
             color={props.gameData.in_progress ? "success" : "error"}
           >
