@@ -39,21 +39,23 @@ const GamesListEntry = (props) => {
                 </ListItemIcon>
               </Tooltip>
               <ListItemText>
+                {`Created on `}
                 {moment().diff(moment(props.gameData.date_created), "days") <
                 365
-                  ? moment(props.gameData.date_created).format("D MMMM")
-                  : moment(props.gameData.date_created).format("D MMMM YYYY")}
+                  ? moment(props.gameData.date_created).format("Do MMMM")
+                  : moment(props.gameData.date_created).format("Do MMMM YYYY")}
               </ListItemText>
             </ListItem>
+            <Divider />
             <ListItem>
-              <Tooltip title="Date created" placement="left">
+              <Tooltip title="Number of players" placement="left">
                 <ListItemIcon edge="start">
                   <People />
                 </ListItemIcon>
               </Tooltip>
               <ListItemText>
                 {props.gameData.players.length}
-                {` players`}
+                {props.gameData.players.length > 1 ? ` players` : ` player`}
               </ListItemText>
             </ListItem>
             <Divider />
