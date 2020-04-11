@@ -11,6 +11,7 @@ import {
   ListItem,
   ListItemText,
   ListItemIcon,
+  Tooltip,
 } from "@material-ui/core";
 
 import { CalendarToday } from "@material-ui/icons";
@@ -32,14 +33,16 @@ const GamesListEntry = (props) => {
           <List>
             <Divider />
             <ListItem>
-              <ListItemIcon edge="start">
-                <CalendarToday />
-              </ListItemIcon>
+              <Tooltip title="Date created" placement="left">
+                <ListItemIcon edge="start">
+                  <CalendarToday />
+                </ListItemIcon>
+              </Tooltip>
               <ListItemText>
-                {moment().diff(moment(props.gameData.date_created), "days") >==
+                {moment().diff(moment(props.gameData.date_created), "days") <
                 365
-                  ? moment(props.gameData.date_created).format("D MMM")
-                  : moment(props.gameData.date_created).format("D MMM YYYY")}
+                  ? moment(props.gameData.date_created).format("D MMMM")
+                  : moment(props.gameData.date_created).format("D MMMM YYYY")}
               </ListItemText>
             </ListItem>
             <Divider />
