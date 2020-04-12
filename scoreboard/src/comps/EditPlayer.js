@@ -11,7 +11,7 @@ import {
 
 const EditPlayer = () => {
   return (
-    <Dialog open={true} fullWidth="sm">
+    <Dialog open={false} fullWidth="sm">
       <DialogTitle>Edit Player</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>

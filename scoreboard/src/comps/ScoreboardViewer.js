@@ -63,7 +63,7 @@ const ScoreboardViewer = (props) => {
   }, players[0]);
 
   return (
-    <Dialog fullScreen open={true}>
+    <Dialog fullScreen open={false}>
       <AppBar>
         <Toolbar>
           <Typography style={{ flex: 1 }}>Scoreboard</Typography>
