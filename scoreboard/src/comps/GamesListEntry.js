@@ -31,8 +31,6 @@ const GamesListEntry = (props) => {
   const getLeader = () => {
     const leaders = props.gameData.players.reduce(
       (acc, cv) => {
-        console.log(acc);
-        console.log(cv);
         if (cv.score > acc[0].score) {
           return [cv];
         } else {
@@ -60,11 +58,13 @@ const GamesListEntry = (props) => {
     } else if (leaders.length === 2) {
       return props.gameData.in_progress
         ? `${leaders[0].name} and ${leaders[1].name} are winning`
-        : `${leaders[0].name} and ${leaders[1].name} are winning`;
+        : `${leaders[0].name} and ${leaders[1].name} won`;
     } else if (leaders.length === props.gameData.players.length) {
-      return `Nobody is winning`;
+      return props.gameData.in_progress ? `Nobody is winning` : `Nobody won`;
     } else {
-      return `${leaders[0].name} is winning`;
+      return props.gameData.in_progress
+        ? `${leaders[0].name} is winning`
+        : `${leaders[0].name} won`;
     }
   };
 
@@ -142,10 +142,7 @@ const GamesListEntry = (props) => {
                   <EmojiEvents />
                 </ListItemIcon>
               </Tooltip>
-              <ListItemText>
-                {getLeader()}
-                {props.gameData.in_progress ? ` is winning` : ` won`}
-              </ListItemText>
+              <ListItemText>{getLeader()}</ListItemText>
             </ListItem>
             <Divider />
           </List>
