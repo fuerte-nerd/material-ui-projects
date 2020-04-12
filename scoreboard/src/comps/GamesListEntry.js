@@ -44,10 +44,13 @@ const GamesListEntry = (props) => {
       },
       [{ score: -100000 }]
     );
+
     if (leaders.length > 2) {
       return leaders.reduce((acc, cv, currInd) => {
         if (currInd + 1 === leaders.length) {
-          return `${acc} and ${cv.name} are winning`;
+          return props.gameData.in_progress
+            ? `${acc} and ${cv.name} are winning`
+            : `${acc} and ${cv.name} won`;
         } else if (currInd === 0) {
           return cv.name;
         } else {
@@ -55,7 +58,9 @@ const GamesListEntry = (props) => {
         }
       });
     } else if (leaders.length === 2) {
-      return `${leaders[0].name} and ${leaders[1].name} are winning`;
+      return props.gameData.in_progress
+        ? `${leaders[0].name} and ${leaders[1].name} are winning`
+        : `${leaders[0].name} and ${leaders[1].name} are winning`;
     } else if (leaders.length === props.gameData.players.length) {
       return `Nobody is winning`;
     } else {
