@@ -79,6 +79,7 @@ const ScoreboardViewer = (props) => {
               <Box>
                 <TextField
                   fullWidth
+                  multiline
                   InputProps={{
                     style: { fontSize: "4rem" },
                     disableUnderline: true,
@@ -180,9 +181,11 @@ const ScoreboardViewer = (props) => {
                         </Box>
                       </TableCell>
                       <TableCell width="5%" align="center" padding="none">
-                        <Icon>
-                          <AddCircle />
-                        </Icon>
+                        <Box mt={1}>
+                          <Icon>
+                            <AddCircle />
+                          </Icon>
+                        </Box>
                       </TableCell>
                     </TableRow>
                   </TableHead>
@@ -211,6 +214,12 @@ const ScoreboardViewer = (props) => {
               </TableContainer>
               <Box align="center" mt={2}>
                 <Button color="primary">Add new player</Button>
+
+                {in_progress ? (
+                  <Button color="secondary">Finish Game</Button>
+                ) : (
+                  <Button color="secondary">Finish Game</Button>
+                )}
               </Box>
             </Grid>
           </Grid>
