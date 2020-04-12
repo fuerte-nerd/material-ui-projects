@@ -1,5 +1,7 @@
 import React from "react";
 
+import { EditPlayer } from "../Components";
+
 import {
   Paper,
   Icon,
@@ -71,7 +73,7 @@ const ScoreboardViewer = (props) => {
         </Toolbar>
       </AppBar>
       <Toolbar />
-
+      <EditPlayer />
       <Box mt={3}>
         <Container>
           <Grid container spacing={2}>
