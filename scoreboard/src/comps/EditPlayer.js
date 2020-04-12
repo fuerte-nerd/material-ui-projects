@@ -26,7 +26,8 @@ const EditPlayer = () => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button>Cancel</Button>
+        <Button color="inherit">Cancel</Button>
+        <Button color="secondary">Delete</Button>
         <Button color="primary">OK</Button>
       </DialogActions>
     </Dialog>
