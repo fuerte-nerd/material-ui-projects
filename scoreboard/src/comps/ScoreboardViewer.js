@@ -16,6 +16,11 @@ import {
   ListItemIcon,
   ListItemText,
   List,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
 } from "@material-ui/core";
 
 import { Alert } from "@material-ui/lab";
@@ -149,7 +154,26 @@ const ScoreboardViewer = (props) => {
                 <Divider />
               </List>
             </Grid>
-            <Grid item xs={12} md={6}></Grid>
+            <Grid item xs={12} md={6}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Name</TableCell>
+                    <TableCell align="right">Score</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {players.map((i) => {
+                    return (
+                      <TableRow>
+                        <TableCell>{i.name}</TableCell>
+                        <TableCell align="right">{i.score}</TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </Grid>
           </Grid>
         </Container>
       </Box>
