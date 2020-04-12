@@ -31,10 +31,12 @@ const GamesListEntry = (props) => {
   const getLeader = () => {
     const leaders = props.gameData.players.reduce(
       (acc, cv) => {
-        if (cv.score > acc.score) {
+        console.log(acc);
+        console.log(cv);
+        if (cv.score > acc[0].score) {
           return [cv];
         } else {
-          if (cv.score === acc.score) {
+          if (cv.score === acc[0].score) {
             return acc.concat([cv]);
           }
         }
