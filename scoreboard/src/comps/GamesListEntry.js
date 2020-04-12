@@ -38,6 +38,7 @@ const GamesListEntry = (props) => {
             return acc.concat([cv]);
           }
         }
+        return null;
       },
       [props.gameData.players[0]]
     );
