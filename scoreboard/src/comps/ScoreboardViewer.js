@@ -163,7 +163,6 @@ const ScoreboardViewer = (props) => {
               </List>
             </Grid>
             <Grid item xs={12} md={7}>
-              <Button fullWidth>Add new player</Button>
               <TableContainer component={Paper}>
                 <Table>
                   <TableHead>
@@ -172,16 +171,6 @@ const ScoreboardViewer = (props) => {
                       <TableCell width="35%">Name</TableCell>
                       <TableCell width="15%" align="right">
                         Score
-                      </TableCell>
-                      <TableCell width="10%" align="center">
-                        <Icon fontSize="small">
-                          <Edit />
-                        </Icon>
-                      </TableCell>
-                      <TableCell width="10%" align="center">
-                        <Icon>
-                          <Delete />
-                        </Icon>
                       </TableCell>
                       <TableCell width="10%" align="center">
                         <Icon>
@@ -204,16 +193,6 @@ const ScoreboardViewer = (props) => {
                           <TableCell align="right">{i.score}</TableCell>
                           <TableCell align="center">
                             <IconButton>
-                              <Edit />
-                            </IconButton>
-                          </TableCell>
-                          <TableCell align="center">
-                            <IconButton>
-                              <Delete />
-                            </IconButton>
-                          </TableCell>
-                          <TableCell align="center">
-                            <IconButton>
                               <RemoveCircle />
                             </IconButton>
                           </TableCell>
@@ -228,6 +207,9 @@ const ScoreboardViewer = (props) => {
                   </TableBody>
                 </Table>
               </TableContainer>
+              <Box align="center" mt={2}>
+                <Button color="primary">Add new player</Button>
+              </Box>
             </Grid>
           </Grid>
         </Container>
