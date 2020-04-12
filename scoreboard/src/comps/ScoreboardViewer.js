@@ -212,7 +212,12 @@ const ScoreboardViewer = (props) => {
                   </TableBody>
                 </Table>
               </TableContainer>
-              <Box align="center" mt={2}>
+              <Box
+                align="center"
+                display="flex"
+                justifyContent="space-between"
+                mt={2}
+              >
                 <Button color="primary">Add new player</Button>
 
                 {in_progress ? (
