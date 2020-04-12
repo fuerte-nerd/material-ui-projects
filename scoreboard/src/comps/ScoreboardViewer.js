@@ -168,22 +168,22 @@ const ScoreboardViewer = (props) => {
                     <TableRow>
                       <TableCell>Name</TableCell>
                       <TableCell align="right">Score</TableCell>
-                      <TableCell>
+                      <TableCell align="center">
                         <Icon fontSize="small">
                           <Edit />
                         </Icon>
                       </TableCell>
-                      <TableCell>
+                      <TableCell align="center">
                         <Icon>
                           <Delete />
                         </Icon>
                       </TableCell>
-                      <TableCell>
+                      <TableCell align="center">
                         <Icon>
                           <RemoveCircle />
                         </Icon>
                       </TableCell>
-                      <TableCell>
+                      <TableCell align="center">
                         <Icon>
                           <AddCircle />
                         </Icon>
@@ -196,22 +196,22 @@ const ScoreboardViewer = (props) => {
                         <TableRow>
                           <TableCell>{i.name}</TableCell>
                           <TableCell align="right">{i.score}</TableCell>
-                          <TableCell>
+                          <TableCell align="center">
                             <IconButton>
                               <Edit />
                             </IconButton>
                           </TableCell>
-                          <TableCell>
+                          <TableCell align="center">
                             <IconButton>
                               <Delete />
                             </IconButton>
                           </TableCell>
-                          <TableCell>
+                          <TableCell align="center">
                             <IconButton>
                               <RemoveCircle />
                             </IconButton>
                           </TableCell>
-                          <TableCell>
+                          <TableCell align="center">
                             <IconButton>
                               <AddCircle />
                             </IconButton>
