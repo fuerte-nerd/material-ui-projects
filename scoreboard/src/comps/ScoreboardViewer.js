@@ -1,6 +1,8 @@
 import React from "react";
 
 import {
+  Icon,
+  IconButton,
   Button,
   Dialog,
   AppBar,
@@ -32,6 +34,10 @@ import {
   CalendarToday,
   Lock,
   LockOpen,
+  AddCircle,
+  RemoveCircle,
+  Delete,
+  Edit,
 } from "@material-ui/icons";
 
 import moment from "moment";
@@ -160,10 +166,26 @@ const ScoreboardViewer = (props) => {
                   <TableRow>
                     <TableCell>Name</TableCell>
                     <TableCell align="right">Score</TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
-                    <TableCell></TableCell>
+                    <TableCell>
+                      <Icon>
+                        <Edit />
+                      </Icon>
+                    </TableCell>
+                    <TableCell>
+                      <Icon>
+                        <Delete />
+                      </Icon>
+                    </TableCell>
+                    <TableCell>
+                      <Icon>
+                        <RemoveCircle />
+                      </Icon>
+                    </TableCell>
+                    <TableCell>
+                      <Icon>
+                        <AddCircle />
+                      </Icon>
+                    </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -172,6 +194,26 @@ const ScoreboardViewer = (props) => {
                       <TableRow>
                         <TableCell>{i.name}</TableCell>
                         <TableCell align="right">{i.score}</TableCell>
+                        <TableCell>
+                          <IconButton>
+                            <Edit />
+                          </IconButton>
+                        </TableCell>
+                        <TableCell>
+                          <IconButton>
+                            <Delete />
+                          </IconButton>
+                        </TableCell>
+                        <TableCell>
+                          <IconButton>
+                            <RemoveCircle />
+                          </IconButton>
+                        </TableCell>
+                        <TableCell>
+                          <IconButton>
+                            <AddCircle />
+                          </IconButton>
+                        </TableCell>
                       </TableRow>
                     );
                   })}
