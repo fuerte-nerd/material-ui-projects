@@ -61,7 +61,13 @@ const ScoreboardViewer = (props) => {
   const leader = players.reduce((acc, cv) => {
     return cv.score > acc.score ? cv : acc;
   }, players[0]);
+  
+  const getPosition = (index)=>({
+    index > 0 ? ()=>{
+    return players[index].score === players[index - 1].score ? null : index + 1
+    } : index + 1
 
+  })
   return (
     <Dialog fullScreen open={false}>
       <AppBar>
@@ -195,7 +201,7 @@ const ScoreboardViewer = (props) => {
                     {players.map((i, ind) => {
                       return (
                         <TableRow>
-                          <TableCell>{ind + 1}</TableCell>
+                          <TableCell>{getPosition(ind)}</TableCell>
                           <TableCell>{i.name}</TableCell>
                           <TableCell align="right">{i.score}</TableCell>
                           <TableCell align="center" padding="none">
