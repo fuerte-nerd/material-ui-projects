@@ -73,7 +73,7 @@ const ScoreboardViewer = (props) => {
 
       <Box mt={3}>
         <Container>
-          <Grid container>
+          <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <Box>
                 <TextField
@@ -166,24 +166,26 @@ const ScoreboardViewer = (props) => {
                 <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell>Name</TableCell>
-                      <TableCell align="right">Score</TableCell>
-                      <TableCell align="center">
+                      <TableCell width="40%">Name</TableCell>
+                      <TableCell width="20%" align="right">
+                        Score
+                      </TableCell>
+                      <TableCell width="10%" align="center">
                         <Icon fontSize="small">
                           <Edit />
                         </Icon>
                       </TableCell>
-                      <TableCell align="center">
+                      <TableCell width="10%" align="center">
                         <Icon>
                           <Delete />
                         </Icon>
                       </TableCell>
-                      <TableCell align="center">
+                      <TableCell width="10%" align="center">
                         <Icon>
                           <RemoveCircle />
                         </Icon>
                       </TableCell>
-                      <TableCell align="center">
+                      <TableCell width="10%" align="center">
                         <Icon>
                           <AddCircle />
                         </Icon>
