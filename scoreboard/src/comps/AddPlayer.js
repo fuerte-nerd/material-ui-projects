@@ -9,10 +9,10 @@ import {
   Grid,
 } from "@material-ui/core";
 
-const EditPlayer = () => {
+const AddPlayer = () => {
   return (
     <Dialog open={true} fullWidth="sm">
-      <DialogTitle>Edit Player</DialogTitle>
+      <DialogTitle>Add New Player</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={10}>
@@ -25,11 +25,10 @@ const EditPlayer = () => {
       </DialogContent>
       <DialogActions>
         <Button color="inherit">Cancel</Button>
-        <Button color="secondary">Delete</Button>
-        <Button color="primary">Update</Button>
+        <Button color="primary">Add</Button>
       </DialogActions>
     </Dialog>
   );
 };
 
-export default EditPlayer;
+export default AddPlayer;
