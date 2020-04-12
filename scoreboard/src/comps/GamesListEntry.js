@@ -46,7 +46,7 @@ const GamesListEntry = (props) => {
     );
     if (leaders.length > 1) {
       return leaders.reduce((acc, cv, currInd) => {
-        if (currInd + 1 === leaders.length - 1) {
+        if (currInd + 1 === leaders.length) {
           return `${acc} and ${cv.name}`;
         } else if (currInd === 0) {
           return cv.name;
@@ -54,6 +54,8 @@ const GamesListEntry = (props) => {
           return `${acc}, ${cv.name}`;
         }
       });
+    } else {
+      return leaders[0].name;
     }
   };
 
