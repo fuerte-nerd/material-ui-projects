@@ -218,7 +218,7 @@ const ScoreboardViewer = (props) => {
                 {in_progress ? (
                   <Button color="secondary">Finish Game</Button>
                 ) : (
-                  <Button color="secondary">Finish Game</Button>
+                  <Button color="secondary">Resume Game</Button>
                 )}
               </Box>
             </Grid>
