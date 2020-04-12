@@ -29,7 +29,7 @@ import moment from "moment";
 
 const GamesListEntry = (props) => {
   const getLeader = () => {
-    const leader = props.gameData.players.reduce(
+    const leaders = props.gameData.players.reduce(
       (acc, cv) => {
         if (cv.score > acc.score) {
           return [cv];
@@ -41,6 +41,17 @@ const GamesListEntry = (props) => {
       },
       [props.gameData.players[0]]
     );
+    if (leaders.length > 1) {
+      return leaders.reduce((acc, cv, currInd) => {
+        if (currInd + 1 === leaders.length - 1) {
+          return ` and ${cv.name}`;
+        } else if (currInd === 0) {
+          return cv.name;
+        } else {
+          return `, ${cv.name}`;
+        }
+      });
+    }
   };
 
   return (
@@ -118,7 +129,7 @@ const GamesListEntry = (props) => {
                 </ListItemIcon>
               </Tooltip>
               <ListItemText>
-                {leader.name}
+                {getLeader()}
                 {props.gameData.in_progress ? ` is winning` : ` won`}
               </ListItemText>
             </ListItem>
