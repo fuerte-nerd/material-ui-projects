@@ -87,7 +87,7 @@ const ScoreboardViewer = (props) => {
                   defaultValue={title}
                 />
               </Box>
-              <Box mt={3}>
+              <Box mt={1}>
                 <TextField
                   fullWidth
                   defaultValue={description}
@@ -163,6 +163,7 @@ const ScoreboardViewer = (props) => {
               </List>
             </Grid>
             <Grid item xs={12} md={7}>
+              <Button fullWidth>Add new player</Button>
               <TableContainer component={Paper}>
                 <Table>
                   <TableHead>
