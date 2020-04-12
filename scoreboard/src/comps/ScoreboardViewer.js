@@ -23,6 +23,7 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  TableContainer,
 } from "@material-ui/core";
 
 import { Alert } from "@material-ui/lab";
@@ -161,64 +162,66 @@ const ScoreboardViewer = (props) => {
               </List>
             </Grid>
             <Grid item xs={12} md={6}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell align="right">Score</TableCell>
-                    <TableCell>
-                      <Icon>
-                        <Edit />
-                      </Icon>
-                    </TableCell>
-                    <TableCell>
-                      <Icon>
-                        <Delete />
-                      </Icon>
-                    </TableCell>
-                    <TableCell>
-                      <Icon>
-                        <RemoveCircle />
-                      </Icon>
-                    </TableCell>
-                    <TableCell>
-                      <Icon>
-                        <AddCircle />
-                      </Icon>
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {players.map((i) => {
-                    return (
-                      <TableRow>
-                        <TableCell>{i.name}</TableCell>
-                        <TableCell align="right">{i.score}</TableCell>
-                        <TableCell>
-                          <IconButton>
-                            <Edit />
-                          </IconButton>
-                        </TableCell>
-                        <TableCell>
-                          <IconButton>
-                            <Delete />
-                          </IconButton>
-                        </TableCell>
-                        <TableCell>
-                          <IconButton>
-                            <RemoveCircle />
-                          </IconButton>
-                        </TableCell>
-                        <TableCell>
-                          <IconButton>
-                            <AddCircle />
-                          </IconButton>
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                </TableBody>
-              </Table>
+              <TableContainer>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Name</TableCell>
+                      <TableCell align="right">Score</TableCell>
+                      <TableCell>
+                        <Icon fontSize="small">
+                          <Edit />
+                        </Icon>
+                      </TableCell>
+                      <TableCell>
+                        <Icon>
+                          <Delete />
+                        </Icon>
+                      </TableCell>
+                      <TableCell>
+                        <Icon>
+                          <RemoveCircle />
+                        </Icon>
+                      </TableCell>
+                      <TableCell>
+                        <Icon>
+                          <AddCircle />
+                        </Icon>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {players.map((i) => {
+                      return (
+                        <TableRow>
+                          <TableCell>{i.name}</TableCell>
+                          <TableCell align="right">{i.score}</TableCell>
+                          <TableCell>
+                            <IconButton>
+                              <Edit />
+                            </IconButton>
+                          </TableCell>
+                          <TableCell>
+                            <IconButton>
+                              <Delete />
+                            </IconButton>
+                          </TableCell>
+                          <TableCell>
+                            <IconButton>
+                              <RemoveCircle />
+                            </IconButton>
+                          </TableCell>
+                          <TableCell>
+                            <IconButton>
+                              <AddCircle />
+                            </IconButton>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </Grid>
           </Grid>
         </Container>
