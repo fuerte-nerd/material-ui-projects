@@ -6,6 +6,7 @@ import {
   DialogContent,
   TextField,
   Button,
+  Grid,
   Typography,
   Box,
 } from "@material-ui/core";
@@ -15,16 +16,18 @@ const EditPlayer = () => {
     <Dialog open={true} fullWidth="sm">
       <DialogTitle>Edit Player</DialogTitle>
       <DialogContent>
-        <Box pb={2}>
-          <TextField label="Name" autoFocus fullWidth />
-        </Box>
-        <Box>
-          <TextField label="Score" fullWidth type="number" defaultValue="0" />
-        </Box>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={10}>
+            <TextField label="Name" autoFocus fullWidth />
+          </Grid>
+          <Grid item xs={12} sm={2}>
+            <TextField label="Score" fullWidth type="number" defaultValue="0" />
+          </Grid>
+        </Grid>
       </DialogContent>
       <DialogActions>
         <Button>Cancel</Button>
-        <Button color="primary">Add</Button>
+        <Button color="primary">OK</Button>
       </DialogActions>
     </Dialog>
   );
