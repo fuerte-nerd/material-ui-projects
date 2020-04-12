@@ -1,6 +1,7 @@
 import React from "react";
 
 import {
+  Paper,
   Icon,
   IconButton,
   Button,
@@ -162,7 +163,7 @@ const ScoreboardViewer = (props) => {
               </List>
             </Grid>
             <Grid item xs={12} md={7}>
-              <TableContainer>
+              <TableContainer component={Paper}>
                 <Table>
                   <TableHead>
                     <TableRow>
