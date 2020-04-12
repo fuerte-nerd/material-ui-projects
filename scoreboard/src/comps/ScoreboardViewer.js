@@ -74,7 +74,7 @@ const ScoreboardViewer = (props) => {
       <Box mt={3}>
         <Container>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={5}>
               <Box>
                 <TextField
                   fullWidth
@@ -161,7 +161,7 @@ const ScoreboardViewer = (props) => {
                 <Divider />
               </List>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={7}>
               <TableContainer>
                 <Table>
                   <TableHead>
