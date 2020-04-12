@@ -13,7 +13,7 @@ export default [
       },
       {
         name: "Linda",
-        score: 20,
+        score: 50,
       },
       {
         name: "Harry",

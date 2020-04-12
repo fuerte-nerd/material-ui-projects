@@ -61,15 +61,19 @@ const ScoreboardViewer = (props) => {
   const leader = players.reduce((acc, cv) => {
     return cv.score > acc.score ? cv : acc;
   }, players[0]);
-  
-  const getPosition = (index)=>({
-    index > 0 ? ()=>{
-    return players[index].score === players[index - 1].score ? null : index + 1
-    } : index + 1
 
-  })
+  const getPosition = (index) => {
+    if (index > 0) {
+      return players[index].score === players[index - 1].score
+        ? null
+        : index + 1;
+    } else {
+      return index + 1;
+    }
+  };
+
   return (
-    <Dialog fullScreen open={false}>
+    <Dialog fullScreen open={true}>
       <AppBar>
         <Toolbar>
           <Typography style={{ flex: 1 }}>Scoreboard</Typography>
