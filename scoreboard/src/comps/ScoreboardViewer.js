@@ -167,8 +167,9 @@ const ScoreboardViewer = (props) => {
                 <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell width="40%">Name</TableCell>
-                      <TableCell width="20%" align="right">
+                      <TableCell width="10%">Pos.</TableCell>
+                      <TableCell width="35%">Name</TableCell>
+                      <TableCell width="15%" align="right">
                         Score
                       </TableCell>
                       <TableCell width="10%" align="center">
@@ -194,9 +195,10 @@ const ScoreboardViewer = (props) => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {players.map((i) => {
+                    {players.map((i, ind) => {
                       return (
                         <TableRow>
+                          <TableCell>{ind + 1}</TableCell>
                           <TableCell>{i.name}</TableCell>
                           <TableCell align="right">{i.score}</TableCell>
                           <TableCell align="center">
