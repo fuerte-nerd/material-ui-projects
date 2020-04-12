@@ -168,16 +168,18 @@ const ScoreboardViewer = (props) => {
                   <TableHead>
                     <TableRow>
                       <TableCell width="10%">Pos.</TableCell>
-                      <TableCell width="35%">Name</TableCell>
-                      <TableCell width="15%" align="right">
+                      <TableCell width="50%">Name</TableCell>
+                      <TableCell width="30%" align="right">
                         Score
                       </TableCell>
-                      <TableCell width="10%" align="center">
-                        <Icon>
-                          <RemoveCircle />
-                        </Icon>
+                      <TableCell width="5%" align="center" padding="none">
+                        <Box mt={1}>
+                          <Icon>
+                            <RemoveCircle />
+                          </Icon>
+                        </Box>
                       </TableCell>
-                      <TableCell width="10%" align="center">
+                      <TableCell width="5%" align="center" padding="none">
                         <Icon>
                           <AddCircle />
                         </Icon>
@@ -191,12 +193,12 @@ const ScoreboardViewer = (props) => {
                           <TableCell>{ind + 1}</TableCell>
                           <TableCell>{i.name}</TableCell>
                           <TableCell align="right">{i.score}</TableCell>
-                          <TableCell align="center">
+                          <TableCell align="center" padding="none">
                             <IconButton>
                               <RemoveCircle />
                             </IconButton>
                           </TableCell>
-                          <TableCell align="center">
+                          <TableCell align="center" padding="none">
                             <IconButton>
                               <AddCircle />
                             </IconButton>
