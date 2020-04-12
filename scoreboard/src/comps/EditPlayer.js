@@ -4,25 +4,28 @@ import {
   DialogActions,
   DialogTitle,
   DialogContent,
-  DialogContentText,
   TextField,
   Button,
   Typography,
+  Box,
 } from "@material-ui/core";
 
 const EditPlayer = () => {
   return (
-    <Dialog open={true}>
+    <Dialog open={true} fullWidth="sm">
       <DialogTitle>Edit Player</DialogTitle>
       <DialogContent>
-        <TextField />
-        <TextField type="number" />
+        <Box pb={2}>
+          <TextField label="Name" autoFocus fullWidth />
+        </Box>
+        <Box>
+          <TextField label="Score" fullWidth type="number" defaultValue="0" />
+        </Box>
       </DialogContent>
       <DialogActions>
-        <Button></Button>
-        <Button></Button>
+        <Button>Cancel</Button>
+        <Button color="primary">Add</Button>
       </DialogActions>
-      <Typography>Hello</Typography>
     </Dialog>
   );
 };
