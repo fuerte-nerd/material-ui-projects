@@ -9,7 +9,7 @@ export default [
     players: [
       {
         name: "John",
-        score: 10,
+        score: 50,
       },
       {
         name: "Linda",
@@ -17,7 +17,7 @@ export default [
       },
       {
         name: "Harry",
-        score: 50,
+        score: 10,
       },
       {
         name: "Howard",
@@ -35,15 +35,15 @@ export default [
     players: [
       {
         name: "Dan",
-        score: 10,
+        score: 100,
       },
       {
         name: "Alan",
-        score: 5,
+        score: 50,
       },
       {
         name: "Brian",
-        score: 2,
+        score: 25,
       },
     ],
   },

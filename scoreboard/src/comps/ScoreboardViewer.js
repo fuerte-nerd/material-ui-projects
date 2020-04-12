@@ -160,6 +160,10 @@ const ScoreboardViewer = (props) => {
                   <TableRow>
                     <TableCell>Name</TableCell>
                     <TableCell align="right">Score</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
