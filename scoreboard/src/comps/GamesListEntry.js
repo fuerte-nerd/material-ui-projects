@@ -29,7 +29,11 @@ import moment from "moment";
 
 const GamesListEntry = (props) => {
   const getLeader = () => {
-    const leaders = props.gameData.players.reduce((acc, cv) => {
+    const leaders = props.gameData.players.reduce((acc, cv, ind) => {
+      console.log(ind);
+      if (ind === 0) {
+        return [cv];
+      }
       if (cv.score > acc[0].score) {
         return [cv];
       } else {
