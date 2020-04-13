@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Card,
   CardContent,
@@ -57,8 +57,8 @@ const GamesListEntry = (props) => {
         return props.gameData.in_progress ? `Nobody is winning` : `Nobody won`;
       default:
         return props.gameData.in_progress
-          ? `The lead is tied by ${leaders.length} people`
-          : `The game was tied by ${leaders.length} people`;
+          ? `The lead is tied ${leaders.length} ways`
+          : `The game was tied ${leaders.length} ways`;
     }
   };
 
