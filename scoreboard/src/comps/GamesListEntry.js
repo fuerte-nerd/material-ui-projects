@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import {
   Card,
   CardContent,
@@ -76,15 +76,9 @@ const GamesListEntry = (props) => {
     }
   };
 
-  const openBtn = useRef();
-
   return (
     <Card raised>
-      <CardActionArea
-        action={{ focusVisible: openBtn }}
-        onClick={handleClick}
-        id="action-area"
-      >
+      <CardActionArea onClick={handleClick} id="action-area">
         <CardContent>
           <Typography variant="h5" align="center">
             {props.gameData.title}
@@ -159,7 +153,6 @@ const GamesListEntry = (props) => {
           variant="outlined"
           color="primary"
           onClick={handleClick}
-          ref={openBtn}
         >
           Open
         </Button>
