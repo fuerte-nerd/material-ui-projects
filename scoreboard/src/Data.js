@@ -17,7 +17,7 @@ export default [
       },
       {
         name: "Harry",
-        score: 10,
+        score: 50,
       },
       {
         name: "Howard",

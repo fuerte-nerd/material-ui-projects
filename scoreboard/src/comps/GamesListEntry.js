@@ -42,6 +42,11 @@ const GamesListEntry = (props) => {
     }
 
     if (leaders.length > 2) {
+      if (leaders.length > 3) {
+        return props.gameData.in_progress
+          ? `The lead is tied by ${leaders.length} people`
+          : `The game was tied by ${leaders.length} people`;
+      }
       return leaders.reduce((acc, cv, currInd) => {
         if (currInd + 1 === leaders.length) {
           return props.gameData.in_progress
