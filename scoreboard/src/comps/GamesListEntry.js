@@ -63,13 +63,9 @@ const GamesListEntry = (props) => {
     }
   };
 
-  const handleAlertClick = () => {
+  const handleClick = (e) => {
     console.log("alert clicked");
-  };
-
-  const actionAreaClicked = (e) => {
-  
-    console.log(");
+    console.log(e.currentTarget.id);
   };
 
   return (
@@ -93,6 +89,7 @@ const GamesListEntry = (props) => {
             color={props.gameData.in_progress ? "success" : "error"}
             action={
               <Button
+                id="alert-btn"
                 color="inherit"
                 size="small"
                 variant="outlined"
