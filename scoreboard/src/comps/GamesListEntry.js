@@ -165,9 +165,15 @@ const GamesListEntry = (props) => {
           Delete
         </Button>
         <span style={{ flex: 1 }} />
-        <IconButton id="toggle-lock" onClick={handleClick}>
-          {props.gameData.in_progress ? <LockOpen /> : <Lock />}
-        </IconButton>
+        <Tooltip
+          title={props.gameData.in_progress ? `Finish game` : `Resume game`}
+          placement="left"
+          arrow
+        >
+          <IconButton id="toggle-lock" onClick={handleClick}>
+            {props.gameData.in_progress ? <LockOpen /> : <Lock />}
+          </IconButton>
+        </Tooltip>
       </CardActions>
     </Card>
   );
