@@ -76,9 +76,15 @@ const GamesListEntry = (props) => {
     }
   };
 
+  const openBtn = useRef();
+
   return (
     <Card raised>
-      <CardActionArea onClick={handleClick} id="action-area">
+      <CardActionArea
+        action={{ focusVisible: openBtn }}
+        onClick={handleClick}
+        id="action-area"
+      >
         <CardContent>
           <Typography variant="h5" align="center">
             {props.gameData.title}
@@ -153,6 +159,7 @@ const GamesListEntry = (props) => {
           variant="outlined"
           color="primary"
           onClick={handleClick}
+          ref={openBtn}
         >
           Open
         </Button>
