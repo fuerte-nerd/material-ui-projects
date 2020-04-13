@@ -64,13 +64,19 @@ const GamesListEntry = (props) => {
   };
 
   const handleClick = (e) => {
-    console.log("alert clicked");
-    console.log(e.currentTarget.id);
+    switch (e.currentTarget.id) {
+      case "alert-btn":
+        return console.log(`Alert button clicked`);
+      case "action-area":
+        return console.log(`Action area clicked`);
+      default:
+        return `Something else was clicked`;
+    }
   };
 
   return (
     <Card raised>
-      <CardActionArea onClick={actionAreaClicked}>
+      <CardActionArea onClick={handleClick} id="action-area">
         <CardContent>
           <Typography variant="h5" align="center">
             {props.gameData.title}
@@ -93,7 +99,7 @@ const GamesListEntry = (props) => {
                 color="inherit"
                 size="small"
                 variant="outlined"
-                onClick={handleAlertClick}
+                onClick={handleClick}
               >
                 {props.gameData.in_progress ? "FINISH" : "RESUME"}
               </Button>
