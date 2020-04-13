@@ -15,8 +15,6 @@ import {
   Tooltip,
 } from "@material-ui/core";
 
-import { Alert } from "@material-ui/lab";
-
 import {
   CalendarToday,
   Update,
@@ -66,10 +64,13 @@ const GamesListEntry = (props) => {
 
   const handleClick = (e) => {
     switch (e.currentTarget.id) {
-      case "alert-btn":
-        return console.log(`Alert button clicked`);
       case "action-area":
-        return console.log(`Action area clicked`);
+      case "open":
+        return console.log(`Action area or Open button clicked`);
+      case "delete":
+        return console.log(`Delete button clicked`);
+      case "toggle-lock":
+        return console.log(`Toggle lock button clicked`);
       default:
         return `Something else was clicked`;
     }
@@ -147,13 +148,24 @@ const GamesListEntry = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button id="open" variant="outlined" color="primary">
+        <Button
+          id="open"
+          variant="outlined"
+          color="primary"
+          onClick={handleClick}
+        >
           Open
         </Button>
-        <Button id="delete" variant="outlined" color="secondary">
+        <Button
+          id="delete"
+          variant="outlined"
+          color="secondary"
+          onClick={handleClick}
+        >
           Delete
         </Button>
-        <IconButton id="toggle-lock" edge="end">
+        <span style={{ flex: 1 }} />
+        <IconButton id="toggle-lock" onClick={handleClick}>
           {props.gameData.in_progress ? <LockOpen /> : <Lock />}
         </IconButton>
       </CardActions>
