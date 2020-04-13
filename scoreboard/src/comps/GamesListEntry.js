@@ -63,9 +63,18 @@ const GamesListEntry = (props) => {
     }
   };
 
+  const handleAlertClick = () => {
+    console.log("alert clicked");
+  };
+
+  const actionAreaClicked = (e) => {
+  
+    console.log(");
+  };
+
   return (
     <Card raised>
-      <CardActionArea>
+      <CardActionArea onClick={actionAreaClicked}>
         <CardContent>
           <Typography variant="h5" align="center">
             {props.gameData.title}
@@ -83,7 +92,12 @@ const GamesListEntry = (props) => {
             icon={props.gameData.in_progress ? <LockOpen /> : <Lock />}
             color={props.gameData.in_progress ? "success" : "error"}
             action={
-              <Button color="inherit" size="small" variant="outlined">
+              <Button
+                color="inherit"
+                size="small"
+                variant="outlined"
+                onClick={handleAlertClick}
+              >
                 {props.gameData.in_progress ? "FINISH" : "RESUME"}
               </Button>
             }
