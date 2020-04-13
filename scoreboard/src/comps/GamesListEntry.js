@@ -7,6 +7,7 @@ import {
   Button,
   Typography,
   Divider,
+  IconButton,
   List,
   ListItem,
   ListItemText,
@@ -146,32 +147,15 @@ const GamesListEntry = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Alert
-          variant="filled"
-          icon={props.gameData.in_progress ? <LockOpen /> : <Lock />}
-          color={props.gameData.in_progress ? "success" : "error"}
-          action={
-            <Button
-              id="alert-btn"
-              color="inherit"
-              size="small"
-              variant="outlined"
-              onClick={handleClick}
-            >
-              {props.gameData.in_progress ? "FINISH" : "RESUME"}
-            </Button>
-          }
-        >
-          {props.gameData.in_progress
-            ? `This game is in progress`
-            : `This game has finished`}
-        </Alert>
-        <Button variant="outlined" color="primary">
+        <Button id="open" variant="outlined" color="primary">
           Open
         </Button>
-        <Button variant="outlined" color="secondary">
+        <Button id="delete" variant="outlined" color="secondary">
           Delete
         </Button>
+        <IconButton id="toggle-lock" edge="end">
+          {props.gameData.in_progress ? <LockOpen /> : <Lock />}
+        </IconButton>
       </CardActions>
     </Card>
   );
