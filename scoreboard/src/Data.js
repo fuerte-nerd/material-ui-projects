@@ -21,7 +21,11 @@ export default [
       },
       {
         name: "Howard",
-        score: 0,
+        score: 50,
+      },
+      {
+        name: "BenHoward",
+        score: 40,
       },
     ],
   },

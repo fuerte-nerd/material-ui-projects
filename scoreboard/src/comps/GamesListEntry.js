@@ -41,30 +41,26 @@ const GamesListEntry = (props) => {
       }
     }
 
-      switch (leaders.length) {
-        case 1:
-          return props.gameData.in_progress
-            ? `${leaders[0]} is winning`
-            : `${leaders[0]} won`;
-        case 2: 
-          return props.gameData.in_progress
-            ? `${leaders[0]} and ${leaders[1]} are winning`
-            : `${leaders[0]} and ${leaders[1]} won`
-        case 3:
-          return props.gameData.in_progress
-            ? `${leaders[0]}, ${leaders[1]} and ${leaders[2]} are winning`
-            : `${leaders[0]}, ${leaders[1]} and ${leaders[2]} won`
-        case props.gameData.players.length:
-          return props.gameData.in_progress
-          ? `Nobody is winning`
-          : `Nobody won`;
-            
-
-        default:
-          return props.gameData.in_progress
+    switch (leaders.length) {
+      case 1:
+        return props.gameData.in_progress
+          ? `${leaders[0].name} is winning`
+          : `${leaders[0].name} won`;
+      case 2:
+        return props.gameData.in_progress
+          ? `${leaders[0].name} and ${leaders[1].name} are winning`
+          : `${leaders[0].name} and ${leaders[1].name} won`;
+      case 3:
+        return props.gameData.in_progress
+          ? `${leaders[0].name}, ${leaders[1].name} and ${leaders[2].name} are winning`
+          : `${leaders[0].name}, ${leaders[1].name} and ${leaders[2].name} won`;
+      case props.gameData.players.length:
+        return props.gameData.in_progress ? `Nobody is winning` : `Nobody won`;
+      default:
+        return props.gameData.in_progress
           ? `The lead is tied by ${leaders.length} people`
           : `The game was tied by ${leaders.length} people`;
-
+    }
   };
 
   return (
