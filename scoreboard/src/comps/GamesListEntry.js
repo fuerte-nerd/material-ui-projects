@@ -82,13 +82,15 @@ const GamesListEntry = (props) => {
             variant="filled"
             icon={props.gameData.in_progress ? <LockOpen /> : <Lock />}
             color={props.gameData.in_progress ? "success" : "error"}
+            action={
+              <Button color="inherit" size="small">
+                {props.gameData.in_progress ? "FINISH" : "RESUME"}
+              </Button>
+            }
           >
             {props.gameData.in_progress
               ? `This game is in progress`
               : `This game has finished`}
-            <Button>
-              {props.gameData.in_progress ? `Finish game` : `Resume game`}
-            </Button>
           </Alert>
           <List>
             <Divider />
