@@ -6,6 +6,8 @@ import GamesListEntry from "./comps/GamesListEntry";
 import Game from "./comps/Game";
 import ScoreboardViewer from "./comps/ScoreboardViewer";
 import EditPlayer from "./comps/EditPlayer";
+import AddPlayer from "./comps/AddPlayer";
+import NewGame from "./comps/NewGame";
 
 export {
   Header,
@@ -16,4 +18,6 @@ export {
   Game,
   ScoreboardViewer,
   EditPlayer,
+  AddPlayer,
+  NewGame,
 };

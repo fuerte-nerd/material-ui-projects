@@ -1,5 +1,5 @@
 import React from "react";
-import { GamesListEntry } from "../Components";
+import { NewGame, GamesListEntry } from "../Components";
 
 import { Box, Grid } from "@material-ui/core";
 
@@ -11,12 +11,13 @@ const GamesList = () => {
       <Grid container spacing={2}>
         {Data.map((i) => {
           return (
-            <Grid item xs={12} md={6} lg={4}>
+            <Grid item key={i.id} xs={12} md={6} lg={4}>
               <GamesListEntry gameData={i} />
             </Grid>
           );
         })}
       </Grid>
+      <NewGame />
     </Box>
   );
 };
