@@ -86,6 +86,9 @@ const GamesListEntry = (props) => {
             {props.gameData.in_progress
               ? `This game is in progress`
               : `This game has finished`}
+            <Button>
+              {props.gameData.in_progress ? `Finish game` : `Resume game`}
+            </Button>
           </Alert>
           <List>
             <Divider />
