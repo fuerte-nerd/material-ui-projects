@@ -41,42 +41,30 @@ const GamesListEntry = (props) => {
       }
     }
 
-    if (leaders.length > 2) {
-      if (leaders.length > 3) {
-        return props.gameData.in_progress
-          ? `The lead is tied by ${leaders.length} people`
-          : `The game was tied by ${leaders.length} people`;
-      }
-
       switch (leaders.length) {
         case 1:
           return props.gameData.in_progress
             ? `${leaders[0]} is winning`
             : `${leaders[0]} won`;
-      }
-
-      return leaders.reduce((acc, cv, currInd) => {
-        if (currInd + 1 === leaders.length) {
+        case 2: 
           return props.gameData.in_progress
-            ? `${acc} and ${cv.name} are winning`
-            : `${acc} and ${cv.name} won`;
-        } else if (currInd === 0) {
-          return cv.name;
-        } else {
-          return `${acc}, ${cv.name}`;
-        }
-      });
-    } else if (leaders.length === 2) {
-      return props.gameData.in_progress
-        ? `${leaders[0].name} and ${leaders[1].name} are winning`
-        : `${leaders[0].name} and ${leaders[1].name} won`;
-    } else if (leaders.length === props.gameData.players.length) {
-      return props.gameData.in_progress ? `Nobody is winning` : `Nobody won`;
-    } else {
-      return props.gameData.in_progress
-        ? `${leaders[0].name} is winning`
-        : `${leaders[0].name} won`;
-    }
+            ? `${leaders[0]} and ${leaders[1]} are winning`
+            : `${leaders[0]} and ${leaders[1]} won`
+        case 3:
+          return props.gameData.in_progress
+            ? `${leaders[0]}, ${leaders[1]} and ${leaders[2]} are winning`
+            : `${leaders[0]}, ${leaders[1]} and ${leaders[2]} won`
+        case props.gameData.players.length:
+          return props.gameData.in_progress
+          ? `Nobody is winning`
+          : `Nobody won`;
+            
+
+        default:
+          return props.gameData.in_progress
+          ? `The lead is tied by ${leaders.length} people`
+          : `The game was tied by ${leaders.length} people`;
+
   };
 
   return (
