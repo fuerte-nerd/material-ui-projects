@@ -89,26 +89,6 @@ const GamesListEntry = (props) => {
           >
             {props.gameData.description}
           </Typography>
-          <Alert
-            variant="filled"
-            icon={props.gameData.in_progress ? <LockOpen /> : <Lock />}
-            color={props.gameData.in_progress ? "success" : "error"}
-            action={
-              <Button
-                id="alert-btn"
-                color="inherit"
-                size="small"
-                variant="outlined"
-                onClick={handleClick}
-              >
-                {props.gameData.in_progress ? "FINISH" : "RESUME"}
-              </Button>
-            }
-          >
-            {props.gameData.in_progress
-              ? `This game is in progress`
-              : `This game has finished`}
-          </Alert>
           <List>
             <Divider />
             <ListItem>
@@ -166,6 +146,26 @@ const GamesListEntry = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
+        <Alert
+          variant="filled"
+          icon={props.gameData.in_progress ? <LockOpen /> : <Lock />}
+          color={props.gameData.in_progress ? "success" : "error"}
+          action={
+            <Button
+              id="alert-btn"
+              color="inherit"
+              size="small"
+              variant="outlined"
+              onClick={handleClick}
+            >
+              {props.gameData.in_progress ? "FINISH" : "RESUME"}
+            </Button>
+          }
+        >
+          {props.gameData.in_progress
+            ? `This game is in progress`
+            : `This game has finished`}
+        </Alert>
         <Button variant="outlined" color="primary">
           Open
         </Button>
