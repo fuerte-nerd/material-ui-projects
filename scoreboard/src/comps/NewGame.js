@@ -27,7 +27,8 @@ const NewGame = () => {
         />
         <Box mt={2} display="flex" alignItems="center">
           <Box display="inline-block" mr={2}>
-            <Typography>2 Players</Typography>
+            <TextField defaultValue="0" size="small" />
+            <Typography>{` `}players</Typography>
           </Box>
           <IconButton>
             <RemoveCircle />
