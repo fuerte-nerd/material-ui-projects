@@ -20,10 +20,10 @@ const NewGame = () => {
       <DialogContent>
         <TextField label="Title" id="title" fullWidth />
         <TextField label="Description" id="description" fullWidth />
-        <Box display="inline" mt={2}>
+        <Box display="inline-block" mt={2} mr={2}>
           <Typography>2 Players</Typography>
         </Box>
-        <IconButton>
+        <IconButton variant="contained">
           <Remove />
         </IconButton>
         <IconButton>
