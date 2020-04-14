@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+
 import "./App.css";
 
 import { Header, Main, ScoreboardViewer } from "./Components";
 
-function App() {
+function App(props) {
+  console.log(props.games);
   return (
     <>
       <ScoreboardViewer />
@@ -13,4 +16,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  games: state.games,
+});
+
+export default connect(mapStateToProps)(App);

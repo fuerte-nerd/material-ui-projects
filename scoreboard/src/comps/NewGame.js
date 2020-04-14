@@ -17,7 +17,7 @@ import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
 const NewGame = () => {
   return (
-    <Dialog maxWidth="sm" open>
+    <Dialog maxWidth="sm">
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
         <TextField label="Title" id="title" fullWidth margin="dense" />
