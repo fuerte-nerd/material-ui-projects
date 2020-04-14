@@ -7,8 +7,6 @@ import "./App.css";
 import { Header, Main, ScoreboardViewer } from "./Components";
 
 function App(props) {
-  console.log(props.games);
-
   useEffect(() => {
     const ls = localStorage.getItem("daves_scorecard_app");
     if (ls) {
@@ -20,6 +18,7 @@ function App(props) {
   useEffect(() => {
     localStorage.setItem("daves_scorecard_app", JSON.stringify(props.games));
   }, [props.games]);
+
   return (
     <>
       <ScoreboardViewer />
