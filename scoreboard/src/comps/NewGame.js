@@ -11,7 +11,7 @@ import {
   Box,
 } from "@material-ui/core";
 
-import { Add, Remove } from "@material-ui/icons";
+import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
 const NewGame = () => {
   return (
@@ -23,11 +23,11 @@ const NewGame = () => {
         <Box display="inline-block" mt={2} mr={2}>
           <Typography>2 Players</Typography>
         </Box>
-        <IconButton variant="contained">
-          <Remove />
+        <IconButton>
+          <RemoveCircle />
         </IconButton>
         <IconButton>
-          <Add />
+          <AddCircle />
         </IconButton>
       </DialogContent>
       <DialogActions>
