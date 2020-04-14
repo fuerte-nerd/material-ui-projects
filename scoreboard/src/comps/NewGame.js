@@ -6,9 +6,9 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Grid,
-  InputAdornment,
+  Typography,
   IconButton,
+  Box,
 } from "@material-ui/core";
 
 import { Add, Remove } from "@material-ui/icons";
@@ -20,20 +20,15 @@ const NewGame = () => {
       <DialogContent>
         <TextField label="Title" id="title" fullWidth />
         <TextField label="Description" id="description" fullWidth />
-        <TextField
-          label="No. of players"
-          id="players"
-          type="number"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton>
-                  <Remove />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
+        <Box display="inline" mt={2}>
+          <Typography>2 Players</Typography>
+        </Box>
+        <IconButton>
+          <Remove />
+        </IconButton>
+        <IconButton>
+          <Add />
+        </IconButton>
       </DialogContent>
       <DialogActions>
         <Button>Cancel</Button>
