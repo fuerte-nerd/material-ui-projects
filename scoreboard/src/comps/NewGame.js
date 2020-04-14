@@ -6,6 +6,7 @@ import {
   DialogContent,
   DialogActions,
   TextField,
+  DialogContentText,
   Typography,
   IconButton,
   Box,
@@ -19,7 +20,7 @@ const NewGame = () => {
     <Dialog maxWidth="sm" open>
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
-        <TextField label="Title" id="title" fullWidth margin="normal" />
+        <TextField label="Title" id="title" fullWidth margin="dense" />
         <TextField
           label="Description"
           id="description"
@@ -30,24 +31,20 @@ const NewGame = () => {
         <TextField
           label="No. of players"
           id="players"
-          defaultValue="0"
-          style={{ width: "3rem" }}
+          defaultValue={2}
+          style={{ width: "10rem" }}
           margin="normal"
           InputProps={{
             disableUnderline: true,
             endAdornment: (
-              <>
-                <InputAdornment position="end">
-                  <IconButton>
-                    <RemoveCircle />
-                  </IconButton>
-                </InputAdornment>
-                <InputAdornment position="end">
-                  <IconButton>
-                    <AddCircle />
-                  </IconButton>
-                </InputAdornment>
-              </>
+              <InputAdornment position="end">
+                <IconButton>
+                  <RemoveCircle />
+                </IconButton>
+                <IconButton>
+                  <AddCircle />
+                </IconButton>
+              </InputAdornment>
             ),
           }}
         />
