@@ -18,17 +18,24 @@ const NewGame = () => {
     <Dialog maxWidth="sm" open>
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
-        <TextField label="Title" id="title" fullWidth />
-        <TextField label="Description" id="description" fullWidth />
-        <Box display="inline-block" mt={2} mr={2}>
-          <Typography>2 Players</Typography>
+        <TextField label="Title" id="title" fullWidth gutterBottom />
+        <TextField
+          label="Description"
+          id="description"
+          fullWidth
+          gutterBottom
+        />
+        <Box mt={2}>
+          <Box display="inline-block" mr={2}>
+            <Typography>2 Players</Typography>
+          </Box>
+          <IconButton>
+            <RemoveCircle />
+          </IconButton>
+          <IconButton>
+            <AddCircle />
+          </IconButton>
         </Box>
-        <IconButton>
-          <RemoveCircle />
-        </IconButton>
-        <IconButton>
-          <AddCircle />
-        </IconButton>
       </DialogContent>
       <DialogActions>
         <Button>Cancel</Button>
