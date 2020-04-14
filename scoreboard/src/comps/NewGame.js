@@ -32,7 +32,7 @@ const NewGame = () => {
           label="No. of players"
           id="players"
           defaultValue={2}
-          style={{ width: "10rem" }}
+          style={{ width: "9rem" }}
           margin="normal"
           InputProps={{
             disableUnderline: true,
