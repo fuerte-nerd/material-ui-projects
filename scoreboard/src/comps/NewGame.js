@@ -1,10 +1,21 @@
 import React from "react";
-import { Dialog, DialogTitle } from "@material-ui/core";
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@material-ui/core";
 
 const NewGame = () => {
   return (
     <Dialog fullScreen open>
       <DialogTitle>Hello</DialogTitle>
+      <DialogContent>Yes</DialogContent>
+      <DialogActions>
+        <Button></Button>
+        <Button></Button>
+      </DialogActions>
     </Dialog>
   );
 };
