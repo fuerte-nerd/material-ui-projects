@@ -30,6 +30,8 @@ const NewGame = () => {
         <TextField
           label="No. of players"
           id="players"
+          defaultValue="0"
+          style={{ width: "3rem" }}
           margin="normal"
           InputProps={{
             disableUnderline: true,
