@@ -6,10 +6,7 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  DialogContentText,
-  Typography,
   IconButton,
-  Box,
   InputAdornment,
 } from "@material-ui/core";
 
