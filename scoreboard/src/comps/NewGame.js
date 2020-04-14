@@ -11,20 +11,12 @@ import {
 
 const NewGame = () => {
   return (
-    <Dialog maxWidth="md" open>
-      <DialogTitle>Hello</DialogTitle>
+    <Dialog maxWidth="sm" open>
+      <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
-        <Grid container spacing={2}>
-          <Grid xs={12} item>
-            <TextField label="Title" id="title" fullWidth />
-          </Grid>
-          <Grid item xs={12} md={9}>
-            <TextField label="Description" id="description" />
-          </Grid>
-          <Grid item xs={12} md={3}>
-            <TextField label="No. of players" id="players" />
-          </Grid>
-        </Grid>
+        <TextField label="Title" id="title" fullWidth />
+        <TextField label="Description" id="description" fullWidth />
+        <TextField label="No. of players" id="players" type="number" />
       </DialogContent>
       <DialogActions>
         <Button>Cancel</Button>
