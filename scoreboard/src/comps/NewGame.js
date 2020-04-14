@@ -9,6 +9,7 @@ import {
   Typography,
   IconButton,
   Box,
+  InputAdornment,
 } from "@material-ui/core";
 
 import { AddCircle, RemoveCircle } from "@material-ui/icons";
@@ -18,25 +19,36 @@ const NewGame = () => {
     <Dialog maxWidth="sm" open>
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
-        <TextField label="Title" id="title" fullWidth gutterBottom />
+        <TextField label="Title" id="title" fullWidth margin="normal" />
         <TextField
           label="Description"
           id="description"
           fullWidth
-          gutterBottom
+          margin="normal"
         />
-        <Box mt={2} display="flex" alignItems="center">
-          <Box display="inline-block" mr={2}>
-            <TextField defaultValue="0" size="small" />
-            <Typography>{` `}players</Typography>
-          </Box>
-          <IconButton>
-            <RemoveCircle />
-          </IconButton>
-          <IconButton>
-            <AddCircle />
-          </IconButton>
-        </Box>
+
+        <TextField
+          label="No. of players"
+          id="players"
+          margin="normal"
+          InputProps={{
+            disableUnderline: true,
+            endAdornment: (
+              <>
+                <InputAdornment position="end">
+                  <IconButton>
+                    <RemoveCircle />
+                  </IconButton>
+                </InputAdornment>
+                <InputAdornment position="end">
+                  <IconButton>
+                    <AddCircle />
+                  </IconButton>
+                </InputAdornment>
+              </>
+            ),
+          }}
+        />
       </DialogContent>
       <DialogActions>
         <Button>Cancel</Button>
