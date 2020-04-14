@@ -51,7 +51,7 @@ const NewGame = () => {
       </DialogContent>
       <DialogActions>
         <Button>Cancel</Button>
-        <Button>Create</Button>
+        <Button color="primary">Create</Button>
       </DialogActions>
     </Dialog>
   );
