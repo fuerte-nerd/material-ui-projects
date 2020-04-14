@@ -25,7 +25,7 @@ const NewGame = () => {
           fullWidth
           gutterBottom
         />
-        <Box mt={2}>
+        <Box mt={2} display="flex" alignItems="center">
           <Box display="inline-block" mr={2}>
             <Typography>2 Players</Typography>
           </Box>
