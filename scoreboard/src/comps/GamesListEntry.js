@@ -71,11 +71,21 @@ const GamesListEntry = (props) => {
       case "open":
         return console.log(`Action area or Open button clicked`);
       case "delete":
-        const newGamesArr = props.games.filter((i) => {
+        let newGamesArr = props.games.filter((i) => {
           return i.id === props.gameData.id ? null : i;
         });
         return props.dispatch(updateGames(newGamesArr));
       case "toggle-lock":
+        let newGamesArr = props.games.map((i) => {
+          if (i.id === props.gameData.id) {
+            return {
+              ...i,
+              in_progress: !i.in_progress,
+            };
+          }
+          return i;
+        });
+
         return console.log(`Toggle lock button clicked`);
       default:
         return `Something else was clicked`;
@@ -183,9 +193,6 @@ const GamesListEntry = (props) => {
           >
             {props.gameData.in_progress ? `In progress` : `Finished`}
           </Button>
-          <IconButton id="toggle-lock" onClick={handleClick}>
-            {props.gameData.in_progress ? <LockOpen /> : <Lock />}
-          </IconButton>
         </Tooltip>
       </CardActions>
     </Card>
