@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
+import { deleteGame } from "../redux/actions";
+
 import {
   Card,
   CardContent,
@@ -179,4 +182,7 @@ const GamesListEntry = (props) => {
   );
 };
 
-export default GamesListEntry;
+const mapStateToProps = (state) => ({
+  games: state.games,
+});
+export default connect(mapStateToProps)(GamesListEntry);

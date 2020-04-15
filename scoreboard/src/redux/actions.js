@@ -6,14 +6,9 @@ import {
   GET_GAMES,
 } from "./types";
 
-export const createGame = (newGameData) => ({
-  type: CREATE_NEW_GAME,
-  payload: newGameData,
-});
-
-export const updateGame = (updatedGameData) => ({
+export const updateGames = (games) => ({
   type: UPDATE_GAME,
-  payload: updatedGameData,
+  payload: games,
 });
 
 export const toggleDialog = (dialog) => ({
