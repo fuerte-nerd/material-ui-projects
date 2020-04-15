@@ -22,7 +22,9 @@ const NewGame = (props) => {
   const [compState, setCompState] = useState(newGame);
 
   useEffect(() => {
-    return props.newGameDialog ? null : setCompState(newGame);
+    if (props.newGameDialog) {
+      setCompState(newGame);
+    }
   }, [props.newGameDialog]);
 
   const handleChange = (e) => {
@@ -89,6 +91,21 @@ const NewGame = (props) => {
       case "cancel":
         return props.dispatch(toggleDialog("newGameDialog"));
       case "create":
+        if (compState.title.length === 0) {
+          return setCompState({
+            ...compState,
+            showErr: true,
+            err: "Please supply a title",
+          });
+        }
+        if (compState.description.length === 0) {
+          return setCompState({
+            ...compState,
+            showErr: true,
+            err: "Please supply a description",
+          });
+        }
+
         const generatePlayers = (noOfPlayers) => {
           const arr = [];
           for (let i = 0; i < noOfPlayers; i++) {
