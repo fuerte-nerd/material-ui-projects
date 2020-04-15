@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { toggleDialog, createGame } from "../redux/actions";
 import {
@@ -12,19 +12,13 @@ import {
   InputAdornment,
 } from "@material-ui/core";
 
-import uniqId from "uniqid";
-
+import newGame from "./newGameState";
 import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
 const NewGame = (props) => {
-  const [compState, setCompState] = useState({
-    id: uniqId(),
-    title: "",
-    description: "",
-    players: 2,
-    showErr: false,
-    err: "",
-  });
+  const [compState, setCompState] = useState({});
+
+  useEffect(() => {}, [props.newGameDialog]);
 
   const handleChange = (e) => {
     const f = e.currentTarget;
