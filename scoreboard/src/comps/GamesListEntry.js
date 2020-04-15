@@ -82,6 +82,7 @@ const GamesListEntry = (props) => {
             return {
               ...i,
               in_progress: !i.in_progress,
+              date_modified: new Date(),
             };
           }
           return i;
