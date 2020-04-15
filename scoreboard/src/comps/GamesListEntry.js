@@ -71,9 +71,9 @@ const GamesListEntry = (props) => {
       case "open":
         return console.log(`Action area or Open button clicked`);
       case "delete":
-        const newGamesArr = props.games.filter((i)=>({
-          return i.id === props.gameData.id ? null : i
-        }))
+        const newGamesArr = props.games.filter((i) => {
+          return i.id === props.gameData.id ? null : i;
+        });
         return props.dispatch(updateGames(newGamesArr));
       case "toggle-lock":
         return console.log(`Toggle lock button clicked`);
