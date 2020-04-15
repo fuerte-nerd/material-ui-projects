@@ -15,12 +15,11 @@ import {
 import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
 const NewGame = (props) => {
+  const handleClick = () => {
+    props.dispatch(toggleDialog("newGameDialog"));
+  };
   return (
-    <Dialog
-      maxWidth="sm"
-      open={props.newGameDialog}
-      onClose={() => props.dispatch(toggleDialog())}
-    >
+    <Dialog maxWidth="sm" open={props.newGameDialog} onClose={handleClick}>
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
         <TextField label="Title" id="title" fullWidth margin="dense" />
