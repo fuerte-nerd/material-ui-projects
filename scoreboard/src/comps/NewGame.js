@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { toggleDialog } from "../redux/actions";
+import { toggleDialog, createGame } from "../redux/actions";
 import {
   Button,
   Dialog,
@@ -12,14 +12,48 @@ import {
   InputAdornment,
 } from "@material-ui/core";
 
+import uniqId from "uniqid"
+
 import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
 const NewGame = (props) => {
+  const [compState, setCompState] = useState({
+    id: uniqId(),
+    title: "",
+    description: "",
+    players: 2,
+    showErr: false,
+    err: "",
+  });
+
   const handleClick = (e) => {
     switch (e.currentTarget.id) {
       case "cancel":
         return props.dispatch(toggleDialog("newGameDialog"));
       case "create":
+        const generatePlayers = (noOfPlayers) => {
+          const arr = [];
+          for (let i = 0; i < noOfPlayers; i++) {
+            arr.push({
+              id: uniqId(),
+              name: `Player ${i + 1}`,
+              score: 0,
+            });
+          }
+          return arr;
+        };
+
+        const newGame = {
+          id: compState.id
+          title: compState.title,
+          description: compState.description,
+          players: generatePlayers(compState.players),
+          date_created: new Date(),
+          date_modified: new Date(),
+          in_progress: true,
+        };
+
+        const newGamesArrays = props.games.concat([]);
         return console.log("create clicked");
       default:
         return;
@@ -75,6 +109,7 @@ const NewGame = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  games: state.games,
   newGameDialog: state.newGameDialog,
 });
 export default connect(mapStateToProps)(NewGame);
