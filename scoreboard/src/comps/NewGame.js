@@ -12,7 +12,7 @@ import {
   InputAdornment,
 } from "@material-ui/core";
 
-import uniqId from "uniqid"
+import uniqId from "uniqid";
 
 import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
@@ -25,6 +25,16 @@ const NewGame = (props) => {
     showErr: false,
     err: "",
   });
+
+  const handleChange = (e) => {
+    switch (e.currentTarget.id) {
+      case "title":
+        setCompState({
+          ...compState,
+          title: e.target.value,
+        });
+    }
+  };
 
   const handleClick = (e) => {
     switch (e.currentTarget.id) {
@@ -44,7 +54,7 @@ const NewGame = (props) => {
         };
 
         const newGame = {
-          id: compState.id
+          id: compState.id,
           title: compState.title,
           description: compState.description,
           players: generatePlayers(compState.players),
@@ -53,8 +63,9 @@ const NewGame = (props) => {
           in_progress: true,
         };
 
-        const newGamesArrays = props.games.concat([]);
-        return console.log("create clicked");
+        const newGamesArr = props.games.concat([newGame]);
+        props.dispatch(createGame(newGamesArr));
+        return props.dispatch(toggleDialog("newGameDialog"));
       default:
         return;
     }
@@ -68,7 +79,14 @@ const NewGame = (props) => {
     >
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
-        <TextField label="Title" id="title" fullWidth margin="dense" />
+        <TextField
+          label="Title"
+          id="title"
+          fullWidth
+          margin="dense"
+          onChange={handleChange}
+          value={compState.title}
+        />
         <TextField
           label="Description"
           id="description"
