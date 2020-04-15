@@ -27,13 +27,25 @@ const NewGame = (props) => {
   });
 
   const handleChange = (e) => {
-    switch (e.currentTarget.id) {
+    const f = e.currentTarget;
+    switch (f.id) {
       case "title":
+        if (f.value.length < 20)
+          return setCompState({
+            ...compState,
+            title: f.value,
+          });
+        return;
+
       case "description":
-        return setCompState({
-          ...compState,
-          [e.currentTarget.id]: e.currentTarget.value,
-        });
+        if (f.value.length < 40) {
+          return setCompState({
+            ...compState,
+            description: f.value,
+          });
+        }
+        return;
+
       default:
         return compState;
     }
