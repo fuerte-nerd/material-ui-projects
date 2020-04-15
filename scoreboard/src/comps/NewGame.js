@@ -19,7 +19,11 @@ const NewGame = (props) => {
     props.dispatch(toggleDialog("newGameDialog"));
   };
   return (
-    <Dialog maxWidth="sm" open={props.newGameDialog} onClose={handleClick}>
+    <Dialog
+      maxWidth="sm"
+      open={props.newGameDialog}
+      onClose={() => props.dispatch(toggleDialog("newGameDialog"))}
+    >
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
         <TextField label="Title" id="title" fullWidth margin="dense" />
@@ -52,8 +56,12 @@ const NewGame = (props) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button>Cancel</Button>
-        <Button color="primary">Create</Button>
+        <Button clickRel="cancel" onClick={handleClick}>
+          Cancel
+        </Button>
+        <Button clickRel="create" onClick={handleClick} color="primary">
+          Create
+        </Button>
       </DialogActions>
     </Dialog>
   );
