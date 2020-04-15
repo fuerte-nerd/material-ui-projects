@@ -29,10 +29,13 @@ const NewGame = (props) => {
   const handleChange = (e) => {
     switch (e.currentTarget.id) {
       case "title":
-        setCompState({
+      case "description":
+        return setCompState({
           ...compState,
-          title: e.target.value,
+          [e.currentTarget.id]: e.currentTarget.value,
         });
+      default:
+        return compState;
     }
   };
 
@@ -92,6 +95,8 @@ const NewGame = (props) => {
           id="description"
           fullWidth
           margin="normal"
+          onChange={handleChange}
+          value={compState.description}
         />
         <TextField
           label="No. of players"
