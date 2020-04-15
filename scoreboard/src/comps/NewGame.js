@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import { toggleDialog } from "../redux/actions";
 import {
   Button,
   Dialog,
@@ -12,9 +14,13 @@ import {
 
 import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
-const NewGame = () => {
+const NewGame = (props) => {
   return (
-    <Dialog maxWidth="sm">
+    <Dialog
+      maxWidth="sm"
+      open={props.newGameDialog}
+      onClose={() => props.dispatch(toggleDialog())}
+    >
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
         <TextField label="Title" id="title" fullWidth margin="dense" />
@@ -54,4 +60,7 @@ const NewGame = () => {
   );
 };
 
-export default NewGame;
+const mapStateToProps = (state) => ({
+  newGameDialog: state.newGameDialog,
+});
+export default connect(mapStateToProps)(NewGame);
