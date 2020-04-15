@@ -10,6 +10,7 @@ import {
   TextField,
   IconButton,
   InputAdornment,
+  Fade,
 } from "@material-ui/core";
 
 import { Alert } from "@material-ui/lab";
@@ -28,6 +29,16 @@ const NewGame = (props) => {
       setCompState(newGame);
     }
   }, [props.newGameDialog]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCompState({
+        ...compState,
+        showErr: false,
+        err: "",
+      });
+    }, 4000);
+  }, [compState.showErr]);
 
   const handleChange = (e) => {
     const f = e.currentTarget;
@@ -147,7 +158,9 @@ const NewGame = (props) => {
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
         {compState.showErr ? (
-          <Alert severity="error">{compState.err}</Alert>
+          <Fade in>
+            <Alert severity="error">{compState.err}</Alert>
+          </Fade>
         ) : null}
         <TextField
           label="Title"
