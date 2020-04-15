@@ -15,18 +15,18 @@ import {
 
 import { Alert } from "@material-ui/lab";
 
-import newGame from "./newGameState";
+import newGameState from "./newGameState";
 
 import uniqId from "uniqid";
 
 import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
 const NewGame = (props) => {
-  const [compState, setCompState] = useState(newGame);
+  const [compState, setCompState] = useState(newGameState);
 
   useEffect(() => {
     if (props.newGameDialog) {
-      setCompState(newGame);
+      setCompState(newGameState);
     }
   }, [props.newGameDialog]);
 
