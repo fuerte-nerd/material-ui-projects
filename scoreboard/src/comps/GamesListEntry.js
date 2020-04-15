@@ -66,17 +66,18 @@ const GamesListEntry = (props) => {
   };
 
   const handleClick = (e) => {
+    let newGamesArr;
     switch (e.currentTarget.id) {
       case "action-area":
       case "open":
         return console.log(`Action area or Open button clicked`);
       case "delete":
-        let newGamesArr = props.games.filter((i) => {
+        newGamesArr = props.games.filter((i) => {
           return i.id === props.gameData.id ? null : i;
         });
         return props.dispatch(updateGames(newGamesArr));
       case "toggle-lock":
-        let newGamesArr = props.games.map((i) => {
+        newGamesArr = props.games.map((i) => {
           if (i.id === props.gameData.id) {
             return {
               ...i,
@@ -85,8 +86,7 @@ const GamesListEntry = (props) => {
           }
           return i;
         });
-
-        return console.log(`Toggle lock button clicked`);
+        return props.dispatch(updateGames(newGamesArr));
       default:
         return `Something else was clicked`;
     }
