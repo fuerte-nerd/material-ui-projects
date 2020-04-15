@@ -65,9 +65,13 @@ const ScoreboardViewer = (props) => {
     setCompState(props.gameLoaded);
   }, [props.gameLoaded]);
 
-  const leader = players.reduce((acc, cv) => {
-    return cv.score > acc.score ? cv : acc;
-  }, players[0]);
+  const leader = () => {
+    if (typeof compState.players === "object") {
+      return compState.players.reduce((acc, cv) => {
+        return cv.score > acc.score ? cv : acc;
+      }, players[0]);
+    }
+  };
 
   const getPosition = (index) => {
     if (index > 0) {
