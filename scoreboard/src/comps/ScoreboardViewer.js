@@ -40,8 +40,6 @@ import {
   LockOpen,
   AddCircle,
   RemoveCircle,
-  Delete,
-  Edit,
 } from "@material-ui/icons";
 
 import moment from "moment";
