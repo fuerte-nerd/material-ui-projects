@@ -166,10 +166,10 @@ const ScoreboardViewer = (props) => {
               </Box>
               <Alert
                 variant="filled"
-                icon={in_progress ? <LockOpen /> : <Lock />}
-                color={in_progress ? "success" : "error"}
+                icon={compState.in_progress ? <LockOpen /> : <Lock />}
+                color={compState.in_progress ? "success" : "error"}
               >
-                {in_progress
+                {compState.in_progress
                   ? `This game is in progress`
                   : `This game has finished`}
               </Alert>
