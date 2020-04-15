@@ -73,6 +73,42 @@ const ScoreboardViewer = (props) => {
     }
   };
 
+  const getLeader = () => {
+    if (typeof compState.players === "object") {
+      let leaders = [compState.players[0]];
+
+      for (let i = 1; i < compState.players.length; i++) {
+        if (compState.players[i].score > leaders[0].score) {
+          leaders = [compState.players[i]];
+        } else if (compState.players[i].score === leaders[0].score) {
+          leaders = leaders.concat([compState.players[i]]);
+        } else {
+          continue;
+        }
+      }
+
+      switch (leaders.length) {
+        case 1:
+          return compState.in_progress
+            ? `${leaders[0].name} is winning`
+            : `${leaders[0].name} won`;
+        case compState.players.length:
+          return compState.in_progress ? `Nobody is winning` : `Nobody won`;
+        case 2:
+          return compState.in_progress
+            ? `${leaders[0].name} and ${leaders[1].name} are winning`
+            : `${leaders[0].name} and ${leaders[1].name} won`;
+        case 3:
+          return compState.in_progress
+            ? `${leaders[0].name}, ${leaders[1].name} and ${leaders[2].name} are winning`
+            : `${leaders[0].name}, ${leaders[1].name} and ${leaders[2].name} won`;
+        default:
+          return compState.in_progress
+            ? `The lead is tied ${leaders.length} ways`
+            : `The game was tied ${leaders.length} ways`;
+      }
+    }
+  };
   const getPosition = (index) => {
     if (index > 0) {
       return players[index].score === players[index - 1].score
@@ -186,10 +222,7 @@ const ScoreboardViewer = (props) => {
                       <EmojiEvents />
                     </ListItemIcon>
                   </Tooltip>
-                  <ListItemText>
-                    {leader.name}
-                    {compState.in_progress ? ` is winning` : ` won`}
-                  </ListItemText>
+                  <ListItemText>{getLeader()}</ListItemText>
                 </ListItem>
                 <Divider />
               </List>
