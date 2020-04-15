@@ -145,10 +145,10 @@ const NewGame = (props) => {
             disableUnderline: true,
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton id="incPlayers" onClick={handleClick}>
+                <IconButton id="decPlayers" onClick={handleClick}>
                   <RemoveCircle />
                 </IconButton>
-                <IconButton id="decPlayers" onClick={handleClick}>
+                <IconButton id="incPlayers" onClick={handleClick}>
                   <AddCircle />
                 </IconButton>
               </InputAdornment>
