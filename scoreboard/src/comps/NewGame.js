@@ -61,6 +61,22 @@ const NewGame = (props) => {
 
   const handleClick = (e) => {
     switch (e.currentTarget.id) {
+      case "incPlayers":
+        if (compState.players < 98) {
+          return setCompState({
+            ...compState,
+            players: compState.players + 1,
+          });
+        }
+        return;
+      case "decPlayers":
+        if (compState.players > 2) {
+          return setCompState({
+            ...compState,
+            players: compState.players - 1,
+          });
+        }
+        return;
       case "cancel":
         return props.dispatch(toggleDialog("newGameDialog"));
       case "create":
@@ -121,17 +137,18 @@ const NewGame = (props) => {
         <TextField
           label="No. of players"
           id="players"
-          defaultValue={2}
+          value={compState.players}
+          onChange={handleChange}
           style={{ width: "9rem" }}
           margin="normal"
           InputProps={{
             disableUnderline: true,
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton>
+                <IconButton id="incPlayers" onClick={handleClick}>
                   <RemoveCircle />
                 </IconButton>
-                <IconButton>
+                <IconButton id="decPlayers" onClick={handleClick}>
                   <AddCircle />
                 </IconButton>
               </InputAdornment>
