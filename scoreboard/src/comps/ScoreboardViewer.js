@@ -217,25 +217,27 @@ const ScoreboardViewer = (props) => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {compState.players.map((i, ind) => {
-                      return (
-                        <TableRow>
-                          <TableCell>{getPosition(ind)}</TableCell>
-                          <TableCell>{i.name}</TableCell>
-                          <TableCell align="right">{i.score}</TableCell>
-                          <TableCell align="center" padding="none">
-                            <IconButton>
-                              <RemoveCircle />
-                            </IconButton>
-                          </TableCell>
-                          <TableCell align="center" padding="none">
-                            <IconButton>
-                              <AddCircle />
-                            </IconButton>
-                          </TableCell>
-                        </TableRow>
-                      );
-                    })}
+                    {typeof compState.players === "object"
+                      ? compState.players.map((i, ind) => {
+                          return (
+                            <TableRow>
+                              <TableCell>{getPosition(ind)}</TableCell>
+                              <TableCell>{i.name}</TableCell>
+                              <TableCell align="right">{i.score}</TableCell>
+                              <TableCell align="center" padding="none">
+                                <IconButton>
+                                  <RemoveCircle />
+                                </IconButton>
+                              </TableCell>
+                              <TableCell align="center" padding="none">
+                                <IconButton>
+                                  <AddCircle />
+                                </IconButton>
+                              </TableCell>
+                            </TableRow>
+                          );
+                        })
+                      : null}
                   </TableBody>
                 </Table>
               </TableContainer>
