@@ -13,9 +13,9 @@ const GamesList = (props) => {
         <Grid container spacing={2}>
           {props.games.map((i) => {
             return (
-              <Fade in>
+              <Fade in key={i.id}>
                 <Grid item key={i.id} xs={12} md={6} lg={4}>
-                  <GamesListEntry gameData={i} />
+                  <GamesListEntry key={i.id} gameData={i} />
                 </Grid>
               </Fade>
             );

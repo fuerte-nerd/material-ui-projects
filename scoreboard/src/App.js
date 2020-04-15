@@ -10,9 +10,8 @@ function App(props) {
   useEffect(() => {
     const ls = localStorage.getItem("daves_scorecard_app");
     if (ls) {
-      return props.dispatch(getGames(JSON.parse(ls)));
+      props.dispatch(getGames(JSON.parse(ls)));
     }
-    return null;
   }, []);
 
   useEffect(() => {
