@@ -45,6 +45,8 @@ const GamesListEntry = (props) => {
         return props.gameData.in_progress
           ? `${leaders[0].name} is winning`
           : `${leaders[0].name} won`;
+      case props.gameData.players.length:
+        return props.gameData.in_progress ? `Nobody is winning` : `Nobody won`;
       case 2:
         return props.gameData.in_progress
           ? `${leaders[0].name} and ${leaders[1].name} are winning`
@@ -53,8 +55,6 @@ const GamesListEntry = (props) => {
         return props.gameData.in_progress
           ? `${leaders[0].name}, ${leaders[1].name} and ${leaders[2].name} are winning`
           : `${leaders[0].name}, ${leaders[1].name} and ${leaders[2].name} won`;
-      case props.gameData.players.length:
-        return props.gameData.in_progress ? `Nobody is winning` : `Nobody won`;
       default:
         return props.gameData.in_progress
           ? `The lead is tied ${leaders.length} ways`
