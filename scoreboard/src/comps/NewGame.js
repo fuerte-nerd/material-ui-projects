@@ -13,12 +13,17 @@ import {
 } from "@material-ui/core";
 
 import newGame from "./newGameState";
+
+import uniqId from "uniqid";
+
 import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
 const NewGame = (props) => {
-  const [compState, setCompState] = useState({});
+  const [compState, setCompState] = useState(newGame);
 
-  useEffect(() => {}, [props.newGameDialog]);
+  useEffect(() => {
+    return props.newGameDialog ? null : setCompState(newGame);
+  }, [props.newGameDialog]);
 
   const handleChange = (e) => {
     const f = e.currentTarget;
