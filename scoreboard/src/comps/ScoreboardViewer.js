@@ -1,5 +1,5 @@
 import React from "react";
-
+import { connect } from "react-redux";
 import { EditPlayer } from "../Components";
 
 import {
@@ -71,7 +71,7 @@ const ScoreboardViewer = (props) => {
   };
 
   return (
-    <Dialog fullScreen open={false}>
+    <Dialog fullScreen open={props.isOpen}>
       <AppBar>
         <Toolbar>
           <Typography style={{ flex: 1 }}>Scoreboard</Typography>
@@ -243,5 +243,7 @@ const ScoreboardViewer = (props) => {
     </Dialog>
   );
 };
-
-export default ScoreboardViewer;
+const mapStateToProps = (state) => ({
+  isOpen: state.viewerDialog,
+});
+export default connect(mapStateToProps)(ScoreboardViewer);

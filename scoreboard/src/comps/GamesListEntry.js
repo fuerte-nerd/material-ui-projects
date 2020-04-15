@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateGames } from "../redux/actions";
+import { loadGame, updateGames, toggleDialog } from "../redux/actions";
 
 import {
   Card,
@@ -70,7 +70,8 @@ const GamesListEntry = (props) => {
     switch (e.currentTarget.id) {
       case "action-area":
       case "open":
-        return console.log(`Action area or Open button clicked`);
+        props.dispatch(loadGame(props.gameData));
+        return props.dispatch(toggleDialog("viewerDialog"));
       case "delete":
         newGamesArr = props.games.filter((i) => {
           return i.id === props.gameData.id ? null : i;
