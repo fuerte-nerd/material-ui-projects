@@ -47,7 +47,7 @@ const NewGame = (props) => {
         return;
 
       case "players":
-        if (f.value.match(/^[1-9]\d?$/g)) {
+        if (f.value.match(/^[1-9]?\d?$/g)) {
           return setCompState({
             ...compState,
             players: f.value,
@@ -59,13 +59,23 @@ const NewGame = (props) => {
     }
   };
 
+  const handleBlur = (e) => {
+    if (!e.currentTarget.value.match(/^[1-9]\d?$/g)) {
+      return setCompState({
+        ...compState,
+        players: 2,
+      });
+    }
+    return;
+  };
+
   const handleClick = (e) => {
     switch (e.currentTarget.id) {
       case "incPlayers":
         if (compState.players < 98) {
           return setCompState({
             ...compState,
-            players: compState.players + 1,
+            players: parseInt(compState.players) + 1,
           });
         }
         return;
@@ -73,7 +83,7 @@ const NewGame = (props) => {
         if (compState.players > 2) {
           return setCompState({
             ...compState,
-            players: compState.players - 1,
+            players: parseInt(compState.players) - 1,
           });
         }
         return;
@@ -139,6 +149,7 @@ const NewGame = (props) => {
           id="players"
           value={compState.players}
           onChange={handleChange}
+          onBlur={handleBlur}
           style={{ width: "9rem" }}
           margin="normal"
           InputProps={{
