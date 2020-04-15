@@ -12,6 +12,8 @@ import {
   InputAdornment,
 } from "@material-ui/core";
 
+import { Alert } from "@material-ui/lab";
+
 import newGame from "./newGameState";
 
 import uniqId from "uniqid";
@@ -144,6 +146,9 @@ const NewGame = (props) => {
     >
       <DialogTitle>Create New Scoreboard</DialogTitle>
       <DialogContent>
+        {compState.showErr ? (
+          <Alert severity="error">{compState.err}</Alert>
+        ) : null}
         <TextField
           label="Title"
           id="title"
