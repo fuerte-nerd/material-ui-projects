@@ -15,9 +15,17 @@ import {
 import { AddCircle, RemoveCircle } from "@material-ui/icons";
 
 const NewGame = (props) => {
-  const handleClick = () => {
-    props.dispatch(toggleDialog("newGameDialog"));
+  const handleClick = (e) => {
+    switch (e.currentTarget.id) {
+      case "cancel":
+        return props.dispatch(toggleDialog("newGameDialog"));
+      case "create":
+        return console.log("create clicked");
+      default:
+        return;
+    }
   };
+
   return (
     <Dialog
       maxWidth="sm"
@@ -33,7 +41,6 @@ const NewGame = (props) => {
           fullWidth
           margin="normal"
         />
-
         <TextField
           label="No. of players"
           id="players"
@@ -56,10 +63,10 @@ const NewGame = (props) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button clickRel="cancel" onClick={handleClick}>
+        <Button id="cancel" onClick={handleClick}>
           Cancel
         </Button>
-        <Button clickRel="create" onClick={handleClick} color="primary">
+        <Button id="create" onClick={handleClick} color="primary">
           Create
         </Button>
       </DialogActions>
