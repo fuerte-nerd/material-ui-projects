@@ -178,7 +178,7 @@ const GamesListEntry = (props) => {
         >
           <Button
             id="toggle-lock"
-            variant={props.gameData.in_progress ? `outlined` : `contained`}
+            variant={props.gameData.in_progress ? "outlined" : "contained"}
             onClick={handleClick}
           >
             {props.gameData.in_progress ? `In progress` : `Finished`}
