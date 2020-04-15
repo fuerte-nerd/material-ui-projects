@@ -176,6 +176,13 @@ const GamesListEntry = (props) => {
           placement="left"
           arrow
         >
+          <Button
+            id="toggle-lock"
+            variant={props.gameData.in_progress ? `outlined` : `contained`}
+            onClick={handleClick}
+          >
+            {props.gameData.in_progress ? `In progress` : `Finished`}
+          </Button>
           <IconButton id="toggle-lock" onClick={handleClick}>
             {props.gameData.in_progress ? <LockOpen /> : <Lock />}
           </IconButton>
