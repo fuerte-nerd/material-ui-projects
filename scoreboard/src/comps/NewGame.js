@@ -30,7 +30,7 @@ const NewGame = (props) => {
     const f = e.currentTarget;
     switch (f.id) {
       case "title":
-        if (f.value.length < 20)
+        if (f.value.length < 30)
           return setCompState({
             ...compState,
             title: f.value,
@@ -38,13 +38,15 @@ const NewGame = (props) => {
         return;
 
       case "description":
-        if (f.value.length < 40) {
+        if (f.value.length < 60) {
           return setCompState({
             ...compState,
             description: f.value,
           });
         }
         return;
+
+      case "players":
 
       default:
         return compState;
