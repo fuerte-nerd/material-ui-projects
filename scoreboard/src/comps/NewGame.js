@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { toggleDialog, createGame } from "../redux/actions";
+import { toggleDialog, updateGames } from "../redux/actions";
 import {
   Button,
   Dialog,
@@ -142,7 +142,7 @@ const NewGame = (props) => {
         };
 
         const newGamesArr = props.games.concat([newGame]);
-        props.dispatch(createGame(newGamesArr));
+        props.dispatch(updateGames(newGamesArr));
         return props.dispatch(toggleDialog("newGameDialog"));
       default:
         return;
