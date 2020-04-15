@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { toggleDialog } from "../redux/actions";
+
 import { EditPlayer } from "../Components";
 
 import {
@@ -70,12 +72,20 @@ const ScoreboardViewer = (props) => {
     }
   };
 
+  const handleClick = (e) => {
+    switch (e.currentTarget.id) {
+      case "back":
+        // TODO: save data first
+        props.dispatch(toggleDialog("viewerDialog"));
+    }
+  };
+
   return (
     <Dialog fullScreen open={props.isOpen}>
       <AppBar>
         <Toolbar>
           <Typography style={{ flex: 1 }}>Scoreboard</Typography>
-          <Button color="inherit" edge="end">
+          <Button color="inherit" edge="end" onClick={handleClick} id="back">
             Back
           </Button>
         </Toolbar>
@@ -245,5 +255,6 @@ const ScoreboardViewer = (props) => {
 };
 const mapStateToProps = (state) => ({
   isOpen: state.viewerDialog,
+  gameLoaded: state.gameLoadedInViewer,
 });
 export default connect(mapStateToProps)(ScoreboardViewer);
