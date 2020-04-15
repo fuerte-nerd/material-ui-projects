@@ -47,7 +47,7 @@ const NewGame = (props) => {
         return;
 
       case "players":
-        if (f.value.match(/^[1-9]\d$/g)) {
+        if (f.value.match(/^[1-9]\d?$/g)) {
           return setCompState({
             ...compState,
             players: f.value,
