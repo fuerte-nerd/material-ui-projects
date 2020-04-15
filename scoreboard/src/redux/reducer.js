@@ -6,9 +6,11 @@ import {
   LOAD_GAME,
 } from "./types";
 
+import newGameState from "../comps/newGameState";
+
 const initialState = {
   games: [],
-  gameLoadedInViewer: null,
+  gameLoadedInViewer: newGameState,
   viewerDialog: false,
   newGameDialog: false,
   addPlayerDialog: false,

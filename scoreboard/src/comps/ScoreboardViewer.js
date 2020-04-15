@@ -100,164 +100,162 @@ const ScoreboardViewer = (props) => {
       <Toolbar />
       <EditPlayer />
       <Box mt={3}>
-        {props.gameLoaded ? (
-          <Container>
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={5}>
-                <Box>
-                  <TextField
-                    fullWidth
-                    multiline
-                    InputProps={{
-                      style: { fontSize: "4rem" },
-                      disableUnderline: true,
-                    }}
-                    placeholder="Title"
-                    defaultValue={compState.title}
-                  />
-                </Box>
-                <Box mt={1}>
-                  <TextField
-                    fullWidth
-                    defaultValue={description}
-                    multiline
-                    InputProps={{ disableUnderline: true }}
-                    placeholder="Description"
-                  />
-                </Box>
-                <Alert
-                  variant="filled"
-                  icon={in_progress ? <LockOpen /> : <Lock />}
-                  color={in_progress ? "success" : "error"}
-                >
-                  {in_progress
-                    ? `This game is in progress`
-                    : `This game has finished`}
-                </Alert>
-                <List>
-                  <Divider />
-                  <ListItem>
-                    <Tooltip title="Date created" placement="left">
-                      <ListItemIcon edge="start">
-                        <CalendarToday />
-                      </ListItemIcon>
-                    </Tooltip>
-                    <ListItemText>
-                      {`Created on `}
-                      {moment().diff(moment(date_created), "days") < 365
-                        ? moment(date_created).format("Do MMMM")
-                        : moment(date_created).format("Do MMMM YYYY")}
-                    </ListItemText>
-                  </ListItem>
-                  <Divider />
-                  <ListItem>
-                    <Tooltip title="Last update" placement="left">
-                      <ListItemIcon edge="start">
-                        <Update />
-                      </ListItemIcon>
-                    </Tooltip>
-                    <ListItemText>
-                      {`Updated `}
-                      {moment(date_modified).fromNow()}
-                    </ListItemText>
-                  </ListItem>
-                  <Divider />
-                  <ListItem>
-                    <Tooltip title="Number of players" placement="left">
-                      <ListItemIcon edge="start">
-                        <People />
-                      </ListItemIcon>
-                    </Tooltip>
-                    <ListItemText>
-                      {players.length}
-                      {players.length > 1 ? ` players` : ` player`}
-                    </ListItemText>
-                  </ListItem>
-                  <Divider />
-                  <ListItem>
-                    <Tooltip
-                      title={in_progress ? `Current leader` : `Winner`}
-                      placement="left"
-                    >
-                      <ListItemIcon edge="start">
-                        <EmojiEvents />
-                      </ListItemIcon>
-                    </Tooltip>
-                    <ListItemText>
-                      {leader.name}
-                      {in_progress ? ` is winning` : ` won`}
-                    </ListItemText>
-                  </ListItem>
-                  <Divider />
-                </List>
-              </Grid>
-              <Grid item xs={12} md={7}>
-                <TableContainer component={Paper}>
-                  <Table>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell width="10%">Pos.</TableCell>
-                        <TableCell width="50%">Name</TableCell>
-                        <TableCell width="30%" align="right">
-                          Score
-                        </TableCell>
-                        <TableCell width="5%" align="center" padding="none">
-                          <Box mt={1}>
-                            <Icon>
-                              <RemoveCircle />
-                            </Icon>
-                          </Box>
-                        </TableCell>
-                        <TableCell width="5%" align="center" padding="none">
-                          <Box mt={1}>
-                            <Icon>
-                              <AddCircle />
-                            </Icon>
-                          </Box>
-                        </TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {players.map((i, ind) => {
-                        return (
-                          <TableRow>
-                            <TableCell>{getPosition(ind)}</TableCell>
-                            <TableCell>{i.name}</TableCell>
-                            <TableCell align="right">{i.score}</TableCell>
-                            <TableCell align="center" padding="none">
-                              <IconButton>
-                                <RemoveCircle />
-                              </IconButton>
-                            </TableCell>
-                            <TableCell align="center" padding="none">
-                              <IconButton>
-                                <AddCircle />
-                              </IconButton>
-                            </TableCell>
-                          </TableRow>
-                        );
-                      })}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-                <Box
-                  align="center"
-                  display="flex"
-                  justifyContent="space-between"
-                  mt={2}
-                >
-                  <Button color="primary">Add new player</Button>
-
-                  {in_progress ? (
-                    <Button color="secondary">Finish Game</Button>
-                  ) : (
-                    <Button color="secondary">Resume Game</Button>
-                  )}
-                </Box>
-              </Grid>
+        <Container>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={5}>
+              <Box>
+                <TextField
+                  fullWidth
+                  multiline
+                  InputProps={{
+                    style: { fontSize: "4rem" },
+                    disableUnderline: true,
+                  }}
+                  placeholder="Title"
+                  defaultValue={compState.title}
+                />
+              </Box>
+              <Box mt={1}>
+                <TextField
+                  fullWidth
+                  defaultValue={compState.description}
+                  multiline
+                  InputProps={{ disableUnderline: true }}
+                  placeholder="Description"
+                />
+              </Box>
+              <Alert
+                variant="filled"
+                icon={in_progress ? <LockOpen /> : <Lock />}
+                color={in_progress ? "success" : "error"}
+              >
+                {in_progress
+                  ? `This game is in progress`
+                  : `This game has finished`}
+              </Alert>
+              <List>
+                <Divider />
+                <ListItem>
+                  <Tooltip title="Date created" placement="left">
+                    <ListItemIcon edge="start">
+                      <CalendarToday />
+                    </ListItemIcon>
+                  </Tooltip>
+                  <ListItemText>
+                    {`Created on `}
+                    {moment().diff(moment(compState.date_created), "days") < 365
+                      ? moment(compState.date_created).format("Do MMMM")
+                      : moment(compState.date_created).format("Do MMMM YYYY")}
+                  </ListItemText>
+                </ListItem>
+                <Divider />
+                <ListItem>
+                  <Tooltip title="Last update" placement="left">
+                    <ListItemIcon edge="start">
+                      <Update />
+                    </ListItemIcon>
+                  </Tooltip>
+                  <ListItemText>
+                    {`Updated `}
+                    {moment(compState.date_modified).fromNow()}
+                  </ListItemText>
+                </ListItem>
+                <Divider />
+                <ListItem>
+                  <Tooltip title="Number of players" placement="left">
+                    <ListItemIcon edge="start">
+                      <People />
+                    </ListItemIcon>
+                  </Tooltip>
+                  <ListItemText>
+                    {compState.players.length}
+                    {compState.players.length > 1 ? ` players` : ` player`}
+                  </ListItemText>
+                </ListItem>
+                <Divider />
+                <ListItem>
+                  <Tooltip
+                    title={compState.in_progress ? `Current leader` : `Winner`}
+                    placement="left"
+                  >
+                    <ListItemIcon edge="start">
+                      <EmojiEvents />
+                    </ListItemIcon>
+                  </Tooltip>
+                  <ListItemText>
+                    {leader.name}
+                    {compState.in_progress ? ` is winning` : ` won`}
+                  </ListItemText>
+                </ListItem>
+                <Divider />
+              </List>
             </Grid>
-          </Container>
-        ) : null}
+            <Grid item xs={12} md={7}>
+              <TableContainer component={Paper}>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell width="10%">Pos.</TableCell>
+                      <TableCell width="50%">Name</TableCell>
+                      <TableCell width="30%" align="right">
+                        Score
+                      </TableCell>
+                      <TableCell width="5%" align="center" padding="none">
+                        <Box mt={1}>
+                          <Icon>
+                            <RemoveCircle />
+                          </Icon>
+                        </Box>
+                      </TableCell>
+                      <TableCell width="5%" align="center" padding="none">
+                        <Box mt={1}>
+                          <Icon>
+                            <AddCircle />
+                          </Icon>
+                        </Box>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {compState.players.map((i, ind) => {
+                      return (
+                        <TableRow>
+                          <TableCell>{getPosition(ind)}</TableCell>
+                          <TableCell>{i.name}</TableCell>
+                          <TableCell align="right">{i.score}</TableCell>
+                          <TableCell align="center" padding="none">
+                            <IconButton>
+                              <RemoveCircle />
+                            </IconButton>
+                          </TableCell>
+                          <TableCell align="center" padding="none">
+                            <IconButton>
+                              <AddCircle />
+                            </IconButton>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+              <Box
+                align="center"
+                display="flex"
+                justifyContent="space-between"
+                mt={2}
+              >
+                <Button color="primary">Add new player</Button>
+
+                {compState.in_progress ? (
+                  <Button color="secondary">Finish Game</Button>
+                ) : (
+                  <Button color="secondary">Resume Game</Button>
+                )}
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
     </Dialog>
   );
