@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import {
   Dialog,
   DialogActions,
@@ -9,9 +10,9 @@ import {
   Grid,
 } from "@material-ui/core";
 
-const AddPlayer = () => {
+const AddPlayer = (props) => {
   return (
-    <Dialog open={true} fullWidth="sm">
+    <Dialog open={props.isOpen} fullWidth="sm">
       <DialogTitle>Add New Player</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
@@ -30,5 +31,7 @@ const AddPlayer = () => {
     </Dialog>
   );
 };
-
-export default AddPlayer;
+const mapStateToProps = (state) => ({
+  isOpen: state.addPlayerDialog,
+});
+export default connect(mapStateToProps)(AddPlayer);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { toggleDialog } from "../redux/actions";
 
-import { GameSummary, Scoreboard, EditPlayer } from "../Components";
+import { GameSummary, Scoreboard, EditPlayer, AddPlayer } from "../Components";
 
 import {
   Button,
@@ -51,6 +51,7 @@ const ScoreboardViewer = (props) => {
       </AppBar>
       <Toolbar />
       <EditPlayer />
+      <AddPlayer />
       <Box mt={3}>
         <Container>
           <Grid container spacing={2}>
