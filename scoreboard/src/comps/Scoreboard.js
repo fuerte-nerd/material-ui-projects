@@ -25,6 +25,13 @@ const Scoreboard = (props) => {
       return index + 1;
     }
   };
+
+  const handleClick = (e) => {
+    console.log(e.parentElement);
+    if (e.parentElement === "<tr>") {
+      console.log("reached");
+    }
+  };
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -55,22 +62,12 @@ const Scoreboard = (props) => {
           {typeof props.players === "object"
             ? props.players.map((i, ind) => {
                 return (
-                  <TableRow
-                    hover
-                    key={i.id}
-                    id={i.id}
-                    onClick={() => console.log("clicked")}
-                  >
-                    <TableCell onClick={() => console.log("clicked")}>
+                  <TableRow hover key={i.id} id={i.id}>
+                    <TableCell onClick={handleClick}>
                       {getPosition(ind)}
                     </TableCell>
-                    <TableCell onClick={() => console.log("clicked")}>
-                      {i.name}
-                    </TableCell>
-                    <TableCell
-                      onClick={() => console.log("clicked")}
-                      align="right"
-                    >
+                    <TableCell onClick={handleClick}>{i.name}</TableCell>
+                    <TableCell onClick={handleClick} align="right">
                       {i.score}
                     </TableCell>
                     <TableCell align="center" padding="none">
