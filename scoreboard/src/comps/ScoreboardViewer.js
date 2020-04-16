@@ -33,7 +33,9 @@ const ScoreboardViewer = (props) => {
     switch (e.currentTarget.id) {
       case "back":
         // TODO: save data first
-        props.dispatch(toggleDialog("viewerDialog"));
+        return props.dispatch(toggleDialog("viewerDialog"));
+      case "add-player":
+        return props.dispatch(toggleDialog("addPlayerDialog"));
     }
   };
 
@@ -84,16 +86,15 @@ const ScoreboardViewer = (props) => {
                   : `This game has finished`}
               </Alert>
               <GameSummary gameData={compState} />
-            </Grid>
-            <Grid item xs={12} md={7}>
-              <Scoreboard players={compState.players} />
               <Box
                 align="center"
                 display="flex"
                 justifyContent="space-between"
                 mt={2}
               >
-                <Button color="primary">Add new player</Button>
+                <Button color="primary" onClick={handleClick} id="add-player">
+                  Add new player
+                </Button>
 
                 {compState.in_progress ? (
                   <Button color="secondary">Finish Game</Button>
@@ -101,6 +102,9 @@ const ScoreboardViewer = (props) => {
                   <Button color="secondary">Resume Game</Button>
                 )}
               </Box>
+            </Grid>
+            <Grid item xs={12} md={7}>
+              <Scoreboard players={compState.players} />
             </Grid>
           </Grid>
         </Container>
