@@ -55,10 +55,24 @@ const Scoreboard = (props) => {
           {typeof props.players === "object"
             ? props.players.map((i, ind) => {
                 return (
-                  <TableRow hover key={i.id} id={i.id}>
-                    <TableCell>{getPosition(ind)}</TableCell>
-                    <TableCell>{i.name}</TableCell>
-                    <TableCell align="right">{i.score}</TableCell>
+                  <TableRow
+                    hover
+                    key={i.id}
+                    id={i.id}
+                    onClick={() => console.log("clicked")}
+                  >
+                    <TableCell onClick={() => console.log("clicked")}>
+                      {getPosition(ind)}
+                    </TableCell>
+                    <TableCell onClick={() => console.log("clicked")}>
+                      {i.name}
+                    </TableCell>
+                    <TableCell
+                      onClick={() => console.log("clicked")}
+                      align="right"
+                    >
+                      {i.score}
+                    </TableCell>
                     <TableCell align="center" padding="none">
                       <IconButton>
                         <RemoveCircle />
