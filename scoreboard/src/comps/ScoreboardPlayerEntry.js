@@ -14,7 +14,6 @@ const ScoreboardPlayerEntry = (props) => {
       default:
         return console.log(`the row was clicked`);
     }
-    console.log("clicked");
   };
   return (
     <TableRow hover key={props.id} id={props.id}>
@@ -28,12 +27,12 @@ const ScoreboardPlayerEntry = (props) => {
         {props.score}
       </TableCell>
       <TableCell align="center" padding="none">
-        <IconButton>
+        <IconButton onClick={handleClick} id="dec-score">
           <RemoveCircle />
         </IconButton>
       </TableCell>
       <TableCell align="center" padding="none">
-        <IconButton>
+        <IconButton onClick={handleClick} id="inc-score">
           <AddCircle />
         </IconButton>
       </TableCell>
