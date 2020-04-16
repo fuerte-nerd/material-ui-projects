@@ -28,7 +28,7 @@ const Scoreboard = (props) => {
 
   const handleClick = (e) => {
     const target = e.currentTarget;
-
+    console.log(e.target);
     const regexs = [/$pos_/g, /$nam_/g, /$sco_/g];
 
     regexs.map((i) => {
