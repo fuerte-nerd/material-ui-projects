@@ -29,6 +29,18 @@ const ScoreboardViewer = (props) => {
     setCompState(props.gameLoaded);
   }, [props.gameLoaded]);
 
+  useEffect(() => {
+    setCompState(
+      props.games.reduce((acc, cv) => {
+        if (cv.id === props.gameLoaded.id) {
+          return cv;
+        } else {
+          return acc;
+        }
+      })
+    );
+  }, [props.games]);
+
   const handleClick = (e) => {
     switch (e.currentTarget.id) {
       case "back":
@@ -116,5 +128,6 @@ const ScoreboardViewer = (props) => {
 const mapStateToProps = (state) => ({
   isOpen: state.viewerDialog,
   gameLoaded: state.gameLoadedInViewer,
+  games: state.games,
 });
 export default connect(mapStateToProps)(ScoreboardViewer);
