@@ -67,13 +67,15 @@ const AddPlayer = (props) => {
         };
 
         let newGamesArr = props.games.map((i) => {
-          console.log(props.gameLoaded);
           if (props.gameLoaded.id === i.id) {
-            i.players.concat([newPlayer]);
+            let newPlayersArr = i.players.concat([newPlayer]);
+            return {
+              ...i,
+              players: newPlayersArr,
+            };
           }
           return i;
         });
-        console.log(newGamesArr);
         props.dispatch(updateGames(newGamesArr));
         return props.dispatch(toggleDialog("addPlayerDialog"));
       default:
