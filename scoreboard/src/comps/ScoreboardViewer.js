@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { toggleDialog } from "../redux/actions";
 
-import { EditPlayer } from "../Components";
+import { Scoreboard, EditPlayer } from "../Components";
 
 import {
   Paper,
@@ -219,7 +219,7 @@ const ScoreboardViewer = (props) => {
               </List>
             </Grid>
             <Grid item xs={12} md={7}>
-              {/* Add scoreboard in here */}
+              <Scoreboard players={compState.players} />
               <Box
                 align="center"
                 display="flex"

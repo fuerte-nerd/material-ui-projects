@@ -55,7 +55,7 @@ const Scoreboard = (props) => {
           {typeof props.players === "object"
             ? props.players.map((i, ind) => {
                 return (
-                  <TableRow>
+                  <TableRow key={i.id}>
                     <TableCell>{getPosition(ind)}</TableCell>
                     <TableCell>{i.name}</TableCell>
                     <TableCell align="right">{i.score}</TableCell>
