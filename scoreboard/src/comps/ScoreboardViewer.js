@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { toggleDialog } from "../redux/actions";
+import { toggleDialog, updateGames } from "../redux/actions";
 
 import { GameSummary, Scoreboard, EditPlayer, AddPlayer } from "../Components";
 
@@ -26,6 +26,10 @@ const ScoreboardViewer = (props) => {
   const [compState, setCompState] = useState(newGameState);
 
   useEffect(() => {
+    setCompState(props.gameLoaded);
+  }, [props.gameLoaded]);
+
+  useEffect(() => {
     if (props.games.length > 0) {
       setCompState(
         props.games.reduce((acc, cv) => {
@@ -48,7 +52,16 @@ const ScoreboardViewer = (props) => {
         return props.dispatch(toggleDialog("addPlayerDialog"));
       case "resume-game":
       case "finish-game":
-        return;
+        const newGameArr = props.games.map((i) => {
+          if (i.id === props.gameLoaded.id) {
+            return {
+              ...i,
+              in_progress: !i.in_progress,
+            };
+          }
+          return i;
+        });
+        return props.dispatch(updateGames(newGameArr));
       default:
         return;
     }
