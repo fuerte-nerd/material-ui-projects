@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { toggleDialog } from "../redux/actions";
+import { toggleDialog, updateGames } from "../redux/actions";
 import {
   Dialog,
   DialogActions,
@@ -59,7 +59,6 @@ const AddPlayer = (props) => {
     switch (e.currentTarget.id) {
       case "cancel":
         return props.dispatch(toggleDialog("addPlayerDialog"));
-
       case "add":
         const newPlayer = {
           id: uniqId(),
@@ -69,9 +68,11 @@ const AddPlayer = (props) => {
 
         let newGamesArr = props.games.map((i) => {
           if (props.gameLoaded.id === i.id) {
-            i.players.concat();
+            i.players.concat([newPlayer]);
           }
         });
+        props.dispatch(updateGames(newGamesArr));
+        return props.dispatch(toggleDialog("addPlayerDialog"));
       default:
         return;
     }
