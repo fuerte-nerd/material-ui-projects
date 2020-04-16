@@ -29,20 +29,13 @@ const Scoreboard = (props) => {
   const handleClick = (e) => {
     const target = e.currentTarget;
 
-    const regexs = [/$pos_/g, /$nam_/g, /$sco_/g]
+    const regexs = [/$pos_/g, /$nam_/g, /$sco_/g];
 
-    regexs.map((i)=>{
-      if(target.id.match(i)=>{
-        console.log('reached')
-      })
-    })
-    switch (target.id) {
-      case /$pos_/g:
-        console.log("clicked");
-    }
-    if (e.parentElement === "<tr>") {
-      console.log("reached");
-    }
+    regexs.map((i) => {
+      if (target.id.match(i)) {
+        console.log("reached");
+      }
+    });
   };
   return (
     <TableContainer component={Paper}>
