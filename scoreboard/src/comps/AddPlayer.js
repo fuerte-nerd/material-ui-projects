@@ -16,7 +16,7 @@ import uniqId from "uniqid";
 const AddPlayer = (props) => {
   const [compState, setCompState] = useState({
     name: "New Player",
-    score: 0,
+    score: "0",
   });
 
   const handleChange = (e) => {
@@ -42,7 +42,7 @@ const AddPlayer = (props) => {
     switch (f.id) {
       case "score":
         if (!compState.score.match(/^[1-9][0-9]?$/g)) {
-          setCompState({ ...compState, score: 0 });
+          setCompState({ ...compState, score: "0" });
         }
         return;
       case "name":
@@ -63,13 +63,14 @@ const AddPlayer = (props) => {
         const newPlayer = {
           id: uniqId(),
           name: compState.name,
-          score: compState.score,
+          score: parseInt(compState.score),
         };
 
         let newGamesArr = props.games.map((i) => {
           if (props.gameLoaded.id === i.id) {
             i.players.concat([newPlayer]);
           }
+          return i;
         });
         props.dispatch(updateGames(newGamesArr));
         return props.dispatch(toggleDialog("addPlayerDialog"));
@@ -93,6 +94,7 @@ const AddPlayer = (props) => {
               label="Name"
               value={compState.name}
               onChange={handleChange}
+              onBlur={handleBlur}
               autoFocus
               fullWidth
             />
@@ -105,7 +107,6 @@ const AddPlayer = (props) => {
               onChange={handleChange}
               onBlur={handleBlur}
               fullWidth
-              type="number"
               style={{ WebkitAppearance: "none" }}
             />
           </Grid>
@@ -115,7 +116,9 @@ const AddPlayer = (props) => {
         <Button color="inherit" onClick={handleClick} id="cancel">
           Cancel
         </Button>
-        <Button color="primary">Add</Button>
+        <Button color="primary" onClick={handleClick} id="add">
+          Add
+        </Button>
       </DialogActions>
     </Dialog>
   );
