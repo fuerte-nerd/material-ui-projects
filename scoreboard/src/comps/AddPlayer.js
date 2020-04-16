@@ -37,6 +37,16 @@ const AddPlayer = (props) => {
     }
   };
 
+  const handleBlur = (e) => {
+    const f = e.currentTarget;
+    switch (f.id) {
+      case "score":
+        if (!compState.score.match(/[1-9][0-9]?/g)) {
+          setCompState({ ...compState, score: 0 });
+        }
+    }
+  };
+
   const handleClick = (e) => {
     switch (e.currentTarget.id) {
       case "cancel":
@@ -70,6 +80,7 @@ const AddPlayer = (props) => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={10}>
             <TextField
+              id="name"
               label="Name"
               value={compState.name}
               onChange={handleChange}
@@ -79,9 +90,11 @@ const AddPlayer = (props) => {
           </Grid>
           <Grid item xs={12} sm={2}>
             <TextField
+              id="score"
               label="Score"
               value={compState.score}
               onChange={handleChange}
+              onBlur={handleBlur}
               fullWidth
               type="number"
               style={{ WebkitAppearance: "none" }}
