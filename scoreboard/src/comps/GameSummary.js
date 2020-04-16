@@ -11,6 +11,7 @@ import {
 import { CalendarToday, Update, People, EmojiEvents } from "@material-ui/icons";
 
 import moment from "moment";
+import getLeader from "./getLeader";
 
 const GameSummary = (props) => {
   return (
@@ -63,7 +64,9 @@ const GameSummary = (props) => {
             <EmojiEvents />
           </ListItemIcon>
         </Tooltip>
-        <ListItemText>{getLeader()}</ListItemText>
+        <ListItemText>
+          {getLeader(props.gameData.players, props.gameData.in_progress)}
+        </ListItemText>
       </ListItem>
       <Divider />
     </List>

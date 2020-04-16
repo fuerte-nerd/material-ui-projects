@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { toggleDialog } from "../redux/actions";
 
-import { Scoreboard, EditPlayer } from "../Components";
+import { GameSummary, Scoreboard, EditPlayer } from "../Components";
 
 import {
-  Paper,
-  Icon,
-  IconButton,
   Button,
   Dialog,
   AppBar,
@@ -17,34 +14,11 @@ import {
   TextField,
   Container,
   Grid,
-  Divider,
-  ListItem,
-  Tooltip,
-  ListItemIcon,
-  ListItemText,
-  List,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  TableContainer,
 } from "@material-ui/core";
 
 import { Alert } from "@material-ui/lab";
 
-import {
-  Update,
-  People,
-  EmojiEvents,
-  CalendarToday,
-  Lock,
-  LockOpen,
-  AddCircle,
-  RemoveCircle,
-} from "@material-ui/icons";
-
-import moment from "moment";
+import { Lock, LockOpen } from "@material-ui/icons";
 
 import newGameState from "./newGameState";
 
@@ -109,6 +83,7 @@ const ScoreboardViewer = (props) => {
                   ? `This game is in progress`
                   : `This game has finished`}
               </Alert>
+              <GameSummary gameData={compState} />
             </Grid>
             <Grid item xs={12} md={7}>
               <Scoreboard players={compState.players} />

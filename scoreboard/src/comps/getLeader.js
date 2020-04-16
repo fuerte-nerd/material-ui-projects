@@ -1,4 +1,4 @@
-export default (players) => {
+export default (players, inProgress) => {
   if (typeof players === "object") {
     let leaders = [players[0]];
 
@@ -14,21 +14,21 @@ export default (players) => {
 
     switch (leaders.length) {
       case 1:
-        return in_progress
+        return inProgress
           ? `${leaders[0].name} is winning`
           : `${leaders[0].name} won`;
       case players.length:
-        return in_progress ? `Nobody is winning` : `Nobody won`;
+        return inProgress ? `Nobody is winning` : `Nobody won`;
       case 2:
-        return in_progress
+        return inProgress
           ? `${leaders[0].name} and ${leaders[1].name} are winning`
           : `${leaders[0].name} and ${leaders[1].name} won`;
       case 3:
-        return in_progress
+        return inProgress
           ? `${leaders[0].name}, ${leaders[1].name} and ${leaders[2].name} are winning`
           : `${leaders[0].name}, ${leaders[1].name} and ${leaders[2].name} won`;
       default:
-        return in_progress
+        return inProgress
           ? `The lead is tied ${leaders.length} ways`
           : `The game was tied ${leaders.length} ways`;
     }
