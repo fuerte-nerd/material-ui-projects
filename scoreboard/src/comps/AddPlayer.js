@@ -16,6 +16,12 @@ const AddPlayer = (props) => {
     switch (e.currentTarget.id) {
       case "cancel":
         return props.dispatch(toggleDialog("addPlayerDialog"));
+
+      case "add":
+        let newGamesArr = props.games.map((i)=>{
+          if()
+        }) 
+      default: return
     }
   };
 
@@ -47,5 +53,7 @@ const AddPlayer = (props) => {
 };
 const mapStateToProps = (state) => ({
   isOpen: state.addPlayerDialog,
+  games: state.games,
+  gameLoaded: state.gameLoadedInViewer
 });
 export default connect(mapStateToProps)(AddPlayer);
