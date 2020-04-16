@@ -27,7 +27,19 @@ const Scoreboard = (props) => {
   };
 
   const handleClick = (e) => {
-    console.log(e.parentElement);
+    const target = e.currentTarget;
+
+    const regexs = [/$pos_/g, /$nam_/g, /$sco_/g]
+
+    regexs.map((i)=>{
+      if(target.id.match(i)=>{
+        console.log('reached')
+      })
+    })
+    switch (target.id) {
+      case /$pos_/g:
+        console.log("clicked");
+    }
     if (e.parentElement === "<tr>") {
       console.log("reached");
     }
@@ -63,11 +75,17 @@ const Scoreboard = (props) => {
             ? props.players.map((i, ind) => {
                 return (
                   <TableRow hover key={i.id} id={i.id}>
-                    <TableCell onClick={handleClick}>
+                    <TableCell id={`pos_${i.id}`} onClick={handleClick}>
                       {getPosition(ind)}
                     </TableCell>
-                    <TableCell onClick={handleClick}>{i.name}</TableCell>
-                    <TableCell onClick={handleClick} align="right">
+                    <TableCell id={`nam_${i.id}`} onClick={handleClick}>
+                      {i.name}
+                    </TableCell>
+                    <TableCell
+                      id={`sco_${i.id}`}
+                      onClick={handleClick}
+                      align="right"
+                    >
                       {i.score}
                     </TableCell>
                     <TableCell align="center" padding="none">
