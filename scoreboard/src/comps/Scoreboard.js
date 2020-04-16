@@ -16,6 +16,15 @@ import {
 import { RemoveCircle, AddCircle } from "@material-ui/icons";
 
 const Scoreboard = (props) => {
+  const getPosition = (index) => {
+    if (index > 0) {
+      return props.players[index].score === props.players[index - 1].score
+        ? null
+        : index + 1;
+    } else {
+      return index + 1;
+    }
+  };
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -43,8 +52,8 @@ const Scoreboard = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {typeof compState.players === "object"
-            ? compState.players.map((i, ind) => {
+          {typeof props.players === "object"
+            ? props.players.map((i, ind) => {
                 return (
                   <TableRow>
                     <TableCell>{getPosition(ind)}</TableCell>
