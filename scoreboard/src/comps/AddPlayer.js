@@ -84,6 +84,7 @@ const AddPlayer = (props) => {
               onChange={handleChange}
               fullWidth
               type="number"
+              style={{ WebkitAppearance: "none" }}
             />
           </Grid>
         </Grid>
