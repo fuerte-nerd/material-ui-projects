@@ -15,17 +15,17 @@ import uniqId from "uniqid";
 
 const AddPlayer = (props) => {
   const [compState, setCompState] = useState({
-    name: "",
+    name: "New Player",
     score: 0,
   });
 
   const handleChange = (e) => {
     const f = e.currentTarget;
     switch (f.id) {
-      case "title":
+      case "name":
         return setCompState({
           ...compState,
-          title: f.value,
+          name: f.value,
         });
       case "score":
         return setCompState({
@@ -41,9 +41,17 @@ const AddPlayer = (props) => {
     const f = e.currentTarget;
     switch (f.id) {
       case "score":
-        if (!compState.score.match(/[1-9][0-9]?/g)) {
+        if (!compState.score.match(/^[1-9][0-9]?$/g)) {
           setCompState({ ...compState, score: 0 });
         }
+        return;
+      case "name":
+        if (compState.name === "") {
+          setCompState({ ...compState, name: "New player" });
+        }
+        return;
+      default:
+        return;
     }
   };
 
