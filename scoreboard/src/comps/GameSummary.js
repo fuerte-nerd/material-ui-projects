@@ -8,6 +8,10 @@ import {
   ListItemText,
 } from "@material-ui/core";
 
+import { CalendarToday, Update, People, EmojiEvents } from "@material-ui/icons";
+
+import moment from "moment";
+
 const GameSummary = (props) => {
   return (
     <List>
@@ -20,9 +24,9 @@ const GameSummary = (props) => {
         </Tooltip>
         <ListItemText>
           {`Created on `}
-          {moment().diff(moment(compState.date_created), "days") < 365
-            ? moment(compState.date_created).format("Do MMMM")
-            : moment(compState.date_created).format("Do MMMM YYYY")}
+          {moment().diff(moment(props.gameData.date_created), "days") < 365
+            ? moment(props.gameData.date_created).format("Do MMMM")
+            : moment(props.gameData.date_created).format("Do MMMM YYYY")}
         </ListItemText>
       </ListItem>
       <Divider />
@@ -34,7 +38,7 @@ const GameSummary = (props) => {
         </Tooltip>
         <ListItemText>
           {`Updated `}
-          {moment(compState.date_modified).fromNow()}
+          {moment(props.gameData.date_modified).fromNow()}
         </ListItemText>
       </ListItem>
       <Divider />
@@ -45,14 +49,14 @@ const GameSummary = (props) => {
           </ListItemIcon>
         </Tooltip>
         <ListItemText>
-          {compState.players.length}
-          {compState.players.length > 1 ? ` players` : ` player`}
+          {props.gameData.players.length}
+          {props.gameData.players.length > 1 ? ` players` : ` player`}
         </ListItemText>
       </ListItem>
       <Divider />
       <ListItem>
         <Tooltip
-          title={compState.in_progress ? `Current leader` : `Winner`}
+          title={props.gameData.in_progress ? `Current leader` : `Winner`}
           placement="left"
         >
           <ListItemIcon edge="start">
