@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { toggleDialog } from "../redux/actions";
 import {
   Dialog,
   DialogActions,
@@ -12,7 +13,11 @@ import {
 
 const AddPlayer = (props) => {
   return (
-    <Dialog open={props.isOpen} fullWidth="sm">
+    <Dialog
+      open={props.isOpen}
+      onClose={() => props.dispatch(toggleDialog("addPlayerDialog"))}
+      fullWidth="sm"
+    >
       <DialogTitle>Add New Player</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
