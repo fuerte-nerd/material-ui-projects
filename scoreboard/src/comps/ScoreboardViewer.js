@@ -46,6 +46,11 @@ const ScoreboardViewer = (props) => {
         return props.dispatch(toggleDialog("viewerDialog"));
       case "add-player":
         return props.dispatch(toggleDialog("addPlayerDialog"));
+      case "resume-game":
+      case "finish-game":
+        return;
+      default:
+        return;
     }
   };
 
@@ -108,9 +113,21 @@ const ScoreboardViewer = (props) => {
                 </Button>
 
                 {compState.in_progress ? (
-                  <Button color="secondary">Finish Game</Button>
+                  <Button
+                    color="secondary"
+                    onClick={handleClick}
+                    id="finish-game"
+                  >
+                    Finish Game
+                  </Button>
                 ) : (
-                  <Button color="secondary">Resume Game</Button>
+                  <Button
+                    color="secondary"
+                    onClick={handleClick}
+                    id="resume-game"
+                  >
+                    Resume Game
+                  </Button>
                 )}
               </Box>
             </Grid>
