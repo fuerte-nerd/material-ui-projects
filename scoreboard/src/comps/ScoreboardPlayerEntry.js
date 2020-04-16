@@ -1,16 +1,19 @@
 import React from "react";
+import { TableRow, TableCell, IconButton } from "@material-ui/core";
 
-const ScoreboardPlayerEntry = () => {
+import { RemoveCircle, AddCircle } from "@material-ui/icons";
+
+const ScoreboardPlayerEntry = (props) => {
   return (
-    <TableRow hover key={i.id} id={i.id}>
-      <TableCell id={`pos_${i.id}`} onClick={handleClick}>
-        {getPosition(ind)}
+    <TableRow hover key={props.id} id={props.id}>
+      <TableCell id={`pos_${props.id}`} onClick={handleClick}>
+        {props.position}
       </TableCell>
-      <TableCell id={`nam_${i.id}`} onClick={handleClick}>
-        {i.name}
+      <TableCell id={`nam_${props.id}`} onClick={handleClick}>
+        {props.name}
       </TableCell>
-      <TableCell id={`sco_${i.id}`} onClick={handleClick} align="right">
-        {i.score}
+      <TableCell id={`sco_${props.id}`} onClick={handleClick} align="right">
+        {props.score}
       </TableCell>
       <TableCell align="center" padding="none">
         <IconButton>

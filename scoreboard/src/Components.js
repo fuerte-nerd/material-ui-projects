@@ -9,6 +9,7 @@ import AddPlayer from "./comps/AddPlayer";
 import NewGame from "./comps/NewGame";
 import Scoreboard from "./comps/Scoreboard";
 import GameSummary from "./comps/GameSummary";
+import ScoreboardPlayerEntry from "./comps/ScoreboardPlayerEntry";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   NewGame,
   Scoreboard,
   GameSummary,
+  ScoreboardPlayerEntry,
 };

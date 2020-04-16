@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { ScoreboardPlayerEntry } from "../Components";
+
 import {
   TableContainer,
   Table,
@@ -8,7 +10,6 @@ import {
   TableCell,
   Box,
   Icon,
-  IconButton,
   Paper,
   TableBody,
 } from "@material-ui/core";
@@ -67,6 +68,13 @@ const Scoreboard = (props) => {
           {typeof props.players === "object"
             ? props.players.map((i, ind) => {
                 return (
+                  <ScoreboardPlayerEntry
+                    key={i.id}
+                    position={getPosition(ind)}
+                    name={i.name}
+                    score={i.score}
+                    id={i.id}
+                  />
                 );
               })
             : null}
