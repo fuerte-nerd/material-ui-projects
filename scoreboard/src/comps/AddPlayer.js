@@ -12,11 +12,18 @@ import {
 } from "@material-ui/core";
 
 const AddPlayer = (props) => {
+  const handleClick = (e) => {
+    switch (e.currentTarget.id) {
+      case "cancel":
+        return props.dispatch(toggleDialog("addPlayerDialog"));
+    }
+  };
+
   return (
     <Dialog
       open={props.isOpen}
       onClose={() => props.dispatch(toggleDialog("addPlayerDialog"))}
-      fullWidth="sm"
+      maxWidth="sm"
     >
       <DialogTitle>Add New Player</DialogTitle>
       <DialogContent>
@@ -30,7 +37,9 @@ const AddPlayer = (props) => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button color="inherit">Cancel</Button>
+        <Button color="inherit" onClick={handleClick} id="cancel">
+          Cancel
+        </Button>
         <Button color="primary">Add</Button>
       </DialogActions>
     </Dialog>
