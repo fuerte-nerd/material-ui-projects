@@ -26,19 +26,17 @@ const ScoreboardViewer = (props) => {
   const [compState, setCompState] = useState(newGameState);
 
   useEffect(() => {
-    setCompState(props.gameLoaded);
-  }, [props.gameLoaded]);
-
-  useEffect(() => {
-    setCompState(
-      props.games.reduce((acc, cv) => {
-        if (cv.id === props.gameLoaded.id) {
-          return cv;
-        } else {
-          return acc;
-        }
-      })
-    );
+    if (props.games.length > 0) {
+      setCompState(
+        props.games.reduce((acc, cv) => {
+          if (cv.id === props.gameLoaded.id) {
+            return cv;
+          } else {
+            return acc;
+          }
+        })
+      );
+    }
   }, [props.games]);
 
   const handleClick = (e) => {
