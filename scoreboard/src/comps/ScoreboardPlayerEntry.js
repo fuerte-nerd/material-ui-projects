@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { toggleDialog } from "../redux/actions";
+import { toggleDialog, loadPlayer } from "../redux/actions";
 import { TableRow, TableCell, IconButton } from "@material-ui/core";
 
 import { RemoveCircle, AddCircle } from "@material-ui/icons";
@@ -15,6 +15,7 @@ const ScoreboardPlayerEntry = (props) => {
       case "dec-score":
         return console.log(`increase score for ${props.name} clicked`);
       default:
+        props.dispatch(loadPlayer(props.gameLoaded.id, props.id));
         return props.dispatch(toggleDialog("editPlayerDialog"));
     }
   };
@@ -44,5 +45,7 @@ const ScoreboardPlayerEntry = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  gameLoaded: state.gameLoadedInViewer,
+});
 export default connect(mapStateToProps)(ScoreboardPlayerEntry);

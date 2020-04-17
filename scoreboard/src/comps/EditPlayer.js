@@ -18,7 +18,14 @@ const EditPlayer = (props) => {
     score: 0,
   });
 
-  useEffect(() => {}, [props.isOpen]);
+  useEffect(() => {
+    const game = props.games.reduce((acc, cv) => {
+      if (cv.id === props.playerLoaded.gameId) {
+        return cv;
+      }
+      return acc;
+    });
+  }, [props.playerLoaded]);
 
   const handleClick = (e) => {
     const f = e.currentTarget;
@@ -60,5 +67,7 @@ const EditPlayer = (props) => {
 
 const mapStateToProps = (state) => ({
   isOpen: state.editPlayerDialog,
+  playerLoaded: state.playerLoadedInEdit,
+  games: state.games,
 });
 export default connect(mapStateToProps)(EditPlayer);
