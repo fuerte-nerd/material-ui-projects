@@ -1,8 +1,7 @@
 export default (array) => {
-  const arrClone = array;
-  console.log("reached");
-  arrClone.sort((a, b) => {
-    console.log(a);
-    console.log(b);
+  const arrClone = array.slice().sort((a, b) => {
+    return a.score < b.score ? -1 : 1;
   });
+
+  return arrClone;
 };

@@ -95,7 +95,7 @@ const EditPlayer = (props) => {
             return i;
           }
         });
-        Sorter(newGamesArr);
+        console.log(Sorter(newGamesArr));
         props.dispatch(updateGames(newGamesArr));
         return props.dispatch(toggleDialog("editPlayerDialog"));
       default:
