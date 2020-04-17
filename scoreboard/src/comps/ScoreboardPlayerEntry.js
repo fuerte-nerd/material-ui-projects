@@ -69,8 +69,8 @@ const ScoreboardPlayerEntry = (props) => {
     }
   };
   return (
-    <TableRow tabindex="1" hover key={props.id} id={props.id}>
-      <TableCell id={`pos_${props.id}`} onClick={handleClick}>
+    <TableRow hover key={props.id} id={props.id}>
+      <TableCell tabindex="1" id={`pos_${props.id}`} onClick={handleClick}>
         {props.position}
       </TableCell>
       <TableCell id={`nam_${props.id}`} onClick={handleClick}>
