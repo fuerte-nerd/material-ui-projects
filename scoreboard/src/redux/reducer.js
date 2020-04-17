@@ -4,6 +4,7 @@ import {
   UPDATE_GAME,
   GET_GAMES,
   LOAD_GAME,
+  LOAD_PLAYER,
 } from "./types";
 
 import newGameState from "../comps/newGameState";
@@ -11,6 +12,7 @@ import newGameState from "../comps/newGameState";
 const initialState = {
   games: [],
   gameLoadedInViewer: newGameState,
+  playerLoadedInEdit: { gameId: "", playerId: "" },
   viewerDialog: false,
   newGameDialog: false,
   addPlayerDialog: false,
@@ -35,6 +37,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         gameLoadedInViewer: action.payload,
+      };
+    case LOAD_PLAYER:
+      return {
+        ...state,
+        playerLoadedInEdit: action.payload,
       };
     default:
       return state;
