@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
+import { toggleDialog } from "../redux/actions";
+
 import {
   Dialog,
   DialogActions,
@@ -9,9 +12,9 @@ import {
   Grid,
 } from "@material-ui/core";
 
-const EditPlayer = () => {
+const EditPlayer = (props) => {
   return (
-    <Dialog open={false} maxWidth="sm">
+    <Dialog open={props.isOpen} maxWidth="sm">
       <DialogTitle>Edit Player</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
@@ -32,4 +35,7 @@ const EditPlayer = () => {
   );
 };
 
-export default EditPlayer;
+const mapStateToProps = (state) => ({
+  isOpen: state.editPlayerDialog,
+});
+export default connect(mapStateToProps)(EditPlayer);
