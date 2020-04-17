@@ -15,7 +15,7 @@ import {
 const EditPlayer = (props) => {
   const [compState, setCompState] = useState({
     name: "",
-    score: 0,
+    score: "0",
   });
 
   useEffect(() => {
@@ -54,7 +54,7 @@ const EditPlayer = (props) => {
     const f = e.currentTarget;
     switch (f.id) {
       case "score":
-        if (!compState.score.match(/^[1-9][0-9]?$/g)) {
+        if (!compState.score.toString().match(/^[1-9][0-9]?$/g)) {
           setCompState({ ...compState, score: "0" });
         }
         return;
@@ -86,6 +86,8 @@ const EditPlayer = (props) => {
                     name: compState.name,
                     score: parseInt(compState.score),
                   };
+                } else {
+                  return player;
                 }
               }),
             };
