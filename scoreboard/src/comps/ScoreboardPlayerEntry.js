@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { toggleDialog, loadPlayer } from "../redux/actions";
+import { updateGames, toggleDialog, loadPlayer } from "../redux/actions";
 import { TableRow, TableCell, IconButton } from "@material-ui/core";
 
 import { RemoveCircle, AddCircle } from "@material-ui/icons";
@@ -11,7 +11,23 @@ const ScoreboardPlayerEntry = (props) => {
     const f = e.currentTarget;
     switch (f.id) {
       case "inc-score":
-        return console.log(`increase score for ${props.name} clicked`);
+        const newGamesArray = props.games.map((i) => {
+          if (i.id === gameLoaded.id) {
+            i.id.map((player) => {
+              if (player.id === props.id) {
+                return {
+                  ...player,
+                  score: player.score + 1,
+                };
+              } else {
+                return player;
+              }
+            });
+          } else {
+            return i;
+          }
+        });
+        return;
       case "dec-score":
         return console.log(`increase score for ${props.name} clicked`);
       default:
@@ -46,5 +62,6 @@ const ScoreboardPlayerEntry = (props) => {
 
 const mapStateToProps = (state) => ({
   gameLoaded: state.gameLoadedInViewer,
+  games: state.games,
 });
 export default connect(mapStateToProps)(ScoreboardPlayerEntry);
