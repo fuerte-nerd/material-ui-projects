@@ -20,10 +20,15 @@ const EditPlayer = (props) => {
 
   useEffect(() => {
     const game = props.games.reduce((acc, cv) => {
-      if (cv.id === props.playerLoaded.gameId) {
-        return cv;
-      }
-      return acc;
+      return cv.id === props.playerLoaded.gameId ? cv : acc;
+    });
+    const player = game.players.reduce((acc, cv) => {
+      return cv.id === props.playerLoaded.playerId ? cv : acc;
+    });
+    setCompState({
+      ...compState,
+      name: player.name,
+      score: player.score,
     });
   }, [props.playerLoaded]);
 
@@ -49,10 +54,15 @@ const EditPlayer = (props) => {
       <DialogContent>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={10}>
-            <TextField label="Name" autoFocus fullWidth />
+            <TextField
+              label="Name"
+              autoFocus
+              fullWidth
+              value={compState.name}
+            />
           </Grid>
           <Grid item xs={12} sm={2}>
-            <TextField label="Score" fullWidth type="number" defaultValue="0" />
+            <TextField label="Score" fullWidth value={compState.score} />
           </Grid>
         </Grid>
       </DialogContent>

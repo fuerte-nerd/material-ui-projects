@@ -40,7 +40,6 @@ const ScoreboardPlayerEntry = (props) => {
           <AddCircle />
         </IconButton>
       </TableCell>
-      TableCell
     </TableRow>
   );
 };
