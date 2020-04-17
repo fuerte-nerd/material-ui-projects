@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { toggleDialog, updateGames } from "../redux/actions";
-import Sorter from "./arraySorter";
 import {
   Dialog,
   DialogActions,

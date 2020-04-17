@@ -4,8 +4,6 @@ import { NewGame, GamesListEntry } from "../Components";
 
 import { Box, Grid, Typography, Fade } from "@material-ui/core";
 
-import Data from "../Data";
-
 const GamesList = (props) => {
   return (
     <Box mt={3}>

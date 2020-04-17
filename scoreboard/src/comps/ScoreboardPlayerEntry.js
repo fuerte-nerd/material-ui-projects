@@ -36,10 +36,33 @@ const ScoreboardPlayerEntry = (props) => {
             return i;
           }
         });
-
         return props.dispatch(updateGames(newGamesArray));
       case "dec-score":
-        return console.log(`increase score for ${props.name} clicked`);
+        newGamesArray = props.games.map((i) => {
+          if (i.id === props.gameLoaded.id) {
+            return {
+              ...i,
+              players: i.players
+                .map((player) => {
+                  if (player.id === props.id) {
+                    return {
+                      ...player,
+                      score: player.score - 1,
+                    };
+                  } else {
+                    return player;
+                  }
+                })
+                .sort((a, b) => {
+                  return a.score < b.score ? 1 : -1;
+                }),
+              date_modified: new Date(),
+            };
+          } else {
+            return i;
+          }
+        });
+        return props.dispatch(updateGames(newGamesArray));
       default:
         props.dispatch(loadPlayer(props.gameLoaded.id, props.id));
         return props.dispatch(toggleDialog("editPlayerDialog"));
