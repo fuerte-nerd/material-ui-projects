@@ -14,7 +14,11 @@ import {
 
 const EditPlayer = (props) => {
   return (
-    <Dialog open={props.isOpen} maxWidth="sm">
+    <Dialog
+      open={props.isOpen}
+      onClose={() => props.dispatch(toggleDialog("editPlayerDialog"))}
+      maxWidth="sm"
+    >
       <DialogTitle>Edit Player</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
