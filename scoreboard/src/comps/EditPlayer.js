@@ -13,6 +13,17 @@ import {
 } from "@material-ui/core";
 
 const EditPlayer = (props) => {
+  const handleClick = (e) => {
+    const f = e.currentTarget;
+    switch (f.id) {
+      case "cancel":
+
+      case "delete":
+      case "update":
+      default:
+        return;
+    }
+  };
   return (
     <Dialog
       open={props.isOpen}
