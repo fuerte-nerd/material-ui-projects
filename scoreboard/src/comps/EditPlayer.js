@@ -74,13 +74,19 @@ const EditPlayer = (props) => {
           <Grid item xs={12} sm={10}>
             <TextField
               label="Name"
+              onChange={handleChange}
               autoFocus
               fullWidth
               value={compState.name}
             />
           </Grid>
           <Grid item xs={12} sm={2}>
-            <TextField label="Score" fullWidth value={compState.score} />
+            <TextField
+              label="Score"
+              onChange={handleChange}
+              fullWidth
+              value={compState.score}
+            />
           </Grid>
         </Grid>
       </DialogContent>
