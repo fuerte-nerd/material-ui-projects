@@ -94,6 +94,7 @@ const EditPlayer = (props) => {
                 .sort((a, b) => {
                   return a.score < b.score ? 1 : -1;
                 }),
+              date_modified: new Date(),
             };
           } else {
             return i;

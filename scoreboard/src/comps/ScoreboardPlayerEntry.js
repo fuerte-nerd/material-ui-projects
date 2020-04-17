@@ -9,9 +9,10 @@ import { RemoveCircle, AddCircle } from "@material-ui/icons";
 const ScoreboardPlayerEntry = (props) => {
   const handleClick = (e) => {
     const f = e.currentTarget;
+    let newGamesArray;
     switch (f.id) {
       case "inc-score":
-        const newGamesArray = props.games.map((i) => {
+        newGamesArray = props.games.map((i) => {
           if (i.id === props.gameLoaded.id) {
             return {
               ...i,
@@ -29,6 +30,7 @@ const ScoreboardPlayerEntry = (props) => {
                 .sort((a, b) => {
                   return a.score < b.score ? 1 : -1;
                 }),
+              date_modified: new Date(),
             };
           } else {
             return i;
