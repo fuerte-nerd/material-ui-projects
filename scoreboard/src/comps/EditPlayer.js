@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { toggleDialog } from "../redux/actions";
+import { toggleDialog, updateGames } from "../redux/actions";
 
 import {
   Dialog,
@@ -72,9 +72,29 @@ const EditPlayer = (props) => {
     const f = e.currentTarget;
     switch (f.id) {
       case "cancel":
-        props.dispatch(toggleDialog("editPlayerDialog"));
+        return props.dispatch(toggleDialog("editPlayerDialog"));
       case "delete":
       case "update":
+        const newGamesArr = props.games.map((i) => {
+          if (i.id === playerLoaded.gameId) {
+            return {
+              ...i,
+              players: i.players.map((player) => {
+                if (player.id === playerLoaded.playerId) {
+                  return {
+                    ...player,
+                    name: compState.name,
+                    score: parseInt(compState.score),
+                  };
+                }
+              }),
+            };
+          } else {
+            return i;
+          }
+        });
+        props.dispatch(updateGames(newGamesArr));
+        return props.dispatch(toggleDialog("editPlayerDialog"));
       default:
         return;
     }
