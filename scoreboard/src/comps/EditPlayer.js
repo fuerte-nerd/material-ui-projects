@@ -79,23 +79,26 @@ const EditPlayer = (props) => {
           if (i.id === props.playerLoaded.gameId) {
             return {
               ...i,
-              players: i.players.map((player) => {
-                if (player.id === props.playerLoaded.playerId) {
-                  return {
-                    ...player,
-                    name: compState.name,
-                    score: parseInt(compState.score),
-                  };
-                } else {
-                  return player;
-                }
-              }),
+              players: i.players
+                .map((player) => {
+                  if (player.id === props.playerLoaded.playerId) {
+                    return {
+                      ...player,
+                      name: compState.name,
+                      score: parseInt(compState.score),
+                    };
+                  } else {
+                    return player;
+                  }
+                })
+                .sort((a, b) => {
+                  return a.score < b.score ? 1 : -1;
+                }),
             };
           } else {
             return i;
           }
         });
-        console.log(Sorter(newGamesArr));
         props.dispatch(updateGames(newGamesArr));
         return props.dispatch(toggleDialog("editPlayerDialog"));
       default:
