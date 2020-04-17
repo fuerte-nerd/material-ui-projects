@@ -54,7 +54,7 @@ const EditPlayer = (props) => {
     const f = e.currentTarget;
     switch (f.id) {
       case "score":
-        if (!compState.score.toString().match(/^[1-9][0-9]?$/g)) {
+        if (!compState.score.toString().match(/^[1-9][0-9]*$/g)) {
           setCompState({ ...compState, score: "0" });
         }
         return;
