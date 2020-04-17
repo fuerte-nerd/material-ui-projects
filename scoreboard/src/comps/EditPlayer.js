@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { toggleDialog } from "../redux/actions";
 
@@ -13,17 +13,25 @@ import {
 } from "@material-ui/core";
 
 const EditPlayer = (props) => {
+  const [compState, setCompState] = useState({
+    name: "",
+    score: 0,
+  });
+
+  useEffect(() => {}, [props.isOpen]);
+
   const handleClick = (e) => {
     const f = e.currentTarget;
     switch (f.id) {
       case "cancel":
-
+        props.dispatch(toggleDialog("editPlayerDialog"));
       case "delete":
       case "update":
       default:
         return;
     }
   };
+
   return (
     <Dialog
       open={props.isOpen}

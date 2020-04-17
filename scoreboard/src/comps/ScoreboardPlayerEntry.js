@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { toggleDialog } from "../redux/actions";
-
 import { TableRow, TableCell, IconButton } from "@material-ui/core";
 
 import { RemoveCircle, AddCircle } from "@material-ui/icons";
@@ -40,6 +39,7 @@ const ScoreboardPlayerEntry = (props) => {
           <AddCircle />
         </IconButton>
       </TableCell>
+      TableCell
     </TableRow>
   );
 };
