@@ -73,6 +73,7 @@ const EditPlayer = (props) => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={10}>
             <TextField
+              id="name"
               label="Name"
               onChange={handleChange}
               autoFocus
@@ -82,6 +83,7 @@ const EditPlayer = (props) => {
           </Grid>
           <Grid item xs={12} sm={2}>
             <TextField
+              id="score"
               label="Score"
               onChange={handleChange}
               fullWidth
