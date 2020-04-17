@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { toggleDialog, updateGames } from "../redux/actions";
-
+import Sorter from "./arraySorter";
 import {
   Dialog,
   DialogActions,
@@ -94,24 +94,8 @@ const EditPlayer = (props) => {
           } else {
             return i;
           }
-          const handleBlur = (e) => {
-            const f = e.currentTarget;
-            switch (f.id) {
-              case "score":
-                if (!compState.score.match(/^[1-9][0-9]?$/g)) {
-                  setCompState({ ...compState, score: "0" });
-                }
-                return;
-              case "name":
-                if (compState.name === "") {
-                  setCompState({ ...compState, name: "New player" });
-                }
-                return;
-              default:
-                return;
-            }
-          };
         });
+        Sorter(newGamesArr);
         props.dispatch(updateGames(newGamesArr));
         return props.dispatch(toggleDialog("editPlayerDialog"));
       default:
