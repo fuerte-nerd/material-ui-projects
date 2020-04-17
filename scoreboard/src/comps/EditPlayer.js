@@ -94,6 +94,23 @@ const EditPlayer = (props) => {
           } else {
             return i;
           }
+          const handleBlur = (e) => {
+            const f = e.currentTarget;
+            switch (f.id) {
+              case "score":
+                if (!compState.score.match(/^[1-9][0-9]?$/g)) {
+                  setCompState({ ...compState, score: "0" });
+                }
+                return;
+              case "name":
+                if (compState.name === "") {
+                  setCompState({ ...compState, name: "New player" });
+                }
+                return;
+              default:
+                return;
+            }
+          };
         });
         props.dispatch(updateGames(newGamesArr));
         return props.dispatch(toggleDialog("editPlayerDialog"));
