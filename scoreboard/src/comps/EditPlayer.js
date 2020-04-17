@@ -50,6 +50,24 @@ const EditPlayer = (props) => {
     }
   };
 
+  const handleBlur = (e) => {
+    const f = e.currentTarget;
+    switch (f.id) {
+      case "score":
+        if (!compState.score.match(/^[1-9][0-9]?$/g)) {
+          setCompState({ ...compState, score: "0" });
+        }
+        return;
+      case "name":
+        if (compState.name === "") {
+          setCompState({ ...compState, name: "New player" });
+        }
+        return;
+      default:
+        return;
+    }
+  };
+
   const handleClick = (e) => {
     const f = e.currentTarget;
     switch (f.id) {
@@ -76,6 +94,7 @@ const EditPlayer = (props) => {
               id="name"
               label="Name"
               onChange={handleChange}
+              onBlur={handleBlur}
               autoFocus
               fullWidth
               value={compState.name}
@@ -86,6 +105,7 @@ const EditPlayer = (props) => {
               id="score"
               label="Score"
               onChange={handleChange}
+              onBlur={handleBlur}
               fullWidth
               value={compState.score}
             />
