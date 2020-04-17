@@ -11,23 +11,27 @@ const ScoreboardPlayerEntry = (props) => {
     const f = e.currentTarget;
     switch (f.id) {
       case "inc-score":
-        const newGamesArray = props.games.map((i) => {
-          if (i.id === gameLoaded.id) {
-            i.id.map((player) => {
-              if (player.id === props.id) {
-                return {
-                  ...player,
-                  score: player.score + 1,
-                };
-              } else {
-                return player;
-              }
-            });
-          } else {
-            return i;
-          }
-        });
-        return;
+        const newGamesArray = props.games
+          .map((i) => {
+            if (i.id === props.gameLoaded.id) {
+              i.players.map((player) => {
+                if (player.id === props.id) {
+                  return {
+                    ...player,
+                    score: player.score + 1,
+                  };
+                } else {
+                  return player;
+                }
+              });
+            } else {
+              return i;
+            }
+          })
+          .sort((a, b) => {
+            return a.score < b.score ? 1 : -1;
+          });
+        return props.dispatch(updateGames(newGamesArray));
       case "dec-score":
         return console.log(`increase score for ${props.name} clicked`);
       default:
