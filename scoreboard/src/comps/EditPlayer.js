@@ -32,6 +32,24 @@ const EditPlayer = (props) => {
     });
   }, [props.playerLoaded]);
 
+  const handleChange = (e) => {
+    const f = e.currentTarget;
+    switch (f.id) {
+      case "name":
+        return setCompState({
+          ...compState,
+          name: f.value,
+        });
+      case "score":
+        return setCompState({
+          ...compState,
+          score: f.value,
+        });
+      default:
+        return;
+    }
+  };
+
   const handleClick = (e) => {
     const f = e.currentTarget;
     switch (f.id) {
@@ -67,7 +85,9 @@ const EditPlayer = (props) => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button color="inherit">Cancel</Button>
+        <Button color="inherit" onClick={handleClick} id="cancel">
+          Cancel
+        </Button>
         <Button color="secondary">Delete</Button>
         <Button color="primary">Update</Button>
       </DialogActions>
