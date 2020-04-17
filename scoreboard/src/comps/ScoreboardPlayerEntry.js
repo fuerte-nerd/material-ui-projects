@@ -1,4 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { toggleDialog } from "../redux/actions";
+
 import { TableRow, TableCell, IconButton } from "@material-ui/core";
 
 import { RemoveCircle, AddCircle } from "@material-ui/icons";
@@ -12,7 +16,7 @@ const ScoreboardPlayerEntry = (props) => {
       case "dec-score":
         return console.log(`increase score for ${props.name} clicked`);
       default:
-        return console.log(`the row was clicked`);
+        return props.dispatch(toggleDialog("editPlayerDialog"));
     }
   };
   return (
@@ -40,4 +44,5 @@ const ScoreboardPlayerEntry = (props) => {
   );
 };
 
-export default ScoreboardPlayerEntry;
+const mapStateToProps = (state) => ({});
+export default connect(mapStateToProps)(ScoreboardPlayerEntry);
