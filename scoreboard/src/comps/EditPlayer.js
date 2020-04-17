@@ -76,11 +76,11 @@ const EditPlayer = (props) => {
       case "delete":
       case "update":
         const newGamesArr = props.games.map((i) => {
-          if (i.id === playerLoaded.gameId) {
+          if (i.id === props.playerLoaded.gameId) {
             return {
               ...i,
               players: i.players.map((player) => {
-                if (player.id === playerLoaded.playerId) {
+                if (player.id === props.playerLoaded.playerId) {
                   return {
                     ...player,
                     name: compState.name,
@@ -136,8 +136,12 @@ const EditPlayer = (props) => {
         <Button color="inherit" onClick={handleClick} id="cancel">
           Cancel
         </Button>
-        <Button color="secondary">Delete</Button>
-        <Button color="primary">Update</Button>
+        <Button color="secondary" onClick={handleClick} id="delete">
+          Delete
+        </Button>
+        <Button color="primary" onClick={handleClick} id="update">
+          Update
+        </Button>
       </DialogActions>
     </Dialog>
   );
