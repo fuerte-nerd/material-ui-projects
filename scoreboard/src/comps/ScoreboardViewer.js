@@ -50,10 +50,13 @@ const ScoreboardViewer = (props) => {
         // TODO: save data first
         //
         //
+        console.log(props.gameLoaded.title);
+        console.log(compState.title);
         if (
           props.gameLoaded.title !== compState.title ||
           props.gameLoaded.description !== compState.description
         ) {
+          console.log("reached");
           newGameArr = props.games.map((i) => {
             if (i.id === props.gameLoaded.id) {
               return {
