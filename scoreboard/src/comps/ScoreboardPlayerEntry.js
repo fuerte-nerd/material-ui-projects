@@ -8,66 +8,66 @@ import { RemoveCircle, AddCircle } from "@material-ui/icons";
 
 const ScoreboardPlayerEntry = (props) => {
   const handleClick = (e) => {
-    const f = e.currentTarget;
-    let newGamesArray;
-    switch (f.id) {
-      case "inc-score":
-        newGamesArray = props.games.map((i) => {
-          if (i.id === props.gameLoaded.id) {
-            return {
-              ...i,
-              players: i.players
-                .map((player) => {
-                  if (player.id === props.id) {
-                    return {
-                      ...player,
-                      score: player.score + 1,
-                    };
-                  } else {
-                    return player;
-                  }
-                })
-                .sort((a, b) => {
-                  return a.score < b.score ? 1 : -1;
-                }),
-              date_modified: new Date(),
-            };
-          } else {
-            return i;
-          }
-        });
-        return props.dispatch(updateGames(newGamesArray));
-      case "dec-score":
-        newGamesArray = props.games.map((i) => {
-          if (i.id === props.gameLoaded.id) {
-            return {
-              ...i,
-              players: i.players
-                .map((player) => {
-                  if (player.id === props.id) {
-                    return {
-                      ...player,
-                      score: player.score - 1,
-                    };
-                  } else {
-                    return player;
-                  }
-                })
-                .sort((a, b) => {
-                  return a.score < b.score ? 1 : -1;
-                }),
-              date_modified: new Date(),
-            };
-          } else {
-            return i;
-          }
-        });
-        return props.dispatch(updateGames(newGamesArray));
-      default:
-        if (props.inProgress) {
+    if (props.inProgress) {
+      const f = e.currentTarget;
+      let newGamesArray;
+      switch (f.id) {
+        case "inc-score":
+          newGamesArray = props.games.map((i) => {
+            if (i.id === props.gameLoaded.id) {
+              return {
+                ...i,
+                players: i.players
+                  .map((player) => {
+                    if (player.id === props.id) {
+                      return {
+                        ...player,
+                        score: player.score + 1,
+                      };
+                    } else {
+                      return player;
+                    }
+                  })
+                  .sort((a, b) => {
+                    return a.score < b.score ? 1 : -1;
+                  }),
+                date_modified: new Date(),
+              };
+            } else {
+              return i;
+            }
+          });
+          return props.dispatch(updateGames(newGamesArray));
+        case "dec-score":
+          newGamesArray = props.games.map((i) => {
+            if (i.id === props.gameLoaded.id) {
+              return {
+                ...i,
+                players: i.players
+                  .map((player) => {
+                    if (player.id === props.id) {
+                      return {
+                        ...player,
+                        score: player.score - 1,
+                      };
+                    } else {
+                      return player;
+                    }
+                  })
+                  .sort((a, b) => {
+                    return a.score < b.score ? 1 : -1;
+                  }),
+                date_modified: new Date(),
+              };
+            } else {
+              return i;
+            }
+          });
+          return props.dispatch(updateGames(newGamesArray));
+        default:
           props.dispatch(loadPlayer(props.gameLoaded.id, props.id));
           return props.dispatch(toggleDialog("editPlayerDialog"));
-        }
+      }
     }
   };
   return (
