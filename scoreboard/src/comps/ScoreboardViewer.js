@@ -69,20 +69,21 @@ const ScoreboardViewer = (props) => {
     const f = e.currentTarget;
     switch (f.id) {
       case "title":
-        if (f.value.length < 30)
-          return setCompState({
+        if (f.value.length < 30) {
+          setCompState({
             ...compState,
             title: f.value,
           });
-        if (timer) {
-          clearTimeout(timer);
+          if (timer) {
+            clearTimeout(timer);
+          }
+          setTimer(setTimeout(saveChanges, 2000));
         }
-        setTimer(setTimeout(saveChanges, 2000));
         return;
 
       case "description":
         if (f.value.length < 60) {
-          return setCompState({
+          setCompState({
             ...compState,
             description: f.value,
           });
@@ -102,6 +103,7 @@ const ScoreboardViewer = (props) => {
     switch (e.currentTarget.id) {
       case "back":
         saveChanges();
+        props.dispatch(toggleDialog("viewerDialog"));
       default:
         return;
     }
