@@ -83,6 +83,7 @@ const EditPlayer = (props) => {
                   ? null
                   : player;
               }),
+              date_modified: new Date(),
             };
           } else {
             return i;

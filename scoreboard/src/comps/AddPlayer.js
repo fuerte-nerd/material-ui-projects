@@ -68,10 +68,16 @@ const AddPlayer = (props) => {
 
         let newGamesArr = props.games.map((i) => {
           if (props.gameLoaded.id === i.id) {
-            let newPlayersArr = i.players.concat([newPlayer]);
+            let newPlayersArr = i.players
+              .concat([newPlayer])
+              .slice()
+              .sort((a, b) => {
+                return a.score < b.score ? 1 : -1;
+              });
             return {
               ...i,
               players: newPlayersArr,
+              date_modified: new Date(),
             };
           }
           return i;
