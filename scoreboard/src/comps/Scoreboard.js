@@ -19,7 +19,8 @@ import { RemoveCircle, AddCircle } from "@material-ui/icons";
 const Scoreboard = (props) => {
   const getPosition = (index) => {
     if (index > 0) {
-      return props.players[index].score === props.players[index - 1].score
+      return props.gameData.players[index].score ===
+        props.gameData.players[index - 1].score
         ? null
         : index + 1;
     } else {
@@ -27,17 +28,6 @@ const Scoreboard = (props) => {
     }
   };
 
-  const handleClick = (e) => {
-    const target = e.currentTarget;
-    console.log(e.target);
-    const regexs = [/$pos_/g, /$nam_/g, /$sco_/g];
-
-    regexs.map((i) => {
-      if (target.id.match(i)) {
-        console.log("reached");
-      }
-    });
-  };
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -65,8 +55,8 @@ const Scoreboard = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {typeof props.players === "object"
-            ? props.players.map((i, ind) => {
+          {typeof props.gameData.players === "object"
+            ? props.gameData.players.map((i, ind) => {
                 return (
                   <ScoreboardPlayerEntry
                     key={i.id}
@@ -74,6 +64,7 @@ const Scoreboard = (props) => {
                     name={i.name}
                     score={i.score}
                     id={i.id}
+                    inProgress={props.gameData.in_progress}
                   />
                 );
               })

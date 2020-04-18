@@ -64,7 +64,7 @@ const ScoreboardPlayerEntry = (props) => {
         });
         return props.dispatch(updateGames(newGamesArray));
       default:
-        if (props.gameLoaded.in_progress) {
+        if (props.inProgress) {
           props.dispatch(loadPlayer(props.gameLoaded.id, props.id));
           return props.dispatch(toggleDialog("editPlayerDialog"));
         }
