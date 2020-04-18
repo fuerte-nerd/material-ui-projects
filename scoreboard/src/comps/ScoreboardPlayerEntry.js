@@ -64,8 +64,10 @@ const ScoreboardPlayerEntry = (props) => {
         });
         return props.dispatch(updateGames(newGamesArray));
       default:
-        props.dispatch(loadPlayer(props.gameLoaded.id, props.id));
-        return props.dispatch(toggleDialog("editPlayerDialog"));
+        if (props.gameLoaded.in_progress) {
+          props.dispatch(loadPlayer(props.gameLoaded.id, props.id));
+          return props.dispatch(toggleDialog("editPlayerDialog"));
+        }
     }
   };
   return (

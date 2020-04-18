@@ -145,7 +145,7 @@ const ScoreboardViewer = (props) => {
               </Box>
             </Grid>
             <Grid item xs={12} md={7}>
-              <Scoreboard players={compState.players} />
+              <Scoreboard gameData={compState} />
             </Grid>
           </Grid>
         </Container>
