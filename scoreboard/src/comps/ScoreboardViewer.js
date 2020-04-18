@@ -45,6 +45,12 @@ const ScoreboardViewer = (props) => {
     }
   }, [props.games]);
 
+  useEffect(() => {
+    if (timer) {
+      console.log();
+    }
+  }, [compState]);
+
   const saveChanges = () => {
     if (
       props.gameLoaded.title !== compState.title ||
