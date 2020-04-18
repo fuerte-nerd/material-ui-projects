@@ -65,6 +65,7 @@ const ScoreboardViewer = (props) => {
               return i;
             }
           });
+          props.dispatch(updateGames(newGameArr));
         }
         return props.dispatch(toggleDialog("viewerDialog"));
       case "add-player":
