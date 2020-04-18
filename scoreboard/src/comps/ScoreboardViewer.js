@@ -44,15 +44,34 @@ const ScoreboardViewer = (props) => {
   }, [props.games]);
 
   const handleClick = (e) => {
+    let newGameArr;
     switch (e.currentTarget.id) {
       case "back":
         // TODO: save data first
+        //
+        //
+        if (
+          props.gameLoaded.title !== compState.title ||
+          props.gameLoaded.description !== compState.description
+        ) {
+          newGameArr = props.games.map((i) => {
+            if (i.id === props.gameLoaded.id) {
+              return {
+                ...i,
+                title: compState.title,
+                description: compState.description,
+              };
+            } else {
+              return i;
+            }
+          });
+        }
         return props.dispatch(toggleDialog("viewerDialog"));
       case "add-player":
         return props.dispatch(toggleDialog("addPlayerDialog"));
       case "resume-game":
       case "finish-game":
-        const newGameArr = props.games.map((i) => {
+        newGameArr = props.games.map((i) => {
           if (i.id === props.gameLoaded.id) {
             return {
               ...i,
