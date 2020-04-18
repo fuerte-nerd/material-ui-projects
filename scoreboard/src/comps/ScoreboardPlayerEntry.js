@@ -71,18 +71,18 @@ const ScoreboardPlayerEntry = (props) => {
   return (
     <TableRow hover key={props.id} id={props.id}>
       <TableCell
-        tabindex="0"
-        onSelect={() => console.log("something")}
+        tabIndex="0"
+        onKeyUp={(e) => if(e.key === "Enter"){handleClick()}}
         id={`pos_${props.id}`}
         onClick={handleClick}
       >
         {props.position}
       </TableCell>
-      <TableCell tabindex="0" id={`nam_${props.id}`} onClick={handleClick}>
+      <TableCell tabIndex="0" id={`nam_${props.id}`} onClick={handleClick}>
         {props.name}
       </TableCell>
       <TableCell
-        tabindex="0"
+        tabIndex="0"
         id={`sco_${props.id}`}
         onClick={handleClick}
         align="right"
