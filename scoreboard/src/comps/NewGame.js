@@ -38,6 +38,7 @@ const NewGame = (props) => {
         err: "",
       });
     }, 4000);
+    // eslint-disable-next-line
   }, [compState.showErr]);
 
   const handleChange = (e) => {

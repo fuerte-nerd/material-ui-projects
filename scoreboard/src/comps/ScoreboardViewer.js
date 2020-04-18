@@ -43,6 +43,7 @@ const ScoreboardViewer = (props) => {
         })
       );
     }
+    // eslint-disable-next-line
   }, [props.games]);
 
   useEffect(() => {
@@ -50,7 +51,8 @@ const ScoreboardViewer = (props) => {
       clearTimeout(timer);
     }
     setTimer(setTimeout(saveChanges, 5000));
-  }, [compState]);
+    // eslint-disable-next-line
+  }, [compState.title, compState.description]);
 
   const saveChanges = () => {
     if (
@@ -102,7 +104,7 @@ const ScoreboardViewer = (props) => {
     switch (e.currentTarget.id) {
       case "back":
         saveChanges();
-        props.dispatch(toggleDialog("viewerDialog"));
+        return props.dispatch(toggleDialog("viewerDialog"));
       default:
         return;
     }

@@ -10,7 +10,6 @@ import {
   Button,
   Typography,
   Divider,
-  IconButton,
   List,
   ListItem,
   ListItemText,
@@ -18,14 +17,7 @@ import {
   Tooltip,
 } from "@material-ui/core";
 
-import {
-  CalendarToday,
-  Update,
-  People,
-  EmojiEvents,
-  Lock,
-  LockOpen,
-} from "@material-ui/icons";
+import { CalendarToday, Update, People, EmojiEvents } from "@material-ui/icons";
 
 import moment from "moment";
 

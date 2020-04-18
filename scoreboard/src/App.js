@@ -12,6 +12,7 @@ function App(props) {
     if (ls) {
       props.dispatch(getGames(JSON.parse(ls)));
     }
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {

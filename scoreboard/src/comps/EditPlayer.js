@@ -29,6 +29,7 @@ const EditPlayer = (props) => {
       name: player.name,
       score: player.score,
     });
+    // eslint-disable-next-line
   }, [props.playerLoaded]);
 
   const handleChange = (e) => {
