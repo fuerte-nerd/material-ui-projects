@@ -25,6 +25,8 @@ import newGameState from "./newGameState";
 const ScoreboardViewer = (props) => {
   const [compState, setCompState] = useState(newGameState);
 
+  const [timer, setTimer] = useState(0);
+
   useEffect(() => {
     setCompState(props.gameLoaded);
   }, [props.gameLoaded]);
@@ -72,6 +74,10 @@ const ScoreboardViewer = (props) => {
             ...compState,
             title: f.value,
           });
+        if (timer) {
+          clearTimeout(timer);
+        }
+        setTimer(setTimeout(saveChanges, 2000));
         return;
 
       case "description":
@@ -80,6 +86,10 @@ const ScoreboardViewer = (props) => {
             ...compState,
             description: f.value,
           });
+          if (timer) {
+            clearTimeout(timer);
+          }
+          setTimer(setTimeout(saveChanges, 2000));
         }
         return;
 
