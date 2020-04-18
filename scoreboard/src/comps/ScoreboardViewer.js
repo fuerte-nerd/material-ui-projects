@@ -43,6 +43,14 @@ const ScoreboardViewer = (props) => {
     }
   }, [props.games]);
 
+  const handleChange = (e) => {
+    const f = e.currentTarget;
+    setCompState({
+      ...compState,
+      [f.id]: f.value,
+    });
+  };
+
   const handleClick = (e) => {
     let newGameArr;
     switch (e.currentTarget.id) {
