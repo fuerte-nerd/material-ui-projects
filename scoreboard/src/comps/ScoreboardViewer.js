@@ -66,34 +66,23 @@ const ScoreboardViewer = (props) => {
       default:
         return compState;
     }
-    switch (f.id) {
-    }
-    setCompState({
-      ...compState,
-      [f.id]: f.value,
-    });
   };
 
   const handleClick = (e) => {
     let newGameArr;
     switch (e.currentTarget.id) {
       case "back":
-        // TODO: save data first
-        //
-        //
-        console.log(props.gameLoaded.title);
-        console.log(compState.title);
         if (
           props.gameLoaded.title !== compState.title ||
           props.gameLoaded.description !== compState.description
         ) {
-          console.log("reached");
           newGameArr = props.games.map((i) => {
             if (i.id === props.gameLoaded.id) {
               return {
                 ...i,
                 title: compState.title,
                 description: compState.description,
+                date_modified: new Date(),
               };
             } else {
               return i;
