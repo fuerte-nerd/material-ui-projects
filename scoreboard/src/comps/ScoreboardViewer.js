@@ -43,6 +43,26 @@ const ScoreboardViewer = (props) => {
     }
   }, [props.games]);
 
+  const saveChanges = () => {
+    if (
+      props.gameLoaded.title !== compState.title ||
+      props.gameLoaded.description !== compState.description
+    ) {
+      const newGameArr = props.games.map((i) => {
+        if (i.id === props.gameLoaded.id) {
+          return {
+            ...i,
+            title: compState.title,
+            description: compState.description,
+            date_modified: new Date(),
+          };
+        } else {
+          return i;
+        }
+      });
+      props.dispatch(updateGames(newGameArr));
+    }
+  };
   const handleChange = (e) => {
     const f = e.currentTarget;
     switch (f.id) {
@@ -69,43 +89,9 @@ const ScoreboardViewer = (props) => {
   };
 
   const handleClick = (e) => {
-    let newGameArr;
     switch (e.currentTarget.id) {
       case "back":
-        if (
-          props.gameLoaded.title !== compState.title ||
-          props.gameLoaded.description !== compState.description
-        ) {
-          newGameArr = props.games.map((i) => {
-            if (i.id === props.gameLoaded.id) {
-              return {
-                ...i,
-                title: compState.title,
-                description: compState.description,
-                date_modified: new Date(),
-              };
-            } else {
-              return i;
-            }
-          });
-          props.dispatch(updateGames(newGameArr));
-        }
-        return props.dispatch(toggleDialog("viewerDialog"));
-      case "add-player":
-        return props.dispatch(toggleDialog("addPlayerDialog"));
-      case "resume-game":
-      case "finish-game":
-        newGameArr = props.games.map((i) => {
-          if (i.id === props.gameLoaded.id) {
-            return {
-              ...i,
-              in_progress: !i.in_progress,
-              date_modified: new Date(),
-            };
-          }
-          return i;
-        });
-        return props.dispatch(updateGames(newGameArr));
+        saveChanges();
       default:
         return;
     }
