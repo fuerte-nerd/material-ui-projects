@@ -47,8 +47,9 @@ const ScoreboardViewer = (props) => {
 
   useEffect(() => {
     if (timer) {
-      console.log();
+      clearTimeout(timer);
     }
+    setTimer(setTimeout(saveChanges, 5000));
   }, [compState]);
 
   const saveChanges = () => {
@@ -80,10 +81,6 @@ const ScoreboardViewer = (props) => {
             ...compState,
             title: f.value,
           });
-          if (timer) {
-            clearTimeout(timer);
-          }
-          setTimer(setTimeout(saveChanges, 2000));
         }
         return;
 
@@ -93,10 +90,6 @@ const ScoreboardViewer = (props) => {
             ...compState,
             description: f.value,
           });
-          if (timer) {
-            clearTimeout(timer);
-          }
-          setTimer(setTimeout(saveChanges, 2000));
         }
         return;
 
