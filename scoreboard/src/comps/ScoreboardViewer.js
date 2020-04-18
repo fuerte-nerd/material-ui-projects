@@ -99,6 +99,21 @@ const ScoreboardViewer = (props) => {
       case "back":
         saveChanges();
         return props.dispatch(toggleDialog("viewerDialog"));
+      case "add-player":
+        return props.dispatch(toggleDialog("addPlayerDialog"));
+      case "resume-game":
+      case "finish-game":
+        const newGameArr = props.games.map((i) => {
+          if (i.id === props.gameLoaded.id) {
+            return {
+              ...i,
+              in_progress: !i.in_progress,
+              date_modified: new Date(),
+            };
+          }
+          return i;
+        });
+        return props.dispatch(updateGames(newGameArr));
       default:
         return;
     }
@@ -126,7 +141,7 @@ const ScoreboardViewer = (props) => {
                   fullWidth
                   multiline
                   InputProps={{
-                    style: { fontSize: "4rem" },
+                    style: { fontSize: "3rem" },
                     disableUnderline: true,
                   }}
                   placeholder="Title"
