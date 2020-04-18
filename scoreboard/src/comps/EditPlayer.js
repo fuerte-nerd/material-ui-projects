@@ -69,12 +69,29 @@ const EditPlayer = (props) => {
 
   const handleClick = (e) => {
     const f = e.currentTarget;
+    let newGamesArr;
     switch (f.id) {
       case "cancel":
         return props.dispatch(toggleDialog("editPlayerDialog"));
       case "delete":
+        newGamesArr = props.games.map((i) => {
+          if (i.id === props.playerLoaded.gameId) {
+            return {
+              ...i,
+              players: i.players.filter((player) => {
+                return player.id === props.playerLoaded.playerId
+                  ? null
+                  : player;
+              }),
+            };
+          } else {
+            return i;
+          }
+        });
+        props.dispatch(updateGames(newGamesArr));
+        return props.dispatch(toggleDialog("editPlayerDialog"));
       case "update":
-        const newGamesArr = props.games.map((i) => {
+        newGamesArr = props.games.map((i) => {
           if (i.id === props.playerLoaded.gameId) {
             return {
               ...i,
