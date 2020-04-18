@@ -45,6 +45,29 @@ const ScoreboardViewer = (props) => {
 
   const handleChange = (e) => {
     const f = e.currentTarget;
+    switch (f.id) {
+      case "title":
+        if (f.value.length < 30)
+          return setCompState({
+            ...compState,
+            title: f.value,
+          });
+        return;
+
+      case "description":
+        if (f.value.length < 60) {
+          return setCompState({
+            ...compState,
+            description: f.value,
+          });
+        }
+        return;
+
+      default:
+        return compState;
+    }
+    switch (f.id) {
+    }
     setCompState({
       ...compState,
       [f.id]: f.value,
