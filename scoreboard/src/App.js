@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { getGames } from "./redux/actions";
 import "./App.css";
 
-import { Header, Main, ScoreboardViewer } from "./Components";
+import { Header, Main, Footer, ScoreboardViewer } from "./Components";
 
 function App(props) {
   useEffect(() => {
@@ -24,6 +24,7 @@ function App(props) {
       <ScoreboardViewer />
       <Header />
       <Main />
+      <Footer />
     </>
   );
 }
