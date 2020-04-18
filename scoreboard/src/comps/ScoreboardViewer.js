@@ -25,8 +25,6 @@ import newGameState from "./newGameState";
 const ScoreboardViewer = (props) => {
   const [compState, setCompState] = useState(newGameState);
 
-  const [timer, setTimer] = useState(0);
-
   useEffect(() => {
     setCompState(props.gameLoaded);
   }, [props.gameLoaded]);
@@ -45,14 +43,6 @@ const ScoreboardViewer = (props) => {
     }
     // eslint-disable-next-line
   }, [props.games]);
-
-  useEffect(() => {
-    if (timer) {
-      clearTimeout(timer);
-    }
-    setTimer(setTimeout(saveChanges, 5000));
-    // eslint-disable-next-line
-  }, [compState.title, compState.description]);
 
   const saveChanges = () => {
     if (
@@ -100,6 +90,10 @@ const ScoreboardViewer = (props) => {
     }
   };
 
+  const handleBlur = () => {
+    saveChanges();
+  };
+
   const handleClick = (e) => {
     switch (e.currentTarget.id) {
       case "back":
@@ -138,6 +132,7 @@ const ScoreboardViewer = (props) => {
                   placeholder="Title"
                   value={compState.title}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   id="title"
                 />
               </Box>
@@ -146,6 +141,7 @@ const ScoreboardViewer = (props) => {
                   fullWidth
                   value={compState.description}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   id="description"
                   multiline
                   InputProps={{ disableUnderline: true }}
