@@ -137,13 +137,17 @@ const ScoreboardViewer = (props) => {
                     disableUnderline: true,
                   }}
                   placeholder="Title"
-                  defaultValue={compState.title}
+                  value={compState.title}
+                  onChange={handleChange}
+                  id="title"
                 />
               </Box>
               <Box mt={1}>
                 <TextField
                   fullWidth
-                  defaultValue={compState.description}
+                  value={compState.description}
+                  onChange={handleChange}
+                  id="description"
                   multiline
                   InputProps={{ disableUnderline: true }}
                   placeholder="Description"
